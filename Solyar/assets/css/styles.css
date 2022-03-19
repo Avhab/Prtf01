@@ -1,0 +1,218 @@
+@font-face {
+	font-family: 'NotoSans-Regular'; 
+	src: url(../fonts/NotoSans-Regular.ttf); 
+}
+@font-face {
+	font-family: 'NotoSans-Bold'; 
+	src: url(../fonts/NotoSans-Bold.ttf); 
+}
+h1 {
+	font-family: 'NotoSans-Bold';
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.5em;
+}
+h2 {
+	font-family: 'NotoSans-Bold';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.5em;
+}
+h3, .H3 {
+	font-family: 'NotoSans-Regular';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5em;
+}
+h4, .H4 {
+	font-family: 'NotoSans-Regular';
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5em;
+	letter-spacing: 0em;
+/*	color: #303030;*/
+}
+
+body {text-align: center;}
+.Width1 {width: 100%; max-width: 1920px; margin: 100px auto;}
+/*.Width2 {width: 64%;max-width: 1500px;margin: 0 auto;}*/
+.Width2 {width: 1200px;margin: 0 auto;}
+
+.clearFlow:after {
+   content: '';
+   display: block;
+   height: 0; 
+   clear: both;
+}
+/*=================*/
+header {background-image: url(../images/010.jpg); min-height: 900px; margin: 0 auto 100px auto;}
+header, footer, .MidCit {
+	width: 100%; max-width: 1920px;
+	color: white;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
+	}
+header > * {text-align: center;}
+header > *:nth-child(1) {padding-top: 70px;}
+header > *:nth-child(2) {padding-top: 140px; font-size: 18px;}
+header > h1:nth-of-type(1) {font-size: 64px;}
+header > h1:nth-of-type(2) {font-size: 42px;}
+@media (max-width: 700px) {
+header > h1:nth-of-type(1) {font-size: 40px;}
+header > h1:nth-of-type(2) {font-size: 28px;}}
+.SingUp {height: 100px;position: relative;}
+header .SingUp {width: 350px;margin: 50px auto 0 auto;}
+.SingUp .SingUpArray, .SingUp .SingUpRound, .SingUp .Descr {position: absolute; display: block;}
+.SingUp .SingUpArray {width: 42px;height: 14px;top:43px;left:29px;background-repeat: no-repeat;z-index: 2;}
+.SingUp .SingUpRound{width:100px;height:100px;border:3px solid;border-radius:100px;z-index:10;background:transparent;box-sizing:border-box;}
+.SingUp .Descr {top:58px;left:47px;z-index: 1;}
+.SiUpWhite .SingUpArray {background-image: url(../images/arr-white.png);}
+.SiUpWhite .SingUpRound{border-color: white;}
+.SiUpWhite {color: white;}
+.SiUpBlack .SingUpArray {background-image: url(../images/arr-black.png);}
+.SiUpBlack .SingUpRound{border-color: #303030;}
+.SiUpBlack {color: #303030;}
+.SingUp .SingUpRound:hover {background: rgba(46, 139, 87, 0.6);transition-duration: 0.3s;}
+
+header .Social {margin-top: 230px;}
+.Social > a {margin: 0 10px 0 10px;}
+/*=================*/
+.Width2 {color: #303030;}
+.Width2 .rowBlock {	width: 100%;text-align: left; display: inline-block;}
+.Width2 .subBlock > h2 {padding: 0 0 17px 0;}
+.Width2 .txtBlock .subBlock {margin-bottom: 30px;}
+.Width2 .locDescr > div {box-sizing: border-box;}
+.Servc .locDescr > div:nth-child(1) {padding-right: 7.4%;}
+
+.Width2 .locHead {margin-bottom: 30px; color: #868585;}
+.txtBlock, .imgBlock {width: 50%; float:left;}
+.imgBlock img {width: 100%; max-width: 600px;}
+@media (max-width: 1880px) {.Width2 {width: 1200px;}}
+@media (max-width: 1250px) {
+	.Width2 {width: 96%;}
+	.imgBlock {text-align: center;}}
+/*=================*/
+.GreenTar .locDescr > div:nth-child(1) {padding-right: 7.4%;}
+.GreenTar .imgBlock .subBlock h2 {text-align: justify;}
+
+.GreenTar .txtBlock .RadioBut label {
+	display: inline-block;
+	margin: 0 25px 0 0;
+	cursor: pointer;
+	line-height: 25px;
+	border-bottom: 2px solid transparent;}
+.GreenTar .txtBlock .RadioBut input {display: none;}
+.GreenTar .txtBlock .RadioBut input[type=radio]:checked + label {border-color: #303030;}
+.GreenTar .txtBlock .RadioBut label:hover {color: #A9A32A; border-color: #A9A32A;}
+
+/*=================*/
+.ArrBut {margin-bottom: 30px;text-align: center;}
+.ArrBut input {display: none;}
+.ArrBut label {display: inline-block;cursor: pointer;}
+.ArrBut input + label {width:41px; height: 20px; background-position: center;background-repeat: no-repeat;}
+.ArrBut #GreArr1 + label {background-image: url(../images/arrowL.svg);margin-right: 25px;}
+.ArrBut #GreArr2 + label {background-image: url(../images/arrowR.svg);}
+.ArrBut #GreArr1 + label:hover {background-image: url(../images/arrowLhov.svg);}
+.ArrBut #GreArr2 + label:hover {background-image: url(../images/arrowRhov.svg);}
+.ArrBut #ClyArr1 + label {background-image: url(../images/arrowL.svg);margin-right: 25px;}
+.ArrBut #ClyArr2 + label {background-image: url(../images/arrowR.svg);}
+.ArrBut #ClyArr1 + label:hover {background-image: url(../images/arrowLhov.svg);}
+.ArrBut #ClyArr2 + label:hover {background-image: url(../images/arrowRhov.svg);}
+/*=================*/
+
+.GreenTar .txtBlock > div > .subBlock {display: inline-block;width:45%;float:left;}
+.GreenTar .txtBlock > div > .scrolImg {margin: 0 3% 30px 0;}
+.GreenTar .txtBlock > div > .scrolTxt {margin: 0 0 30px 3%;}
+.GreenTar .txtBlock > div > .subBlock > img{width: 100%;}
+.GreenTar .txtBlock > div:nth-of-type(3) > .subBlock {margin-bottom: 0;}
+@media (max-width: 400px) {
+.GreenTar .txtBlock > div > .subBlock {width:98%;}
+.GreenTar .txtBlock > div > .scrolImg {margin: 0 0 30px 0;}
+.GreenTar .txtBlock > div > .scrolTxt {margin: 0 0 30px 0;}
+.GreenTar .txtBlock .ArrBut {padding-left: 0;}}
+/*=================*/
+.MidCit {background-image: url(../images/050.jpg); height: 500px;margin: 100px auto;}
+.MidCit .rowBlock {width:680px;  display: inline-block; vertical-align: middle;}
+.MidCit .rowBlock h3 {font-size: 42px; line-height: 1.5em;}
+@media (max-width: 700px) {.MidCit .rowBlock {width:96%;}}
+@media (max-width: 420px) {.MidCit .rowBlock h3 {font-size: 28px;}}
+.MidCit:before {content: '';display: inline-block;height: 100%;vertical-align: middle;}/*для вертикального центрирования .rowBlock*/
+/*=================*/
+.OurCly .locDescr .txtBlock .subBlock > h2 {max-width: 480px;}
+.OurCly .locDescr .txtBlock .subBlock > h3 {padding: 13px 0 0 30px;}
+.OurCly .locDescr .txtBlock .subBlock .SingUp {margin: 65px 0 0 30px;}
+.OurCly .locDescr .scrolImg {padding-right: 7.4%;}
+@media (max-width: 500px) {
+.OurCly .locDescr .txtBlock .subBlock > h3 {padding: 20px 0 0 0;}
+.OurCly .locDescr .txtBlock .subBlock .SingUp {margin: 45px 0 0 0;}}
+/*=================*/
+/*===============
+
+.scrolImg img:hover {
+transform: translateX(-80px)  scale(70%);
+opacity: 0.3;
+transition-duration: 0.5s;
+}
+
+================*/
+/*=================*/
+.Steps5 .subBlock > h3:nth-child(1) {color: #868585; margin-bottom: 10px;}
+.Steps5 .locDescr > div:nth-child(1) {padding-right: 7.4%;}
+
+@media (max-width: 880px) {
+	.txtBlock, .imgBlock {width: 100%;}
+	.Width2 .locDescr > div:nth-child(1), .Width2 .locDescr > div:nth-child(2) {padding: 0 0 30px 0;}}
+/*=================*/
+footer {background-image: url(../images/080.jpg); min-height: 730px;margin: 100px auto 0 auto;}
+footer > .rowBlock {width: 64%;display: inline-block;text-align: center;}
+@media (max-width: 1880px) {footer > .rowBlock {width: 1200px;}}
+@media (max-width: 1250px) {footer > .rowBlock {width: 96%;}}
+footer > .rowBlock:nth-child(1) > div {margin-top: 80px;}
+footer > .rowBlock:nth-child(1) > div {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	text-align: left;
+}
+footer > .rowBlock:nth-child(1) > div {box-sizing: border-box;}
+footer > .rowBlock:nth-child(1) > div:nth-child(1) {padding-right: 7.4%;}
+footer > .rowBlock:nth-child(2) {margin-top: 115px;}
+footer > .rowBlock:nth-child(2) > div {
+	width: 32.5%;
+	min-width: 210px;
+	display: inline-table;
+	vertical-align: top;
+}
+footer a {text-decoration: none; color: white;}
+footer >.rowBlock:nth-child(2) > div:nth-child(1){text-align: left;margin-top: 10px;margin-bottom: 10px;}
+footer >.rowBlock:nth-child(2) > div:nth-child(2){text-align: center;}
+footer >.rowBlock:nth-child(2) > div:nth-child(3){text-align: right;margin-top: 5px;}
+footer >.rowBlock h1{margin-bottom: 60px;}
+@media (max-width: 950px) {
+	footer > .rowBlock:nth-child(2) {margin-top: 50px;}
+	footer > .rowBlock:nth-child(2) > div:nth-child(2), footer > .rowBlock:nth-child(2) > div:nth-child(3) {text-align: left;}}
+/*@media (max-width: 850px) {footer > .rowBlock {width: 550px;}}*/
+footer form input:nth-of-type(2) {margin-top: 60px;}
+footer input[type='text'], footer input[type='tel'] {
+/*footer input[type^='te'] {*/
+	border: none;
+	background: transparent;
+	color: white;
+	border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+	width: 90%;
+	height: 25px;
+}
+@media (max-width: 900px) {footer input[type='text'], footer input[type='tel'] {width: 100%;}}
+@media (max-width: 720px) {
+	footer > .rowBlock:nth-child(1) > div {width: 100%;}
+	footer > .rowBlock:nth-child(2) {margin-top: 30px;}
+}
+footer .SingUp {margin-top: 60px;}
+footer > .rowBlock:nth-child(1) > div:nth-child(2) > h3:nth-child(2) {margin-top: 88px;}
+footer > .rowBlock:nth-child(1) > div:nth-child(2) br{margin-top: 10px;}
+footer > .rowBlock:nth-child(1) > div:nth-of-type(2) h4 {margin-top: 30px;}
