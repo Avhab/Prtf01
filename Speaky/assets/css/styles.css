@@ -73,8 +73,14 @@ body > * {
     text-align: left;
     box-sizing: border-box;
 }
-@media (max-width: 600px) {body > * {width: 467px;}}
-@media (max-width: 480px) {body > * {width: 100%;}}
+@media (max-width: 900px) {
+body > * {margin: 30px auto; width: 100%;}
+/*контейнер с узкими боковыми полями для малой ширины экрана*/
+.SidFlds {padding-left: 3%;padding-right: 3%; /*text-align: center;*/}
+.SidFlds > * {text-align: left;}
+}
+body > header {margin-top: 0;}
+body > footer {margin-bottom: 0;}
 
 .clearFlow:after {
    content: '';
@@ -175,10 +181,7 @@ header.dispN > div:nth-child(2) > img:hover {	background: #DDFBD0;	transition-du
 .social a { display: inline-block; box-sizing: border-box; width: 44px;}
 .social a img { display: inline-block; float: right;}
 .social img:hover {	background: #DDFBD0;	transition-duration: 0.3s;}
-.rowBlock > * {
-    /*display: inline-block;*/
-	box-sizing: border-box;
-}
+.rowBlock > * {box-sizing: border-box;}
 .buttn {
     display: inline-block;
 	font: bold  14pt Arial;
@@ -208,7 +211,7 @@ a.buttn {	padding-top: 17px;}
 	position: relative;
 	height: 150px;
 	width: 250px;
-	float: left;
+/*	float: left;*/
 }
 .ageSel > div > a > img, .ageSel > div > a > div {
 	position: absolute;
@@ -223,32 +226,26 @@ a.buttn {	padding-top: 17px;}
 .ageSel a {text-decoration: none;}
 /*========ageSel==========*/
 
-.LetEnvis {
-	width: 60%;
-	margin: 150px auto;
-	text-align: center;
-}
+@media (min-width: 1800px) {.LetEnvis {width: 60%;}}
 .LetEnvis > div {
 	display: inline-block;
 	text-align: left;
 	float: left;
 	box-sizing: border-box;
 }
-.LetEnvis > div:nth-child(1) {
-	width: 30%;
-	min-width: 446px;
-	margin: 0 10% 50px 0;
+.LetEnvis .Imag {width: 446px;}
+.LetEnvis .Descr {
+	width: calc(100% - 486px);
+	min-width: 280px;
+	margin: 40px 0 0 40px;
 }
-.LetEnvis > div:nth-child(2) {
-	width: 50%;
-	min-width: 300px;
-	margin: 40px 0 0 0;
+.LetEnvis > * > h1, .LetEnvis > * > h3 {margin: 40px 0 0 0;}
+@media (max-width: 1100px) {
+.LetEnvis .Imag {width: 100%;}
+.LetEnvis .Descr {width: 100%;}
+.LetEnvis .Descr {margin-left: 0;}
 }
-.LetEnvis > * > h1, .LetEnvis > * > h3 {
-	margin: 40px 0 0 0;
-}
-@media (max-width: 1550px) {.LetEnvis > div {float: none;}}
-@media (max-width: 1900px) {.LetEnvis > div:nth-child(2) {width: 40%;}}
+@media (max-width: 500px) {.LetEnvis img {width: 100%;}}
 
 /*==================*/
 
@@ -258,14 +255,14 @@ a.buttn {	padding-top: 17px;}
 	padding-top: 50px;
 }
 .YouCanLearn > div { display: inline-block; width: 80%; margin: 0 10%;}
-.YouCanLearn > div:nth-child(2) { text-align: center; margin-top: 30px;}
+.YouCanLearn > div:nth-child(2) { text-align: center; margin-top: 22px;margin-bottom: 50px;}
 .YouCanLearn > div:nth-child(2) a {	display: inline-block;}
-@media (max-width: 690px) {.YouCanLearn {height: 400px;}}
 
 .lanSel {
 	min-width: 220px;
 	min-height: 50px;
 	width: 24%;
+	margin: 15px 0;
 }
 .lanSel > * {	float: left;}
 .lanSel span {
@@ -280,10 +277,6 @@ a.buttn {	padding-top: 17px;}
 	font-style: normal;
 }
 /*===================*/
-.whySpSc {
-	width: 80%;
-	text-align: left;
-}
 .whySpSc .rowBlock{ display: inline-block; float: left;}
 .whySpSc .rowBlock:nth-child(1) .colBlock > div:nth-child(2){ text-align: justify;}
 .whySpSc .rowBlock:nth-child(1){ width: 27%; margin-right: 8%; margin-bottom: 50px;}
@@ -321,44 +314,38 @@ a.buttn {	padding-top: 17px;}
 @media (max-width: 220px) {.whySpSc .rowBlock:nth-child(2) .colBlock > div > span {width: 55%;}}
 
 /*===================*/
-.AdlItog {
-	width: 80%;
-	text-align: center;
-	margin-left: 10%; margin-right: 10%;
-}
+
+.AdlItog {width: 60%;}
 .AdlItog .rowBlock {
-	width: 80%;
+	width: 100%;
 	text-align: left;
-	margin: 20px 5% 0 5%;
-	display: inline-block;
-}
-.AdlItog .colBlock {
-	min-width: 215px;
-	float: left;
-}
-.AdlItog .colBlock:nth-child(1) {width: 30%; 	margin: 0 5% 15px 0;}
+	margin: 20px 0 0 0;
+	display: inline-block;}
+.AdlItog .colBlock {min-width: 215px;float: left;}
+.AdlItog .colBlock:nth-child(1) {width: 30%; 	margin: 0 10% 15px 0;}
 .AdlItog .colBlock:nth-child(2) {width: 60%;	margin: 0 0 15px 0;}
-.AdlItog .colBlock:nth-child(2) > div {width: 31%; 	margin: 0 0 10px 0; float: left; min-width: 210px;}
+.AdlItog .colBlock:nth-child(2) > div {width: 33.33%; 	margin: 0 0 10px 0; float: left; min-width: 210px;}
 .AdlItog .colBlock:nth-child(2) span{width: 70%; margin-left: 15px;}
 .AdlItog .colBlock > div > * {	float: left;}
 .AdlItog img {margin-top: 10px;}
-
+@media (max-width: 1300px) {.AdlItog {width: 80%;}}
 @media (max-width: 1150px) {
 .AdlItog .colBlock:nth-child(1) {width: 100%;}
 .AdlItog .colBlock:nth-child(2) {width: 100%;}
 }
+@media (max-width: 600px) {.AdlItog {width: 467px;}}
+@media (max-width: 500px) {.AdlItog {width: 100%;}}
 
 /*===================*/
 .comIn {text-align: center;}
 .comIn .rowBlock {
 	width: 100%;
 	text-align: left;
-	margin: 20px 5%;
+	margin: 20px 0;
 	display: inline-block;
 }
 .comIn .colBlock {
 	width: 40%;
-	min-width: 300px;
 	margin: 0 10% 0 0;
 	float: left;
 }
@@ -442,57 +429,30 @@ label, input, button {	cursor: pointer;}
 	}
 .SingUp tr:nth-child(5) td:nth-child(2) {width: 5%;}
 /*----------------------*/
-
-
-/*=========================*/
-.forSmb1 .forSmb2 {
-	width: 100%;
-	height: 200px;
-}
-.forSmb1 .colBlock, .forSmb2 .colBlock {
-	display: inline-block;
-	float: left;
-	margin-left: 3%;
-	/*background: pink;*/
-}
-.forSmb2 .colBlock:nth-child(1) {
-	display: inline-block;
-	float: right;
-}
-.forSmb1 .colBlock, .forSmb2 .colBlock {
-	min-width: 300px;
-	/*height: 50px;*/
-}
-.forSmb1 .colBlock:nth-child(1), .forSmb2 .colBlock:nth-child(1) {
-	width: 41%;
-	min-width: 300px;
-}
-.forSmb1 .colBlock:nth-child(3), .forSmb2 .colBlock:nth-child(3) {
-	margin-top: 50px;
-}
-.forSmb2 .colBlock:nth-child(1) {
-	text-align: right;
-}
-.forSmb1 .colBlock:nth-child(2), .forSmb1 .colBlock:nth-child(3), .forSmb2 .colBlock:nth-child(2), .forSmb2 .colBlock:nth-child(3){
-	width: 15%;
-	min-width: 300px;
-}
-.forSmb1 img, .forSmb2 img {
-	max-width: 500px;
-	width: 100%;
-}
-.forSmb1 .colBlock:nth-child(2) p:nth-child(1n+3):before, .forSmb1 .colBlock:nth-child(3) p:nth-child(1n+2):before, .forSmb2 .colBlock:nth-child(2) p:nth-child(1n+3):before, .forSmb2 .colBlock:nth-child(3) p:nth-child(1n+2):before{
-content: '✓ ';
-}
+.forSmb > div {box-sizing: border-box;}
+.forSmb .imgD {max-width: 500px;}
+.forSmb > .imgD:first-child {margin-right: 100px;}
+@media (min-width: 1350px){
+.forSmb .descrD {width: calc(100% - 600px);}
+.forSmb .descrD:first-child {width: calc(100% - 500px);}}
+.forSmb .descrD .colBlock {min-width: 200px;}
+.forSmb img {width: 100%;}
+.forSmb > div {display: inline-block;float: left;}
+.forSmb .titD {margin-bottom: 20px;}
+.forSmb .colBlock {margin-bottom: 20px;display: inline-block;float: left;}
+.forSmb .descrD .colBlock1 {margin-right: 50px;}
+.forSmb .colBlock .MidTxt {margin-bottom: 10px;}
+@media (max-width: 500px){
+.forSmb .descrD .colBlock1 {margin-right: 0;}
+.forSmb .descrD .colBlock {min-width: 0;}}
+.forSmb .descrD .colBlock p:nth-child(1n+2):before {content: '✓ ';font-style: bold;font-weight: 900;color: green;}
 /*=========SmrtW1=========*/
 .SmrtW1 p:nth-child(2){	max-width: 450px; text-align: justify;}
 .SmrtW1 p {	margin: 20px 0;}
-@media (max-width: 500px) {
-.SmrtW1 { width: 96%; margin: 50px 2%; }
-.SmrtW1 p:nth-child(2){	text-align: left;}}
+@media (max-width: 500px) {.SmrtW1 p:nth-child(2) {text-align: left;}}
 /*=========SmrtW2=========*/
 .SmrtW2, .SmrtW2 * {text-align: center;}
-.SmrtW2 {margin: 50px auto;	max-width: 1000px;	}
+.SmrtW2 {max-width: 1000px;	}
 .SmrtW2 > div {
 	min-width: 140px;
     height: 90px;
@@ -620,23 +580,16 @@ SmrtW5 {width: 100%;  word-break: break-all;}
 	border-top: 4px solid #236967;
 }
 /*===============*/
-.HistSpDscr {
-	width: 100%;
-	height: 350px;
-	margin: 70px 0;
-}
+.HistSpDscr {width: 100%;}
 .HistSpDscr > div {
 	float: left;
-	width: 50%;
-	min-width: 450px;
+	width: 100%;
 	box-sizing: border-box;
+	text-align: left;
 }
-.HistSpDscr > div > img{ width: 450px;}
-.HistSpDscr > div:nth-child(1) { text-align: right;}
-.HistSpDscr > div:nth-child(1n+2) {
-	padding-left: 50px;
-	padding-top: 50px;
-}
+.HistSpDscr > div:nth-child(1) {text-align: center;}
+.HistSpDscr > div > img {max-width: 238px; width: 100%;}
+.HistSpDscr > div:nth-child(1n+2) {padding-left: 50px;padding-top: 50px;}
 .HistSpDscr > div > p:nth-child(1){
 	font-family: NEXT ART;
 	font-size: 24px;
@@ -657,18 +610,24 @@ SmrtW5 {width: 100%;  word-break: break-all;}
 }
 /*===================*/
 /*=========LearnPack==========*/
-.LearnPack {	text-align: center;	margin: 140px auto;	width: 80%;}
-@media (max-width: 500px) {.LearnPack {width: 100%;}}
-.LearnPack .rowBlock {	margin: 30px auto;}
-.LearnPack table {	margin: 0px auto;}
+.LearnPack {text-align: center;}
+.LearnPack .RadioUnder {text-align: center;}
+.LearnPack .RadioUnder {margin: 10px auto 0 auto;max-width: 800px;}
+.LearnPack .RadioUnder > div {
+	display: inline-block;
+	width: 32%;
+	height: 70px;
+	min-width: 160px;}
+.LearnPack .RadioUnder > div > h2 {
+	display: table-cell;
+	height: 65px;
+	width: 32%;
+	vertical-align: bottom;
+	text-align: center;}
+.LearnPack .RaUn1 > div {width: 25%;min-width: 140px;}
+.LearnPack .RaUn2 > div {width: 28%;min-width: 160px;}
+.LearnPack .RaUn3 > div {width: 20%;min-width: 100px;}
 
-.LearnPack .RadioUnder {height: 50px;}
-.LearnPack .RadioUnder div {width: 100%;}
-.LearnPack td div {	margin: 0;}
-
-.LearnPack td {		vertical-align: bottom;	}
-.LearnPack td:nth-child(2), .LearnPack td:nth-child(4) {width: 15px;}
-.LearnPack td:nth-child(1), .LearnPack td:nth-child(3), .LearnPack td:nth-child(5) {width: 240px; }
 .LearnPack .price, .LearnPack2 .price {
 font-family: NEXT ART;
 font-size: 22px;
@@ -699,7 +658,7 @@ text-align: center;
 
 /*=========LearnPack==========*/
 /*=========LearnPack2==========*/
-.LearnPack2 {	text-align: center;	margin: 140px auto;	width: 80%;}
+.LearnPack2 {	text-align: center;	width: 80%;}
 @media (max-width: 500px) {.LearnPack2 {width: 100%;}}
 .LearnPack2 > * {	text-align: center;	margin-top: 50px;	}
 .LPack {text-align: center;}
@@ -789,7 +748,6 @@ text-align: center;
     width: 40px;
     height: 40px;
     background: #FFECA0;
-/*    background: pink;*/
     top: -18px;
     left: 42%;
     
@@ -806,7 +764,6 @@ text-align: center;
 	.LearnPack2 .LearTyp:before {left: 25%;}
 	.LearnPack2 .ClasTyp:before {left: 42%;}
 	.LearnPack2 .Durat:before {left: 60%;}
-/*	.LearnPack2 .LrPk2Chn {	height: 150px;}*/
 	}
 @media (max-width: 580px){
 	.LearnPack2 .ChkMenu > div {width: 70%;}
@@ -815,7 +772,6 @@ text-align: center;
 	.LearnPack2 .LearTyp:before {left: 10%;}
 	.LearnPack2 .ClasTyp:before {left: 45%;}
 	.LearnPack2 .Durat:before {left: 75%;}
-/*	.LearnPack2 .LrPk2Chn {	height: 170px;}*/
 	}
 @media (max-width: 1300px) {.LearnPack2 .LrPk2Chn, .LearnPack2 .ChkMenuGr {width: 850px;}}
 @media (max-width: 1100px) {.LearnPack2 .LrPk2Chn, .LearnPack2 .ChkMenuGr {width: 100%;}}
@@ -841,11 +797,7 @@ text-align: center;
 .LearnPack2 .LPack8 {background-image: url(../images/LrPack/008.png);}
 @media (max-width: 500px) {.LearnPack2 .LPack {margin: 10px 0;}}
 /*=========LearnPack2==========*/
-
-
-.chgForCh .rowBlock{
-	margin-top: 3%;
-}
+.chgForCh .rowBlock{margin-top: 3%;}
 .chgForCh .rowBlock div{
 	width: 27%;
 	min-width: 300px;
@@ -853,6 +805,7 @@ text-align: center;
 	margin-top: 10px;
 	float: left;
 }
+@media (max-width: 400px) {.chgForCh .rowBlock div{width: 100%;	min-width: 0;}}
 .chgForCh .rowBlock div:nth-child(2), .chgForCh .rowBlock div:nth-child(3){
 	padding-left: 10px;
 	margin-right: 0;
@@ -862,23 +815,27 @@ text-align: center;
 /*===================*/
 
 .LearnEasy {max-width: 1400px;}
+.LearnEasy img {width: 100%;}
 .LearnEasy .colBlock {	display: inline-block;}
-.LearnEasy .colBlock:nth-child(1) {	width: 35%; margin: 100px 20px 100px 12%; float: left;}
-.LearnEasy .colBlock:nth-child(2) {width: 25%; margin: 100px 12% 100px 20px; min-width: 290px; text-align: right;float: right;}
+.LearnEasy .colBlock:nth-child(1) {width: 35%; margin: 100px 20px 100px 12%; float: left;}
+.LearnEasy .colBlock:nth-child(2) {width: 25%; max-width: 240px; margin: 100px 12% 100px 20px; text-align: right;float: right;}
 @media (max-width: 1050px) {
-.LearnEasy .colBlock:nth-child(1), .LearnEasy .colBlock:nth-child(2)  {width: 80%; margin: 70px 10% 70px 10%; text-align: center; float: none;}
-}
+.LearnEasy {text-align: center;}
+.LearnEasy .colBlock:nth-child(1), .LearnEasy .colBlock:nth-child(2) {width: 70%;margin: 20px 15%;text-align: center;}
+.LearnEasy .colBlock:nth-child(1) {margin-top: 70px;}
+.LearnEasy .colBlock:nth-child(2) {margin-bottom: 70px;float: none;}}
+@media (max-width: 400px) {
+.LearnEasy .colBlock:nth-child(1) {width: 94%; margin: 70px 3% 20px 3%;}
+.LearnEasy .colBlock:nth-child(2) {width: 94%; margin: 20px 3% 70px 3%;}}
 /*===================*/
-
-.RezultAch { text-align: center;   width: 80%; }
-.RezultAch .rowBlock:nth-child(2) {	max-width: 930px;   margin: 0 auto;}
-.RezultAch .rowBlock > div {
+.RezultAch .rowBlock {max-width: 930px;   margin: 0 auto;}
+.RezultAch .Rezults {text-align: center;}
+.RezultAch .Rezults > div {
 	text-align: left;
-	width: 274px;
+	max-width: 274px;
 	height: 200px;
 	background: #FFFBED;
 	border-radius: 30px;
-	box-sizing: border-box;
 	padding: 20px;
 	margin: 15px;
 	display: inline-block;
@@ -886,26 +843,30 @@ text-align: center;
 .RezultAch tr:nth-child(1) { height: 40px;}
 .RezultAch tr:nth-child(2) { height: 140px;}
 .RezultAch td { vertical-align: top;}
+.RezultAch p {margin-left: 5%;}
+@media (max-width: 350px) {.RezultAch .Rezults > div {margin: 15px 0;}}
 /*===================*/
-.WhatSLan { width: 60%; max-width: 1100px; }
-.WhatSLan .colBlock { display: inline-block; float: right;}
-.WhatSLan .colBlock:nth-child(1) { width: 60%; margin: 0 0 0 0; }
-.WhatSLan .colBlock:nth-child(2) { width: 35%; margin: 20px 5% 0 0; }
-.WhatSLan .rowBlock:nth-child(2) {margin-top: 20px;}
+.WhatSLan { width: 60%; max-width: 1100px;}
+.WhatSLan .colBlock { display: inline-block; float: left;}
+.WhatSLan .colBlock:nth-child(1) { margin: 0 20px 0 0; }
+.WhatSLan .Descr { width: 63%;}
+.WhatSLan .Imag { width: 360px;}
+.WhatSLan img {width: 100%;}
 .WhatSLan table {margin-top: 20px;}
 .WhatSLan .rowBlock > div { display: inline-block; margin: 0 7% 0 0;}
 .WhatSLan .rowBlock { display: inline-block; float: left;}
 .WhatSLan td { vertical-align: bottom; height: 50px;}
-@media (max-width: 1700px) {.WhatSLan .colBlock:nth-child(1) { width: 45%; margin-left: 15%;}}
-@media (max-width: 1150px) {.WhatSLan .colBlock:nth-child(2) { width: 353px;}
-.WhatSLan .colBlock:nth-child(1) { width: 100%; margin-left: 0;}
-}
+@media (max-width: 1800px) {.WhatSLan .Descr { width: 57%;}}
+@media (max-width: 1700px) {.WhatSLan .Descr { width: 54%;}}
+@media (max-width: 1500px) {.WhatSLan .Descr { width: 47%;}}
+@media (max-width: 1350px) {
+.WhatSLan .Descr { width: 100%;}
+.WhatSLan .Imag {float: right;}
+.WhatSLan .colBlock:nth-child(1) {margin: 0 0 40px 0; }}
 @media (max-width: 800px) {.WhatSLan { width: 80%;}}
 @media (max-width: 600px) {.WhatSLan { width: 90%;}}
-.WhatSLan td {
-    background-repeat: no-repeat;
-    background-position: top left;
-}
+@media (max-width: 420px) {.WhatSLan .Imag { width: 100%;}}
+.WhatSLan td {background-repeat: no-repeat;background-position: top left;}
 .WhatSLan .rowBlock:nth-child(2) div:nth-child(1) td { background-image: url(../images/WhatSLan/001.png);}
 .WhatSLan .rowBlock:nth-child(2) div:nth-child(2) td { background-image: url(../images/WhatSLan/002.png);}
 .WhatSLan .rowBlock:nth-child(2) div:nth-child(3) td { background-image: url(../images/WhatSLan/003.png);}
@@ -913,12 +874,11 @@ text-align: center;
 .WhatSLan .rowBlock:nth-child(2) div:nth-child(5) td { background-image: url(../images/WhatSLan/005.png);}
 .WhatSLan .rowBlock:nth-child(2) div:nth-child(6) td { background-image: url(../images/WhatSLan/006.png);}
 
-
 footer.dispW {
 	width: 100%;
 	max-width: 1920px;
 	margin: 80px auto;
-	min-height: 430px;
+/*	min-height: 430px;*/
 	background: #FFFBED;
 	margin: auto;
 	box-sizing: border-box;
@@ -927,18 +887,17 @@ footer.dispW {
 footer.dispW > div {
 	box-sizing: border-box;
 	width: 80%;
-	margin: 0 10%;
-	min-height: 430px;
+	margin: 0 10% 30px 10%;
 	text-align: center;
 }
 footer.dispW > div > div {
 	width: 33%;
 	min-width: 300px;
-	height: 430px;
+/*	height: 400px;*/
 	display: inline-block;
 	float: left;
 	box-sizing: border-box; 
-	padding-top: 70px;
+	margin: 70px 0;
 }
 footer.dispW .LeftCol * {text-align: left; text-decoration: none;}
 footer.dispW .RightCol * {text-align: right;}
@@ -963,26 +922,21 @@ footer.dispN {
 	background: #FFFBED;
 	border-radius: 70px 70px 0 0;
 }
-footer.dispN, footer.dispN * {
-	box-sizing: border-box;
-	text-align: center;
-}
-footer.dispN > div > div {
-	width: 100%;
-	padding-top: 60px;
-}
+footer.dispN {height: 660px;}
+footer.dispN, footer.dispN * {box-sizing: border-box;text-align: center;}
+footer.dispN > div > div {width: 100%;}
+footer.dispN .CentrCol {margin-top: 60px;}
+footer.dispN .LeftCol {margin-top: 10px;}
+footer.dispN .RightCol {margin-top: 10px;}
 footer.dispN .LeftCol * {text-decoration: none;}
-footer.dispN .LeftCol h2 {margin-top: 50px;}
 footer.dispN .RightCol p {
-	margin-top: 40px;
 	width: 50%;
 	padding: 0 10% 0 10%;
 	display: inline-block;
 	float: left;
 }
-
-footer.dispN .CentrCol > *:nth-child(2) {	margin: 30px auto 0 auto;}
-footer.dispN .CentrCol > *:nth-child(3) {	margin: 30px auto 0 auto;}
+footer.dispN .CentrCol > *:nth-child(2) {	margin: 10px auto 0 auto;}
+footer.dispN .CentrCol > *:nth-child(3) {	margin: 10px auto 0 auto;}
 
 /*===================*/
 h2 {
@@ -1052,22 +1006,15 @@ label.CmnRadio input:hover {
 }
 
 .TitScool > * {display: block;}
-.TitScool div {float:left; width: 450px; margin: 3% 0;}
+.TitScool div {float:left; max-width: 450px; margin: 3% 0;}
 .Ofrt div {margin: 0;}
 .TitScool img {float:right;}
 @media (max-width: 700px) {.TitScool img {float:left;width: 100%;}}
-@media (max-width: 500px) {.TitScool div {width: 94%; margin: 10% 3%;}}
-
 @media (max-width: 600px) {
 .RadioUnder div {width: 98%; margin: 0 1% 0 1%;}
 .forSmb2 .colBlock:nth-child(1) {float: left;}
-.forSmb1 {	margin-left: 1%;	margin-right: 1%;}}
-
 .Oferta h3 p, .TitScool h3 p, .Oferta h2 p, .TitScool h2 p, .Oferta .colBlock {padding-bottom: 1.5em;}
 .Oferta .colBlock {padding-bottom: 3em;}
-@media (max-width: 600px) {.Oferta { width: 472px;}}
-@media (max-width: 525px) {.Oferta { width: 95%;}}
-
 .Oferta {
 	column-count: 2;
 	column-gap: 4em;
