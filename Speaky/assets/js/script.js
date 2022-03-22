@@ -90,29 +90,6 @@ for (let i = 0; i < LearnPack2.length; i++) {
 	}
 	MenuCh();
 
-/*		alert (`type=${this.type}  name=${this.name}  checked=${this.checked}`);*/
-/*
-<div class="LearnPack2 clearFlow">
-	<p class="NxArTit">пакеты обучения</p>
-	<h2>Выбирайте удобный формат встреч</h2>
-	<div class="LrPk2Chn">
-		<label><input type="checkbox" name="LearTyp" value="LearTyp"><div><h2>Вид обучения</h2></div></label>
-		<label><input type="checkbox" name="ClasTyp" value="ClasTyp"><div><h2>Вид занятия</h2></div></label>
-		<label><input type="checkbox" name="Durat" value="Durat"><div><h2>Длительность</h2></div></label>
-		<div class="DotLine"></div>
-	</div>
-	<div class="ChkMenuGr">
-		<div class="ChkMenu LearTyp"><div>
-			<label><input type="radio" name="LearTyp" value="OffLine">Офлайн-занятия</label>
-			<label><input type="radio" name="LearTyp" value="OnLine">Онлайн-занятия</label>
-		</div></div>
-	<div class="LPacks rowBlock">
-		<div class="LPack LPack4 OffLine IndvL Min60">
-			<h2>4 занятия по 60 мин</h2>
-			<h2 class="price">5400 Р</h2>
-			<button class="buttn" value="Выбрать004">Выбрать</button>
-		</div>
-*/		
 	function MenuCh() { /*выбор в ChkMenu */
 /*		alert (`type=${this.type}  name=${this.name}  value=${this.value} текст=${this.parentNode.textContent} checked=${this.checked}`);*/
 		if (this.tagName=="INPUT") {
