@@ -588,7 +588,7 @@ SmrtW5 {width: 100%;  word-break: break-all;}
 	text-align: left;
 }
 .HistSpDscr > div:nth-child(1) {text-align: center;}
-.HistSpDscr > div > img {max-width: 238px; width: 100%;}
+.HistSpDscr > div > img {max-width: 345px; width: 100%;}
 .HistSpDscr > div:nth-child(1n+2) {padding-left: 50px;padding-top: 50px;}
 .HistSpDscr > div > p:nth-child(1){
 	font-family: NEXT ART;
