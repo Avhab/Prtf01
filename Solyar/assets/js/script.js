@@ -17,19 +17,28 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 	let SlToInd = 0; //новый индекс слайда
 	if ((scrolImg.length==scrolTxt.length)&&(scrolTxt.length>1)) {//все работает только если количество слайдов более 1 и кол-во картинок равно кол-ву текстов
 		function SwSliMod(slI, slTI) {//модуль прокрутки слайдов
-			scrolImg[SlInd].style.cssText='transform: translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 0.1s;';
-			scrolTxt[SlInd].style.cssText='transform: translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 0.1s;';
+/*
+			scrolImg[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '50deg) translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 1s;';
+			scrolTxt[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '50deg) translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 1s;';
+*/
+			scrolImg[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
+			scrolTxt[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
 			setTimeout(function(){
 				scrolImg[SlInd].style.cssText='display: none';
 				scrolTxt[SlInd].style.cssText='display: none';
-				scrolImg[SlToInd].style.cssText='transform: translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
-				scrolTxt[SlToInd].style.cssText='transform: translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
-			}, 100);
+
+				scrolImg[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
+				scrolTxt[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
+/*
+				scrolImg[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '50deg) translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
+				scrolTxt[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '50deg) translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
+*/
+			}, 200);
 			setTimeout(function(){
-				scrolImg[SlToInd].style.cssText='transform: translateX(0) scale(100%);opacity: 1;transition-duration: 0.1s;';
-				scrolTxt[SlToInd].style.cssText='transform: translateX(0) scale(100%);opacity: 1;transition-duration: 0.1s;';
+				scrolImg[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.2s;';
+				scrolTxt[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.2s;';
 				SlInd = SlToInd;
-			}, 110);	}
+			}, 210);	}
 		function SwSlideLeft() {SwSliMod("-", "");}//прокрутка слайдов влево
 		function SwSlideRight() {SwSliMod("", "-");}//прокрутка слайдов вправо
 
@@ -54,6 +63,28 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 		if ((ArrBut.length>0)&&(ArrInput.length>0)) { //если кнопки-стрелки существуют
 				for (let i=0; i < ArrInput.length; i++) {//на каждую кнопку-стрелку вешаем переключение индекса текущего слайда по кольцу
 					ArrInput[i].addEventListener("click", function() { SwRou(i);});	}	}
+//тачскрин
+		let touchStart = null; //Точка начала касания
+		let touchPosition = null; //Текущая позиция
+		function TouchStart(e) {//Получаем текущую позицию касания
+			touchStart = { x: e.changedTouches[0].clientX };
+			touchStart = touchStart.x; //запоминаем точку старта
+			touchPosition = touchStart;	}
+		function TouchMove(e) {	//Получаем новую позицию
+			touchPosition = { x: e.changedTouches[0].clientX };
+			touchPosition = touchPosition.x;} //запоминаем текущую позицию
+		function TouchEnd()	{
+			if (touchStart != touchPosition){
+			if (touchStart > touchPosition) {SwRou(0);} else {SwRou(1);}}
+			touchStart = null; //Точка начала касания
+			touchPosition = null;} //Текущая позиция
+		for (let i=0; i < scrolImg.length; i++) {
+			scrolImg[i].addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
+			scrolImg[i].addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
+			scrolImg[i].addEventListener("touchend", function (e) { TouchEnd(); });//Пользователь отпустил экран
+			scrolImg[i].addEventListener("touchcancel", function (e) { TouchEnd(); });//Отмена касания
+		}
+//тачскрин
 //		SwSlide();//стартовая установка видимости слайдов
 		for (let i=0; i < scrolImg.length; i++) {
 			if (i!=SlInd) {
