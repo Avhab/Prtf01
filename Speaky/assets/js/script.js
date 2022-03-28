@@ -1,3 +1,14 @@
+/*
+let footW = document.createElement('footer');
+  footW.className = "dispW";
+  footW.innerHTML = "<div><div class='LeftCol'><h2>Иностранные языки</h2><a href='EffLearn.html'><h3>Для взрослых онлайн</h3></a><a href='EffLearn.html'><h3>Для взрослых офлайн</h3></a><a href='ChlOnline.html'><h3>Для детей онлайн</h3></a><a href='ChlOffline.html'><h3>Для детей офлайн</h3></a><p>© 2021 Speaky school. Все права защищены.</p></div><div class='CentrCol'><div><img src='assets/images/LogoF.svg' alt='Speaky Scool'></div><div class='social'><a href='#'><img src='assets/images/social/facebook.svg' alt='Facebook'></a><a href='#'><img src='assets/images/social/instagram.svg' alt='Instagram'></a><a href='#'><img src='assets/images/social/whatsapp.svg' alt='Whatsapp'></a><a href='#'><img src='assets/images/social/vk.svg' alt='Vk'></a></div><div><input class='buttn' type='submit' value='Онлайн-оплата'></div></div><div class='RightCol'><h2>Контакты</h2><h3>+7 (495) 723-75-15</h3><h3>info@speaky.school</h3><h3>108840, Россия<br>,г. Москва, г. Троицк<br>, Троицкий бульвар, 6</h3><p>Design by @arinkob</p></div></div>";
+  document.body.append(footW);
+let footN = document.createElement('footer');
+  footN.className = "dispN";
+  footN.innerHTML = "<div><div class='CentrCol'><div><img src='assets/images/LogoF.svg' alt='Speaky Scool'></div><div class='social'><a href='#'><img src='assets/images/social/facebook.svg' alt='Facebook'></a><a href='#'><img src='assets/images/social/instagram.svg' alt='Instagram'></a><a href='#'><img src='assets/images/social/whatsapp.svg' alt='Whatsapp'></a><a href='#'><img src='assets/images/social/vk.svg' alt='Vk'></a></div><div><input class='buttn' type='submit' value='Онлайн-оплата'></div></div><div class='LeftCol'><h2>Иностранные языки</h2><a href='EffLearn.html'><h3>Для взрослых онлайн</h3></a><a href='EffLearn.html'><h3>Для взрослых офлайн</h3></a><a href='ChlOnline.html'><h3>Для детей онлайн</h3></a><a href='ChlOffline.html'><h3>Для детей офлайн</h3></a><h2>Контакты</h2><h3>+7 (495) 723-75-15</h3><h3>info@speaky.school</h3><h3>108840, Россия<br>,г. Москва, г. Троицк<br>, Троицкий бульвар, 6</h3></div><div class='RightCol'><p>© 2021 Speaky school. Все права защищены.</p><p>Design by @arinkob</p></div></div>";
+  document.body.append(footN);
+*/
+
 	/* радиокнопки - подчерк*/
 let RadioUnder = document.querySelectorAll(".RadioUnder");
 function RadioUn(RadioUnder) {
