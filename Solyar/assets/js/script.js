@@ -9,30 +9,19 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 	let RadioBut = SlidS[i].querySelectorAll(".RadioBut");//группа радиокнопок
 	let RadioInput;//если радиокнопки существуют
 	if (RadioBut.length>0) {RadioInput = RadioBut[0].querySelectorAll("INPUT");}
-	let ArrBut = SlidS[i].querySelectorAll(".ArrBut");//группа кнопок-стрелок
-	let ArrInput; //если кнопки-стрелки существуют
-	if (ArrBut.length>0) {ArrInput = ArrBut[0].querySelectorAll("INPUT");}//кнопки-стрелки
+	let ArrButS = SlidS[i].querySelectorAll(".ArrButS");//группа кнопок-стрелок
 //	alert(`SlidS-${i}:   RadioBut-${RadioBut.length}  RadioInput-${RadioInput.length}`);
 	let SlInd = 0; //индекс текущего слайда
 	let SlToInd = 0; //новый индекс слайда
 	if ((scrolImg.length==scrolTxt.length)&&(scrolTxt.length>1)) {//все работает только если количество слайдов более 1 и кол-во картинок равно кол-ву текстов
 		function SwSliMod(slI, slTI) {//модуль прокрутки слайдов
-/*
-			scrolImg[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '50deg) translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 1s;';
-			scrolTxt[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '50deg) translateX(' + slI + '80px) scale(70%);opacity: 0.1;transition-duration: 1s;';
-*/
 			scrolImg[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
 			scrolTxt[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
 			setTimeout(function(){
 				scrolImg[SlInd].style.cssText='display: none';
 				scrolTxt[SlInd].style.cssText='display: none';
-
 				scrolImg[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
 				scrolTxt[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
-/*
-				scrolImg[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '50deg) translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
-				scrolTxt[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '50deg) translateX(' + slTI + '80px) scale(70%);opacity: 0.1;';
-*/
 			}, 200);
 			setTimeout(function(){
 				scrolImg[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.2s;';
@@ -60,9 +49,14 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 					if (i==SlInd) {RadioInput[i].checked = true;} else {RadioInput[i].checked = false;}
 					//на каждую радиокнопку вешаем переключение индекса текущего слайда
 					RadioInput[i].addEventListener("change", function() { SwDir(i);});	}	}
-		if ((ArrBut.length>0)&&(ArrInput.length>0)) { //если кнопки-стрелки существуют
-				for (let i=0; i < ArrInput.length; i++) {//на каждую кнопку-стрелку вешаем переключение индекса текущего слайда по кольцу
-					ArrInput[i].addEventListener("click", function() { SwRou(i);});	}	}
+					
+		if (ArrButS.length>0) {//для каждой группы кнопок-стрелок
+			for (let i=0; i < ArrButS.length; i++) {
+				let ArrInput = ArrButS[i].querySelectorAll("INPUT");//получаем объект пара стрелок
+				for (let i=0; i < ArrInput.length; i++) {
+					for (let i=0; i < ArrInput.length; i++) {//на каждую кнопку-стрелку вешаем переключение индекса текущего слайда по кольцу
+						ArrInput[i].addEventListener("click", function() { SwRou(i);});//передаем индекс кнопки 0 - левая  1 - правая
+					}	}	}	}
 //тачскрин
 		let touchStart = null; //Точка начала касания
 		let touchPosition = null; //Текущая позиция
