@@ -67,16 +67,16 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 		function TouchMove(e) {	//Получаем новую позицию
 			touchPosition = { x: e.changedTouches[0].clientX };
 			touchPosition = touchPosition.x;} //запоминаем текущую позицию
-		function TouchEnd()	{
-			if (touchStart != touchPosition){
-			if (touchStart > touchPosition) {SwRou(0);} else {SwRou(1);}}
+		function TouchEnd(imG)	{
+			if (Math.abs(touchStart - touchPosition)>(imG.clientWidth/6)) {
+				if (touchStart > touchPosition) {SwRou(0);} else {SwRou(1);}}
 			touchStart = null; //Точка начала касания
 			touchPosition = null;} //Текущая позиция
 		for (let i=0; i < scrolImg.length; i++) {
 			scrolImg[i].addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
 			scrolImg[i].addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
-			scrolImg[i].addEventListener("touchend", function (e) { TouchEnd(); });//Пользователь отпустил экран
-			scrolImg[i].addEventListener("touchcancel", function (e) { TouchEnd(); });//Отмена касания
+			scrolImg[i].addEventListener("touchend", function (e) { TouchEnd(scrolImg[i]); });//Пользователь отпустил экран
+			scrolImg[i].addEventListener("touchcancel", function (e) { TouchEnd(scrolImg[i]); });//Отмена касания
 		}
 //тачскрин
 //		SwSlide();//стартовая установка видимости слайдов
