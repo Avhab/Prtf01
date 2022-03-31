@@ -112,8 +112,7 @@ header .Social {margin-top: 230px;}
 	border-bottom: 2px solid transparent;}
 .GreenTar .txtBlock .RadioBut input {display: none;}
 .GreenTar .txtBlock .RadioBut input[type=radio]:checked + label {border-color: #303030;}
-.GreenTar .txtBlock .RadioBut label:hover {color: #A9A32A; border-color: #A9A32A;}
-
+@media (hover), (min-width:0\0), (min--moz-device-pixel-ratio:0) {.GreenTar .txtBlock .RadioBut label:hover {color: #A9A32A; border-color: #A9A32A;}}
 /*=================*/
 .ArrButS {margin-bottom: 30px;text-align: center;}
 .ArrButS input {display: inline-block; width:41px; height: 20px; border: none; background: transparent; background-position: center;background-repeat: no-repeat;}
