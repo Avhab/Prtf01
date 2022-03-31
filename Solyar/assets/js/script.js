@@ -14,20 +14,26 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 	let SlInd = 0; //индекс текущего слайда
 	let SlToInd = 0; //новый индекс слайда
 	if ((scrolImg.length==scrolTxt.length)&&(scrolTxt.length>1)) {//все работает только если количество слайдов более 1 и кол-во картинок равно кол-ву текстов
+		let rotDegMax = 55; //предельный угол поворота в градусах
+		let transXMax = 80; //предельное смешщение в процентах от ширины картинки
+		let transScalMax = 80;  //предельное уменьшение в процентах
+		let opacPerMax = 0.3;  //предельная прозрачность
 		function SwSliMod(slI, slTI) {//модуль прокрутки слайдов
-			scrolImg[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
-			scrolTxt[SlInd].style.cssText='transform: perspective(1000px) rotateY(' + slI + '70deg) translateX(' + slI + '100%) scale(60%);opacity: 0.1;transition-duration: 0.2s;';
+			let transStr = 'transform: perspective(1000px) rotateY(' + slI + rotDegMax + 'deg) translateX(' + slI + transXMax + '%) scale(' + transScalMax + '%);opacity: ' + opacPerMax + ';transition-duration: 0.2s;';
+			scrolImg[SlInd].style.cssText=transStr;
+			scrolTxt[SlInd].style.cssText=transStr;
 			setTimeout(function(){
+				let transStr = 'transform: perspective(1000px) rotateY(' + slTI + rotDegMax + 'deg) translateX(' + slTI + transXMax + '%) scale(' + transScalMax + '%);opacity: ' + opacPerMax + ';';
 				scrolImg[SlInd].style.cssText='display: none';
 				scrolTxt[SlInd].style.cssText='display: none';
-				scrolImg[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
-				scrolTxt[SlToInd].style.cssText='transform: perspective(1000px) rotateY(' + slTI + '70deg) translateX(' + slTI + '100%) scale(60%);opacity: 0.1;';
+				scrolImg[SlToInd].style.cssText=transStr;
+				scrolTxt[SlToInd].style.cssText=transStr;
 			}, 200);
 			setTimeout(function(){
 				scrolImg[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.2s;';
 				scrolTxt[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.2s;';
 				SlInd = SlToInd;
-			}, 210);	}
+			}, 225);	}
 		function SwSlideLeft() {SwSliMod("-", "");}//прокрутка слайдов влево
 		function SwSlideRight() {SwSliMod("", "-");}//прокрутка слайдов вправо
 
@@ -64,17 +70,34 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 			touchStart = { x: e.changedTouches[0].clientX };
 			touchStart = touchStart.x; //запоминаем точку старта
 			touchPosition = touchStart;	}
-		function TouchMove(e) {	//Получаем новую позицию
+		function TouchMove(imG, e) {	//Получаем новую позицию
 			touchPosition = { x: e.changedTouches[0].clientX };
-			touchPosition = touchPosition.x;} //запоминаем текущую позицию
+			touchPosition = touchPosition.x; //запоминаем текущую позицию
+			//отсюда до конца функции - смещение слайда с удержанием тачем - можно убрать
+			let shfT = (touchStart - touchPosition)*-1; //текущее перемещение
+			let fulShft = imG.clientWidth/2; //максимальное перемещение
+			let persMov = shfT / fulShft; //доля от максимального перемещения
+			if (Math.abs(persMov) > 1) {if (persMov < 0) {persMov = -1;} else {persMov = 1;};}
+			let rotDeg = persMov * rotDegMax;
+			let transX = persMov * transXMax;
+			let opacPer = 1-((1-opacPerMax)*Math.abs(persMov));
+			let transScal = 100-((100-transScalMax)*Math.abs(persMov));
+			let trStr = 'transform: perspective(1000px) rotateY(' + rotDeg + 'deg) translateX(' + transX + '%) scale(' + transScal + '%);opacity: ' + opacPer + ';transition-duration: 0.2s;';
+			scrolImg[SlInd].style.cssText=trStr;
+			scrolTxt[SlInd].style.cssText=trStr;
+			}
 		function TouchEnd(imG)	{
-			if (Math.abs(touchStart - touchPosition)>(imG.clientWidth/6)) {
-				if (touchStart > touchPosition) {SwRou(0);} else {SwRou(1);}}
+			if (Math.abs(touchStart - touchPosition)>(imG.clientWidth/3)) { //порог смещения, выше которого происходит смена слайда
+				if (touchStart > touchPosition) {SwRou(0);} else {SwRou(1);}
+				} else { // либо возврат слайда на свое место
+					scrolImg[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.4s;';
+					scrolTxt[SlToInd].style.cssText='transform: rotateY(0deg) translateX(0) scale(100%);opacity: 1;transition-duration: 0.4s;';
+				}
 			touchStart = null; //Точка начала касания
 			touchPosition = null;} //Текущая позиция
 		for (let i=0; i < scrolImg.length; i++) {
 			scrolImg[i].addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
-			scrolImg[i].addEventListener("touchmove", function (e) { TouchMove(e); }); //Движение пальцем по экрану
+			scrolImg[i].addEventListener("touchmove", function (e) { TouchMove(scrolImg[i], e); }); //Движение пальцем по экрану
 			scrolImg[i].addEventListener("touchend", function (e) { TouchEnd(scrolImg[i]); });//Пользователь отпустил экран
 			scrolImg[i].addEventListener("touchcancel", function (e) { TouchEnd(scrolImg[i]); });//Отмена касания
 		}
