@@ -76,12 +76,19 @@ for (let i=0; i < SlidS.length; i++) {//программный модуль дл
 			//отсюда до конца функции - смещение слайда с удержанием тачем - можно убрать
 			let shfT = (touchStart - touchPosition)*-1; //текущее перемещение
 			let fulShft = imG.clientWidth/2; //максимальное перемещение
-			let persMov = shfT / fulShft; //доля от максимального перемещения
-			if (Math.abs(persMov) > 1) {if (persMov < 0) {persMov = -1;} else {persMov = 1;};}
-			let rotDeg = persMov * rotDegMax;
-			let transX = persMov * transXMax;
-			let opacPer = 1-((1-opacPerMax)*Math.abs(persMov));
-			let transScal = 100-((100-transScalMax)*Math.abs(persMov));
+			let percMov = shfT / fulShft; //доля от максимального перемещения
+/*			if (Math.abs(percMov) > 1) {if (percMov < 0) {percMov = -1;} else {percMov = 1;};}*/
+			if (percMov < 0) {
+				if (Math.abs(percMov) > 1) {percMov = -1;} else {
+					percMov = Math.sin((90*3.14/180)*Math.abs(percMov))*-1;	}
+			} else {
+				if (percMov > 1) {percMov = 1;} else {
+					percMov = Math.sin((90*3.14/180)*percMov);	}	}
+			
+			let rotDeg = rotDegMax * percMov;
+			let transX = transXMax * percMov;
+			let opacPer = 1-((1-opacPerMax)*Math.abs(percMov));
+			let transScal = 100-((100-transScalMax)*Math.abs(percMov));
 			let trStr = 'transform: perspective(1000px) rotateY(' + rotDeg + 'deg) translateX(' + transX + '%) scale(' + transScal + '%);opacity: ' + opacPer + ';transition-duration: 0.2s;';
 			scrolImg[SlInd].style.cssText=trStr;
 			scrolTxt[SlInd].style.cssText=trStr;
