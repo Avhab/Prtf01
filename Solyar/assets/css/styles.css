@@ -159,7 +159,7 @@ header .Social {margin-top: 230px;}
 	.txtBlock, .imgBlock {width: 100%;}
 	.Width2 .locDescr > div:nth-child(1), .Width2 .locDescr > div:nth-child(2) {padding: 0 0 30px 0;}}
 /*=================*/
-footer {background-image: url(../images/080.jpg); min-height: 730px;margin: 100px auto 0 auto;}
+footer {background-image: url(../images/080.jpg);margin: 100px auto 0 auto;padding-bottom: 30px;}
 footer > .rowBlock {width: 64%;display: inline-block;text-align: center;}
 @media (max-width: 1880px) {footer > .rowBlock {width: 1200px;}}
 @media (max-width: 1250px) {footer > .rowBlock {width: 96%;}}
