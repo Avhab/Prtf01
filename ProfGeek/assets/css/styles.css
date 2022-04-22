@@ -74,26 +74,58 @@ body {text-align: center;}
 	border: none;
 	border-bottom: 2px solid #E61386;
 	box-shadow: 0 0 10px 1px #E61386;}
+button {user-select:none;}
 button.bluGrad:hover {background: linear-gradient(90deg, #0761A3 0%, #1BAAE6 100%);}
-button.bluGrad:active {background: linear-gradient(90deg, #1A1B20 0%, #1A1B20 100%);}
+button.bluGrad:active {background: #1A1B20;}
 button.pnkGrad:hover {background: linear-gradient(90deg, #842186 0%, #E61386 100%);}
-button.pnkGrad:active {background: linear-gradient(90deg, #1A1B20 0%, #1A1B20 100%);}
+button.pnkGrad:active {background: #1A1B20;}
 /*========================*/
 a {color:inherit;}
 
 header > div {float:left;}
 header .imgIns {min-width: 250px;}
-header #selBut {float:right;width:113px;margin:32px 10px 0 0;}
-header #selBut button {
-	height: 50px;
-	width: 113px;
-	border-radius: 10px;
-	color:white;
+header #selBut {float:right;width:113px;margin:32px 10px 0 0;
+	position: relative;
 	text-align:center;
 	font-family: 'Raleway', sans-serif;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 18px;}
+header #selBut button {
+	position: relative;
+	z-index:30;
+	height: 50px;
+	width: 113px;
+	border-radius: 10px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 18px;
+	color:white;}
+header #selBut button img {vertical-align: middle;margin-right: 10px;}
+header #selBut>div {
+	display:none;
+	position: absolute;
+	top:33px;z-index:20;
+	box-sizing: border-box;
+	height: 210px;
+	width: 113px;
+	padding-top: 10px;
+	background: #2A2C34;
+	border-radius: 0 0 10px 10px;
+	transform-origin:0 0;
+	transform:scaleY(0.1);
+	transition-duration:0.3s;}
+header #selBut>div>div {height: 50px;width: 113px;border-radius: 0 0 10px 10px;}
+header #selBut>div>div:hover {background: linear-gradient(90deg, #842186 0%, #E61386 100%);}
+header #selBut>div>div>div {
+	display:inline-block;
+	box-sizing: border-box;
+	height: 50px;
+	width: 81px;
+	padding-top: 16px;
+	border-top: 2px solid rgba(255, 255, 255, 0.1);}
+	
 header #heIt {width:calc(100% - 250px - 140px);padding-right:20px;box-sizing: border-box;}
 header #heIt>div {display:inline-block;float:left;width:20%;
 	min-width: 85px;
@@ -130,10 +162,10 @@ header #burgerBut{display:inline-block;}}
 .blur, #burgerMenu {display:none;position:fixed;margin:0;top:0;transition-duration:0.3s;}
 .blur {z-index:100;width:100%;height:100%;left:0;opacity:0;}
 #burgerMenu {z-index:250;width:300px;height:652px;right:0;background:#1A1B20;transform-origin:100% 0;transform:scale(0.1);}
+#burgerMenu {z-index:250;width:300px;height:652px;right:0;background:#1A1B20;transform-origin:100% 0;transform:scale(0.1);}
 
 
 /*========================*/
-
 .wrap2 {max-width: 1157px;margin: 0 auto;}
 @media (max-width: 1200px) {.wrap2 {margin: 0 10px;}}
 .wrap2 > * {margin: 90px auto;}
@@ -167,47 +199,85 @@ header #burgerBut{display:inline-block;}}
 .title .titImg img {width:100%;}
 .title, .title > * {position: static;display:inline-block;}}
 
+/*=============*/
 .AboutUs {text-align:left;}
 .AboutUs h2 {margin-bottom:40px;}
 .AboutUs h3 {color: #FA0E8F;margin-bottom:25px;}
 .bltext {color: #11C5FF; font-weight: 700;}
 .AboutUs .RoImgs > div {width:calc(96%/6);min-width:120px;}
+.AboutUs .RoImgs {display:inline-block;text-align: center; margin: 50px 0;}
+.AboutUs .RoImgs > div {display:inline-block;float:left;width:16.66%;margin:15px 0;}
+@media (max-width: 850px) {	.AboutUs .RoImgs > div {width:33.33%;}}
+@media (max-width: 430px) {	.AboutUs .RoImgs > div {width:50%;}}
+@media (max-width: 280px) {	.AboutUs .RoImgs > div {width:100%;}}
+.AboutUs .RoImgs > div > * {display:inline-block;width:100%;}
+.AboutUs .RoImgs .RoImg {border-radius:100px;width:100px;height:100px;}
+.AboutUs .RoImgs img{margin: 20px 0;}
+.AboutUs .RoImgs .RoDescr {	margin-top: 15px;}
+.AboutUs .RoImgs .RoDescr > *{width: 120px;margin:0 auto;}
 
-.RoImgs {text-align: center; margin: 50px 0;}
-.RoImgs > div {display:inline-block;
+/*=============*/
+.MainServ .BigBut {height:60px;width:294px;margin: 40px 25px;}
+#MSBuyer .RedFrame {
+	border: 2px solid red;
+	border-image: linear-gradient(90deg, #E61386 0%, #842186 100%);
+	border-image-slice: 1;}
+#MSBuyer .Frame{display:inline-block;padding:20px;box-sizing: border-box;}
+#MSBuyer .Frame>*{display:inline-block;float:left;box-sizing: border-box;}
+#MSBuyer .Frame .Img {width:30px;margin:8px 20px 0 0;}
+#MSBuyer .Frame .Txt {width:calc(100% - 50px);}
+#MSBuyer .Frame h5{
+font-family: 'Raleway', sans-serif;
+font-size: 19px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;}
+#MSBuyer .Frame h6{
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+color:#A3A6B9;}
+#MSBuyer .RoImgs {display:inline-block;margin:30px 0;}
+#MSBuyer .RoImgs > div {display:inline-block;float:left;width:32%;padding:20px;box-sizing: border-box;}
+#MSBuyer .RoImgs .RoImg {height:80px;box-sizing: border-box;margin-bottom:25px;}
+#MSBuyer .RoImgs .RoDescr {
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 18px;}
+@media (max-width: 700px) {	#MSBuyer .RoImgs > div {width:100%;}}
+
+#MSLogist .RoImgs {text-align: center; margin: 50px 0;}
+#MSLogist .RoImgs > div {display:inline-block;
 	width:calc(96%/6);
 	min-width:150px;
 	margin:15px 0;}
-.RoImgs > div > * {margin: 0 auto;	box-sizing: border-box;}
-.RoImgs .RoImg {border-radius:100px;width:100px;height:100px;}
-.RoImgs img{margin: 20px 0;}
-.RoImgs .RoDescr {
+#MSLogist .RoImgs > div > * {margin: 0 auto;	box-sizing: border-box;}
+#MSLogist .RoImgs .RoImg {border-radius:100px;width:100px;height:100px;}
+#MSLogist .RoImgs img{margin: 20px 0;}
+#MSLogist .RoImgs .RoDescr {
 	margin-top: 15px;
 	width: 120px;
 	font-family: 'Raleway', sans-serif;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 18px;
-	letter-spacing: 0em;
-}
-
-.MainServ .BigBut {height:60px;width:294px;margin: 40px 25px;}
-.MainServ .RoImgs > div {width:calc(96%/3.5);}
-.MainServ h5 {padding-bottom:50px;border-bottom: 2px solid rgba(255, 255, 255, 0.1);}
+	letter-spacing: 0em;}
+#MSLogist .RoImgs > div {width:calc(96%/3.5);}
+#MSLogist h5, #MSBuyer > h5 {color:#A3A6B9;padding-bottom:50px;border-bottom: 2px solid rgba(255, 255, 255, 0.1);}
 
 @media (min-width: 900px) {	
-.MainServ .RoImgs > div > * {display:inline-block;float:left;}
-.MainServ .RoImgs > div {min-width:250px;height:100px;}
-.MainServ .RoImgs .RoDescr {margin:42px 25px;}}
+#MSLogist .RoImgs > div > * {display:inline-block;float:left;}
+#MSLogist .RoImgs > div {min-width:250px;height:100px;}
+#MSLogist .RoImgs .RoDescr {margin:42px 25px;}}
 .pnktext {color: #E61386; font-weight: 700;}
 
-.WyChng .RoImgs > div {width:calc(96%/3);}
-@media (min-width: 900px) {	
-.WyChng .RoImgs > div > * {display:inline-block;float:left;}
-.WyChng .RoImgs > div {min-width:250px;}
-.WyChng .RoImgs .RoDescr {text-align:left;width:calc(96% - 120px);margin:37px 0 0 20px;}}
-
 /*=============*/
+.MainServ .LogTask {margin:50px 0;}
 .ArtTask .div1Cnt, .ArtTask .div2Cnt {display:inline-block;float:left;}
 .ArtTask .div1Cnt:nth-child(1) {width:100%;}
 .ArtTask .div1Cnt:nth-child(2) {width:0;}
@@ -232,13 +302,16 @@ box-sizing:border-box;}
 .ArtTask .aTask h7 {display:inline-block;max-width:170px;}
 .ArtTask .aTask .blGr {display:inline-block;box-sizing:border-box;padding:32px 0;width:170px;height:170px;}
 .ArtTask .aTask .blGr > * {display:inline-block;padding:7px 0;}
+.ArtTask .aTask .blGr h7 {width:100%;}
 .ArtTask .Arr {display:inline-block;float:left;margin:30px 0 0 0;height:32px;width:20%;
 background: url(../images/TaskArr.png) no-repeat;
 background-size: 100% 100%;}
 .ArtTask .div1Cnt:nth-child(2) {
 background: url(../images/TaskArrVert.png) 0 33% no-repeat;
 background-size: 100% 50%;}
-
+.ArtTask .div1Cnt:nth-child(2) {background: url(../images/TaskArrVert.png) 0 33% no-repeat;}
+#MSLogist .ArtTask .div1Cnt:nth-child(2) {background-size: 100% 50%;}
+#MSBuyer .ArtTask .div1Cnt:nth-child(2) {background-size: 100% 40%;}
 .ArtTask.tabLet .aTask {width:33.33%;}
 .ArtTask.tabLet .Arr {width:50%;}
 .ArtTask.tabLet .div2Arr {width:67%;}
@@ -246,7 +319,6 @@ background-size: 100% 50%;}
 .ArtTask.tabLet .div1Cnt:nth-child(1) {width:100%;}
 .ArtTask.tabLet .div1Cnt:nth-child(2) {width:10%;height:564px;position:absolute;right:0;}
 .ArtTask.tabLet .div2Arr:nth-child(3) .Arr {transform: scale(-1, 1);}
-
 .ArtTask.Mob .div2Arr, .ArtTask.Mob .div1Cnt:nth-child(2) {display:none;}
 .ArtTask.Mob .div2Task {margin-top:25px;}
 .ArtTask.Mob .aTask {width:100%;height:auto;}
@@ -257,6 +329,27 @@ background-size: 100% 50%;}
 .ArtTask.Mob .aTask .blGr > div {width:220px;margin:0 auto;float:none;}
 .ArtTask.Mob .aTask .blGr img {}
 .ArtTask.Mob .aTask .blGr h7 {width:130px;margin:24px 0 0 15px;padding:0;}
+
+/*=============*/
+@media (min-width: 900px) {	
+.WyChng .RoImgs > div > * {display:inline-block;float:left;}
+.WyChng .RoImgs > div {min-width:250px;}
+.WyChng .RoImgs .RoDescr {text-align:left;width:calc(96% - 120px);margin:37px 0 0 20px;}}
+
+.WyChng .RoImgs > div {display:inline-block;
+	width:calc(96%/3);
+	min-width:150px;
+	margin:15px 0;}
+.WyChng .RoImgs > div > * {margin: 0 auto;	box-sizing: border-box;}
+.WyChng .RoImgs .RoImg {border-radius:100px;width:100px;height:100px;}
+.WyChng .RoImgs img{margin: 20px 0;}
+.WyChng .RoImgs .RoDescr {
+	margin-top: 15px;
+	width: 120px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 18px;}
 /*=============*/
 
 .Tarf .Boxes > div {
@@ -313,9 +406,31 @@ background-size: 100% 50%;}
 	font-size: 16px;
 	font-weight: 700;
 	line-height: 19px;}
+.NewS .Boxes .flNote {
+	position:absolute;
+	width:90%;
+	z-index: 10;
+	bottom:95px;left:0;
+	padding:14px;
+	border-radius: 15px;
+	transform-origin:0 100%;
+	transform:scale(0.1);
+	transition-duration:0.3s;}
+.NewS .Boxes button.ClouTun::before {
+	position:absolute;
+	z-index: 8;
+	bottom:60px;left:12px;
+	content: '';
+	width:20px;height:20px;
+	background: linear-gradient(90deg, #E61386 0%, #842186 100%);
+	border: none;
+	border-bottom: 2px solid #E61386;
+	border-left: 2px solid #E61386;
+	box-shadow: 0 0 10px 1px #E61386;
+	transform:rotate(-45deg);
+	}
 
-.NewS .Boxes > div {border-radius: 0;}
-.NewS .Boxes > div {height: 516px;}
+.NewS .Boxes > div {height:516px;border-radius:0;}
 .NewS .Boxes > div > div > img {margin-top:30px;}
 .NewS .Boxes > div > div > * {display:block;float:none;}
 .NewS .Boxes > div > div > div {text-align:left;font-family: 'Raleway', sans-serif;}
@@ -339,12 +454,11 @@ background-size: 100% 50%;}
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 16px;}
-.NewS .Boxes button {height: 50px;width: 50px;left:calc((100% - 300px)/2);}
+.NewS .Boxes button {height: 50px;width: 50px;left:35px;}
 
-.LMapD {float:right;
-	width: 244px;
-	height: 186px;
-}
+.LodM {position: relative;}
+.LMap {overflow:auto;}
+.LMapD {float:right;width:244px;height:186px;position:absolute;bottom:20px;right:0;}
 .LMapD>div>div {width:30px;height:7px;border-radius:10px;float:left;margin:7px 9px 0 0;}
 .LMapD>div>img {float:left;margin:4px 15px 0 6px;}
 .LMapD>div:nth-of-type(1)>div {background: #DD137B;}
@@ -364,19 +478,6 @@ line-height: 24px;
 letter-spacing: 0em;
 text-align: left;
 }
-
-/*
-		<div class="clearFlow">
-				<div class="LMap">
-					<h2>Logistic map</h2>
-					<img src="assets/images/LMap.png">
-				</div>
-				<div class="LMapD">
-					<div><div></div><h6>Silk Road economic bolt</h6></div>
-					<div><div></div><h6>Maritime Silk Road of the 21” century</h6></
-					*/
-
-
 
 .Contacts {margin-bottom: 30px;}
 .Contacts .wrap3 .pnkGrad {min-height:80px;border-radius:10px;text-align:left;padding:19px 50px 0 50px;box-sizing: border-box;}
