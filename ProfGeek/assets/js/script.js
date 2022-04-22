@@ -1,6 +1,12 @@
-/* бургер-меню в заголовке*/
-
+/*
+let wrapRu = document.getElementById('wrapRu');
+let wrapEng = document.getElementById('wrapEng');
+let wrapTur = document.getElementById('wrapTur');
+let wrapChina = document.getElementById('wrapChina');
+*/
+/* бургер-меню в заголовке --->>> */
 let burgerBut = document.getElementById('burgerBut');
+let selBut = document.getElementById('selBut');
 burgerBut.onclick = function() {
 		
 	let blur = document.createElement("div");
@@ -9,7 +15,6 @@ burgerBut.onclick = function() {
 	let burgerClos = document.getElementById('burgerClos');
 	let burgMHead = document.getElementById('burgMHead');
 	let burgMList = document.getElementById('burgMList');
-	let selBut = document.getElementById('selBut');
 	let heIt = document.getElementById('heIt');
 	
 	function burgMenClos() {
@@ -38,8 +43,71 @@ burgerBut.onclick = function() {
 	let aburdL = burgMList.querySelectorAll("a");
 	for (var i = 0; i < aburdL.length; i++) {aburdL[i].onclick = function() { burgMenClos();}}
 }
-/* бургер-меню в заголовке*/
-let dWidth = 10000; /*заведомо большая ширина*/
+/* >>>--- бургер-меню в заголовке*/
+/* выпадающее-меню в заголовке --->>> */
+let selButMenu = document.createElement("div");
+selBut.append(selButMenu);
+let selButMenuItm1 = document.createElement("div");
+let selButMenuItm2 = document.createElement("div");
+let selButMenuItm3 = document.createElement("div");
+let selButMenuItm4 = document.createElement("div");
+let selButMenuItm11 = document.createElement("div");
+let selButMenuItm21 = document.createElement("div");
+let selButMenuItm31 = document.createElement("div");
+let selButMenuItm41 = document.createElement("div");
+selButMenuItm11.innerHTML = 'Ru';
+selButMenuItm21.innerHTML = 'Eng';
+selButMenuItm31.innerHTML = 'Tur';
+selButMenuItm41.innerHTML = 'China';
+selButMenu.append(selButMenuItm1);
+selButMenu.append(selButMenuItm2);
+selButMenu.append(selButMenuItm3);
+selButMenu.append(selButMenuItm4);
+selButMenuItm1.append(selButMenuItm11);
+selButMenuItm2.append(selButMenuItm21);
+selButMenuItm3.append(selButMenuItm31);
+selButMenuItm4.append(selButMenuItm41);
+let MenBut = selBut.querySelectorAll("button");
+function selMeOff() {
+	selButMenu.style.transform = 'scaleY(0.1)';
+	setTimeout(function(){selButMenu.style.display = null;}, 300);}
+function selMeOn() {
+	selButMenu.style.display = 'block';
+	setTimeout(function(){selButMenu.style.transform = 'scaleY(1)';}, 10);}
+function selMeTogg() {if (selButMenu.style.display == 'block'){selMeOff();} else {selMeOn();}}
+MenBut[0].onclick = function() { selMeTogg();event.stopPropagation();};	
+function ChgSelButM(itm) {MenBut[0].innerHTML = MenBut[0].innerHTML.slice(0, (MenBut[0].innerHTML.indexOf('>', 0) + 1)) + itm.innerText;}
+selButMenuItm1.onclick = function() {ChgSelButM(this);window.location.href = 'index.html';};
+selButMenuItm2.onclick = function() {ChgSelButM(this);window.location.href = 'index-Eng.html';};
+selButMenuItm3.onclick = function() {ChgSelButM(this);window.location.href = 'index-Tur.html';};
+selButMenuItm4.onclick = function() {ChgSelButM(this);window.location.href = 'index-China.html';};
+document.addEventListener("click", function() { selMeOff();});
+
+/*window.location.href = 'URL2';*/
+/* >>>--- выпадающее-меню в заголовке*/
+
+let MainServ = document.querySelectorAll(".MainServ");
+for (let i = 0; i < MainServ.length; i++) {
+	let MainSer = MainServ[i];
+	let MSLogi = document.getElementById('MSLogi');
+	let MSBuy = document.getElementById('MSBuy');
+	let MSLogist = document.getElementById('MSLogist');
+	let MSBuyer = document.getElementById('MSBuyer');
+	function MSLogiON() {
+		MSLogi.style.background = '#1A1B20';
+		MSBuy.style.background = null;
+		MSLogist.style.display = null;
+		MSBuyer.style.display = 'none';	}
+	function MSBuyON() {
+		MSLogi.style.background = null;
+		MSBuy.style.background = '#1A1B20';
+		MSLogist.style.display = 'none';
+		MSBuyer.style.display = null;}
+	MSLogi.onclick = function() { MSLogiON();}
+	MSBuy.onclick = function() { MSBuyON();}
+	MSLogiON()
+}
+
 let ArtTask = document.querySelectorAll(".LogTask .ArtTask");
 for (var i = 0; i < ArtTask.length; i++) {
 	let div1Cnt = ArtTask[i].querySelectorAll(".div1Cnt");
@@ -56,9 +124,8 @@ for (var i = 0; i < ArtTask.length; i++) {
 					div2Task[1].prepend(aTask[4]);
 					div2Task[1].prepend(aTask[3]);
 					ArtTaskN.classList.remove("tabLet");
-					ArtTaskN.classList.add("Mob");
-				}
-			break;
+					ArtTaskN.classList.add("Mob");	}
+				break;
 			case (document.body.scrollWidth < 1040):
 				if (!(ArtTaskN.classList.contains("tabLet"))) {
 					div2Arr[1].prepend(Arr[2]);
@@ -67,9 +134,8 @@ for (var i = 0; i < ArtTask.length; i++) {
 					div2Task[1].prepend(aTask[4]);
 					div2Task[1].prepend(aTask[5]);
 					ArtTaskN.classList.remove("Mob");
-					ArtTaskN.classList.add("tabLet");
-				}
-			break;
+					ArtTaskN.classList.add("tabLet");	}
+				break;
 			default:
 				if ((ArtTaskN.classList.contains("tabLet"))||(ArtTaskN.classList.contains("Mob"))) {
 					div2Arr[0].append(Arr[2]);
@@ -78,10 +144,43 @@ for (var i = 0; i < ArtTask.length; i++) {
 					div2Task[0].append(aTask[4]);
 					div2Task[0].append(aTask[5]);
 					ArtTaskN.classList.remove("Mob");
-					ArtTaskN.classList.remove("tabLet");
-				}
-			}
+					ArtTaskN.classList.remove("tabLet");	}
+		}
 	}
 	window.addEventListener('resize', function() { resAct();});
 	resAct();
 }
+
+let NewS = document.querySelectorAll(".NewS");
+for (let i = 0; i < NewS.length; i++) {
+	let flNoteS = NewS[i].querySelectorAll(".flNote");
+	let NewsButtnS = NewS[i].querySelectorAll("button.pnkGrad");
+
+	function flNoteOFF() {for (var i = 0; i < flNoteS.length; i++) {
+		NewsButtnS[i].classList.remove("ClouTun");
+		flNoteS[i].style.display = 'none';
+		flNoteS[i].style.transform = null;
+		}}
+	flNoteOFF();
+	for (let i = 0; i <  NewsButtnS.length; i++) {
+		NewsButtnS[i].onclick = function() {
+			if (!(NewsButtnS[i].classList.contains("ClouTun"))) {
+				flNoteOFF();
+				NewsButtnS[i].classList.add("ClouTun");
+				flNoteS[i].style.display = null;
+				setTimeout(function(){ flNoteS[i].style.transform = 'scale(1)', 10;});
+			} else {
+				flNoteS[i].style.display = 'none';
+				NewsButtnS[i].classList.remove("ClouTun");
+			}
+			event.stopPropagation();
+		}
+	}
+	document.addEventListener("click", function() { flNoteOFF();});
+}
+
+/*
+wrapEng.style.display = 'none';
+wrapTur.style.display = 'none';
+wrapChina.style.display = 'none';
+*/
