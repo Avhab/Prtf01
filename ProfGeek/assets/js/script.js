@@ -82,9 +82,50 @@ selButMenuItm2.onclick = function() {ChgSelButM(this);window.location.href = 'in
 selButMenuItm3.onclick = function() {ChgSelButM(this);window.location.href = 'index-Tur.html';};
 selButMenuItm4.onclick = function() {ChgSelButM(this);window.location.href = 'index-China.html';};
 document.addEventListener("click", function() { selMeOff();});
-
-/*window.location.href = 'URL2';*/
 /* >>>--- выпадающее-меню в заголовке*/
+/* чат --->>> */
+let BigBut = document.querySelectorAll('.BigBut');
+let Chat = document.getElementById('Chat');
+let ChatBody = document.getElementById('ChatBody');
+let ChatMess = document.getElementById('ChatMess');
+let button = ChatMess.querySelectorAll('button');
+let input = ChatMess.querySelectorAll('input');
+input = input[0];
+input.value = '';
+function OpnChat() {
+	Chat.style.display = 'block';
+	input.focus();
+	setTimeout(function(){ Chat.style.transform = 'scale(1)';}, 10);}
+function ClsChat() {
+	setTimeout(function(){ Chat.style.display = null;}, 250);
+	Chat.style.transform = null;}
+for (let i = 0; i < BigBut.length; i++) {
+	BigBut[i].onclick = function() {
+		if (Chat.style.display == 'block') {ClsChat();} else {OpnChat();}
+		event.stopPropagation();
+		}	}
+Chat.onclick = function() {event.stopPropagation();}
+
+input.onchange = function() {
+	let MesCli = document.createElement("div");
+	MesCli.className = 'MesCli pnkGrad';
+		MesCli.innerHTML = input.value;
+		input.value = '';
+		ChatBody.append(MesCli);
+		ChatBody.scrollTop = ChatBody.scrollHeight - ChatBody.clientHeight;
+		setTimeout(function(){input.focus();}, 100);
+		/* тестовый ответ оператора --->>> */
+			setTimeout(function(){ 
+			let MesOpr = document.createElement("div");
+			MesOpr.className = 'MesOpr bluGrad';
+			MesOpr.innerHTML = "Здравствуйте, Вы всегда можете задать нам интересующий Вас вопрос.";
+			ChatBody.append(MesOpr);
+			ChatBody.scrollTop = ChatBody.scrollHeight - ChatBody.clientHeight;
+				}, 400);
+		/* >>>--- тестовый ответ оператора */
+}
+document.addEventListener("click", function() {if (Chat.style.display == 'block') {ClsChat();}});
+/*  >>>--- чат */
 
 let MainServ = document.querySelectorAll(".MainServ");
 for (let i = 0; i < MainServ.length; i++) {
@@ -156,27 +197,23 @@ for (let i = 0; i < NewS.length; i++) {
 	let flNoteS = NewS[i].querySelectorAll(".flNote");
 	let NewsButtnS = NewS[i].querySelectorAll("button.pnkGrad");
 
-	function flNoteOFF() {for (var i = 0; i < flNoteS.length; i++) {
-		NewsButtnS[i].classList.remove("ClouTun");
-		flNoteS[i].style.display = 'none';
-		flNoteS[i].style.transform = null;
-		}}
-	flNoteOFF();
+	function flNotTog(thisNBut) {
+		for (let i = 0; i <  NewsButtnS.length; i++) {
+			if (NewsButtnS[i]==thisNBut) {
+				thisNBut.classList.add("ClouTun");
+				flNoteS[i].style.display = 'block';
+				setTimeout(function(){ flNoteS[i].style.transform = 'scale(1)';}, 10);					
+			} else {
+				if (NewsButtnS[i].classList.contains("ClouTun")) {
+					NewsButtnS[i].classList.remove("ClouTun");
+					flNoteS[i].style.transform = 'scale(0.1)';
+					setTimeout(function(){ flNoteS[i].style.display = null;}, 250);	}	}	}	}
+
 	for (let i = 0; i <  NewsButtnS.length; i++) {
 		NewsButtnS[i].onclick = function() {
-			if (!(NewsButtnS[i].classList.contains("ClouTun"))) {
-				flNoteOFF();
-				NewsButtnS[i].classList.add("ClouTun");
-				flNoteS[i].style.display = null;
-				setTimeout(function(){ flNoteS[i].style.transform = 'scale(1)', 10;});
-			} else {
-				flNoteS[i].style.display = 'none';
-				NewsButtnS[i].classList.remove("ClouTun");
-			}
-			event.stopPropagation();
-		}
-	}
-	document.addEventListener("click", function() { flNoteOFF();});
+			flNotTog(this);
+			event.stopPropagation();}	}
+	document.addEventListener("click", function() { flNotTog();});
 }
 
 /*
