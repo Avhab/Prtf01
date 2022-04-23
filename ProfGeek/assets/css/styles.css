@@ -192,13 +192,101 @@ header #burgerBut{display:inline-block;}}
 	font-weight: 700;
 	line-height: 21px;
 }
-@media (max-width: 850px) {	
+@media (max-width: 610px) {	
 .title .titTxt {text-align: center;max-width:none;}
 .title .BigBut {margin-top: 50px;}
 .title .titImg {max-width:none;}
 .title .titImg img {width:100%;}
 .title, .title > * {position: static;display:inline-block;}}
+/*=============*/
+#Chat {
+	display:none;
+	position:fixed;
+	z-index:100;
+	bottom:0;right:0;
+	width:500px;
+	height:700px;
+	background: #1A1B20;
+	border: 15px solid #767881;
+	transform-origin:50% 50%;
+	transform:scale(0.1);
+	transition-duration:0.3s;}
+@media (max-width: 850px) { #Chat {width:90%;height:80%;}}
+#Chat .ChatHead, #ChatMess{
+	width:100%;
+	height:60px;
+	background: #2A2C34;
+	box-sizing: border-box;}
+#Chat .ChatHead {padding-top:13px;}
+#ChatBody {
+	display:inline-block;
+	position:absolute;
+	left:0;bottom:60px;
+	width:100%;
+	height:calc(100% - 120px);
+	overflow:auto;}
+#ChatMess {position:absolute;bottom:0;}
+#Chat .MesOpr {float:left;}
+#Chat .MesCli {float:right;background: linear-gradient(-90deg, #E61386 0%, #842186 100%);}
+#Chat .MesOpr, #Chat .MesCli {
+	position:relative;
+	width:80%;
+	box-sizing: border-box;
+	padding:15px;
+	margin: 15px 30px;
+	border-radius: 10px;
+	text-align:left;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 26px;}
+#ChatMess input, #ChatMess button{display:inline-block;float:left;height:60px;}
+#ChatMess input{
+	border:0;padding:0;
+	outline:none;
+	background: #2A2C34;
+	width:calc(100% - 60px);
+	box-sizing: border-box;
+	padding:10px;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 26px;}
+#ChatMess button{width:60px;}
 
+#Chat .MesOpr::before {
+	position:absolute;
+	z-index: -2;
+	bottom:-22px;left:0px;
+	content: '';
+	width:20px;height:35px;
+	background: #1BAAE6;
+	box-shadow: 0 0 10px 1px #1BAAE6;}
+#Chat .MesCli::before {
+	position:absolute;
+	z-index: -2;
+	bottom:-22px;right:0px;
+	content: '';
+	width:20px;height:35px;
+	background: #E61386;
+	box-shadow: 0 0 10px 1px #E61386;}
+#Chat .MesOpr::after {
+	position:absolute;
+	z-index: -1;
+	bottom:-37px;left:1px;
+	content: '';
+	width:30px;height:35px;
+	border-radius:20px 0 0 0;
+	background: #1A1B20;}
+#Chat .MesCli::after {
+	position:absolute;
+	z-index: -1;
+	bottom:-37px;right:1px;
+	content: '';
+	width:30px;height:35px;
+	border-radius:0 20px 0 0;
+	background: #1A1B20;}
 /*=============*/
 .AboutUs {text-align:left;}
 .AboutUs h2 {margin-bottom:40px;}
@@ -407,6 +495,7 @@ background-size: 100% 50%;}
 	font-weight: 700;
 	line-height: 19px;}
 .NewS .Boxes .flNote {
+display:none;
 	position:absolute;
 	width:90%;
 	z-index: 10;
