@@ -47,7 +47,7 @@ h7 {
 	letter-spacing: 0em;
 }
 
-body {text-align: center;}
+body {text-align: center;background: #2B2C34;}
 .wrap1 {
 	display: block;
 	position: relative;
@@ -206,18 +206,26 @@ header #burgerBut{display:inline-block;}}
 	bottom:0;right:0;
 	width:500px;
 	height:700px;
+	box-sizing: border-box;
 	background: #1A1B20;
 	border: 15px solid #767881;
 	transform-origin:50% 50%;
 	transform:scale(0.1);
 	transition-duration:0.3s;}
-@media (max-width: 850px) { #Chat {width:90%;height:80%;}}
-#Chat .ChatHead, #ChatMess{
+@media (max-width: 850px) { #Chat {width:100%;height:100%;}}
+#ChatHead, #ChatMess{
 	width:100%;
 	height:60px;
 	background: #2A2C34;
 	box-sizing: border-box;}
-#Chat .ChatHead {padding-top:13px;}
+#ChatHead h3, #ChatHead button{display:inline-block;float:left;height:60px;}
+#ChatHead h3{
+	background: #2A2C34;
+	width:calc(100% - 60px);
+	box-sizing: border-box;
+	padding:18px;}
+#ChatHead button{width:60px;}
+
 #ChatBody {
 	display:inline-block;
 	position:absolute;
@@ -502,7 +510,7 @@ display:none;
 	bottom:95px;left:0;
 	padding:14px;
 	border-radius: 15px;
-	transform-origin:0 100%;
+	transform-origin:13% 100%;
 	transform:scale(0.1);
 	transition-duration:0.3s;}
 .NewS .Boxes button.ClouTun::before {
