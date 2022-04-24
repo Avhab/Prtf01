@@ -86,6 +86,7 @@ document.addEventListener("click", function() { selMeOff();});
 /* чат --->>> */
 let BigBut = document.querySelectorAll('.BigBut');
 let Chat = document.getElementById('Chat');
+let ChatClose = document.getElementById('ChatClose');
 let ChatBody = document.getElementById('ChatBody');
 let ChatMess = document.getElementById('ChatMess');
 let button = ChatMess.querySelectorAll('button');
@@ -105,7 +106,7 @@ for (let i = 0; i < BigBut.length; i++) {
 		event.stopPropagation();
 		}	}
 Chat.onclick = function() {event.stopPropagation();}
-
+ChatClose.onclick = function() {ClsChat();}
 input.onchange = function() {
 	let MesCli = document.createElement("div");
 	MesCli.className = 'MesCli pnkGrad';
@@ -205,9 +206,9 @@ for (let i = 0; i < NewS.length; i++) {
 				setTimeout(function(){ flNoteS[i].style.transform = 'scale(1)';}, 10);					
 			} else {
 				if (NewsButtnS[i].classList.contains("ClouTun")) {
-					NewsButtnS[i].classList.remove("ClouTun");
 					flNoteS[i].style.transform = 'scale(0.1)';
-					setTimeout(function(){ flNoteS[i].style.display = null;}, 250);	}	}	}	}
+					setTimeout(function(){ flNoteS[i].style.display = null;}, 250);
+					setTimeout(function(){ NewsButtnS[i].classList.remove("ClouTun");}, 170);}	}	}	}
 
 	for (let i = 0; i <  NewsButtnS.length; i++) {
 		NewsButtnS[i].onclick = function() {
