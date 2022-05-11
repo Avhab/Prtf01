@@ -166,7 +166,7 @@ line-height: 15px;
 letter-spacing: 0em;
 text-align: left;
 color:#C0C2C5;}
-header .Cred .sumRang>*, header .Cred .timRang>*{width:30%;display:inline-block;}
+header .Cred .sumRang>*, header .Cred .timRang>*{width:49%;display:inline-block;}
 header .Cred .sumRang>*:nth-child(1), header .Cred .timRang>*:nth-child(1){float:left;}
 header .Cred .sumRang>*:nth-child(2), header .Cred .timRang>*:nth-child(2){float:right;text-align:right;}
 header .Cred input[type=range] {width:100%;}
