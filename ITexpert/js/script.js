@@ -1,10 +1,9 @@
 /*	<div class="portFl">
 		<button class="butnL"><img src="images/butArL.png"></button>
 		<button class="butnR"><img src="images/butArR.png"></button>
-		<div class="scrlInd"></div>
 		<div class="itemS06">
 			<div class="item06">
-				<h1>Судебная оценочная экспертизы</h1>
+				<h1>Судебная оценочная экспертизы 00</h1>
 				<h2>Место проведения работы:</h2>
 				<h3>Московская область.</h3>
 				<h2>Объект:</h2>
@@ -15,6 +14,7 @@
 				<h3>На основании натурного осмотра объекта экспертизы, изучения рынка недвижимости аналогичного исследуемому, а  также применении необходимых корректировок, определена рыночная стоимость арендной платы за пользование частью земельного участка пропорционально площади помещений в здании.</h3>
 			</div>
 		</div>
+		<div class="scrlInd"></div>
 	</div>
 */
 
@@ -23,50 +23,44 @@ for (let i = 0; i < portFl.length; i++) {
 	let butnL = portFl[i].querySelectorAll(".butnL");butnL=butnL[0];//кнопка переключения влево
 	let butnR = portFl[i].querySelectorAll(".butnR");butnR=butnR[0];//кнопка переключения вправо
 	let scrlInd = portFl[i].querySelectorAll(".scrlInd");scrlInd=scrlInd[0];//контейнер элементов-индикаторов
-	let item06 = portFl[i].querySelectorAll(".item06");//элементы переключения - слайды
-	let itmQan = item06.length; //количество элементов переключения
+	let prtfItem = portFl[i].querySelectorAll(".prtfItem");//элементы переключения - слайды
+	let itmQan = prtfItem.length; //количество элементов переключения
 	let itmOn = 0; //индекс включенного элемента
 
-	function SwSl(Nm) {  //если номер нового слайда больше старого, исчезновение влево, появление справа
-		if (Nm > itmOn) {
-/*			item06[itmOn].style.transformOrigin = 'left bottom';
-			item06[itmOn].style.transform = 'scale(0.1)';
-			setTimeout( function() { item06[itmOn].style.display = 'none'; }, 300);
-			item06[Nm].style.transformOrigin = 'right bottom';
-			item06[Nm].style.transform = 'scale(0.1)';
-			item06[Nm].style.transform = 'scale(1)';*/
-			item06[itmOn].style.display = 'none';
-			item06[Nm].style.display = null;
+	function SwSl(Nm, Dr) {  //если номер нового слайда больше старого, исчезновение влево, появление справа
+		if (Dr=='L') {
+			prtfItem[itmOn].style.transformOrigin = 'left bottom';
+			prtfItem[itmOn].style.transform = 'translate(-200px) scaleX(0.1)';
+			prtfItem[Nm].style.transformOrigin = 'right bottom';
+			prtfItem[Nm].style.transform = ' translate(200px) scaleX(0.1)';
 		} else {
-/*			item06[itmOn].style.transformOrigin = 'right bottom';
-			item06[itmOn].style.transform = 'scale(0.1)';
-			item06[Nm].style.transformOrigin = 'left bottom';
-			item06[Nm].style.transform = 'scale(0.1)';
-			setTimeout(function(){ item06[Nm].style.transform = 'scale(1)';}, 320);
-			item06[Nm].style.transform = 'scale(1)';*/
-			item06[itmOn].style.display = 'none';
-			item06[Nm].style.display = null;
+			prtfItem[itmOn].style.transformOrigin = 'right bottom';
+			prtfItem[itmOn].style.transform = ' translate(200px) scaleX(0.1)';
+			prtfItem[Nm].style.transformOrigin = 'left bottom';
+			prtfItem[Nm].style.transform = ' translate(-200px) scaleX(0.1)';
 		}
+		setTimeout( function() { prtfItem[itmOn].style.display = 'none';}, 200);
+		setTimeout( function() { prtfItem[Nm].style.display = null; }, 210);
+		setTimeout( function() { prtfItem[Nm].style.transform = 'scaleX(1) translate(0)'; }, 220);
+		setTimeout( function() { itmOn = Nm; }, 250);
 		for (let i = 0; i < itmQan; i++) {
 			if (i==Nm) {IndPoint[i].style.background = '#0057B3';
 				}else{	IndPoint[i].style.background = null;}	}
-		itmOn = Nm;
-	}
+		}
 
 
-	for (let i = 0; i < item06.length; i++) {
+	for (let i = 0; i < prtfItem.length; i++) {
 		let IPnt = document.createElement("button");
 		scrlInd.append(IPnt); //создаем индикаторы - для каждого элемента
-		IPnt.onclick = function(){SwSl(i);};	}
-
-	butnL.onclick = function(){	if (itmOn>0) {SwSl(itmOn - 1);}else{SwSl(itmQan - 1);}};
-	butnR.onclick = function(){	if (itmOn<(itmQan - 1)) {SwSl(itmOn + 1);}else{SwSl(0);}};
+		IPnt.onclick = function(){if (i > itmOn){SwSl(i, 'R');}else{SwSl(i, 'L');}	};	}
+	butnL.onclick = function(){if(itmOn==0){SwSl((itmQan-1), 'L');}else{SwSl((itmOn-1), 'L');}	};
+	butnR.onclick = function(){if(itmOn < (itmQan - 1)){SwSl((itmOn+1), 'R');}else{SwSl(0, 'R');}	};
 
 	let IndPoint = scrlInd.querySelectorAll("button");
 		
 	for (let i = 0; i < itmQan; i++) {
-		if (i==itmOn) {IndPoint[i].style.background = '#0057B3';item06[i].style.display = null;
-			}else{	IndPoint[i].style.background = null;item06[i].style.display = 'none';}	}
+		if (i==itmOn) {IndPoint[i].style.background = '#0057B3';prtfItem[i].style.display = null;
+			}else{	IndPoint[i].style.background = null;prtfItem[i].style.display = 'none';}	}
 }
 
 
