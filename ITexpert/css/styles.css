@@ -3,8 +3,7 @@
 
 body {font-family: 'Futura New', sans-serif;text-align: center;}
 body>* {width:100%;margin:0 auto;}
-.wrap1 {display:inline-block;max-width:1900px;
-box-sizing:border-box;margin:0 auto;padding:0 5px;
+.wrap1 {display:inline-block;max-width:1900px;margin:0 auto;padding:0 5px;overflow:hidden;
 text-align:center;color: rgba(67, 67, 67, 1);}
 .wrap1 * {display: inline-block;}
 
@@ -45,7 +44,6 @@ background: linear-gradient(90deg, #FF9C00 0%, #FFAA1A 100%);}
 	letter-spacing: 0em;
 	text-align: left;}
 @media (max-width: 1450px) { .item01 {width:100%;}}
-
 .whatQue {position:relative;text-align:left;width:100%;margin-bottom:0;}
 .whatQue .decor {width:50px;top:0;}
 .whatQue .txt {
@@ -99,10 +97,9 @@ box-shadow: 0px 4px 16px rgba(67, 67, 67, 0.25);}
 font-size: 30px;font-weight: 400;line-height: 36px;}
 @media (max-width: 1000px) {
 .desc01 {width:100%;padding:10px 0;min-width:10px;min-height:10px;}
-.item03 {width:calc(100% - 40px);}
+.item03 {width:calc(100% - 40px);}}
 
-
-}
+/*===========================*/
 
 .pri1, .pri2 {width:50%;}
 .pri1 {float:left;}
@@ -220,16 +217,17 @@ font-size:30px;font-weight:450;line-height:37px;text-align:left;}
 .modlScrol>div button {top:319px;width:317px;}}
 
 .cnslt1 {max-width:1020px;float:left;}
-.cnslt2 {width:610px;float:right;}
+.cnslt2 {max-width:610px;float:right;}
+.cnslt2 img {width:100%;}
 .desCnslt {float:left;max-width:792px;margin:0 0 34px 0;
 font-size:36px;font-weight:400;line-height:43px;text-align:left;}
 .inpDiv {margin:0 24px 20px 0;float:left;
-width:486px;height:70px;border:1px solid #B3B3B3;border-radius:5px;
+width:100%;max-width:486px;height:70px;border:1px solid #B3B3B3;border-radius:5px;
 padding:17px 20px;box-sizing:border-box;}
 .inpDiv img{margin:6px 20px 11px 0;float:left;}
 .inpDiv input, .inpDiv label{border:none;
 font-family:'Futura New';font-size:24px;font-weight:400;line-height:29px;color:#434343;float:left;}
-.inpDiv.inpFile input { opacity:0;visibility:hidden;position:absolute;}
+.inpDiv.inpFile input { opacity:0;visibility:hidden;width:80%;position:absolute;left:0;}
 .Ofrt {width:calc(100% - 24px);float:left;
 font-size:24px;font-weight:400;line-height:24px;text-align:left;}
 .Ofrt>* {float:left;}
@@ -239,8 +237,7 @@ font-size:24px;font-weight:400;line-height:24px;text-align:left;}
 .Ofrt>div>div {display:block;}
 .Ofrt>div>div:nth-child(2) {color: rgba(0, 87, 179, 1);}
 .Ofrt .butBlu {width:244px;height:64px;}
-@media (max-width: 600px) {.Ofrt>* {float:none;}}
-
+@media (max-width: 650px) {.Ofrt>* {float:none;}}
 .QueS {max-width:1300px;}
 .Qitem {width:100%;box-sizing:border-box;padding:0 10px;
 margin-bottom:50px;border-left:8px solid #FFAA1A;}
@@ -251,7 +248,6 @@ margin-bottom:50px;border-left:8px solid #FFAA1A;}
 .Qhead:hover {cursor: pointer;}
 .Qtxt {font-size:30px;font-weight:400;line-height:40px;text-align:left;}
 .Qtxt.Qhidn {display:none;}
-
 
 .clearFlow:after {
    content: '';
