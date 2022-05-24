@@ -16,52 +16,74 @@
 		</div>
 		<div class="scrlInd"></div>
 	</div>
+
+*/
+	
+/*	setTimeout( function() {
+		ScrlCont.scrollTo({left: (scrlStep*2), behavior: 'smooth'});
+		setTimeout( function() {alert(ScrlCont.scrollLeft);}, 500);
+/*		ScrlElem[2].scrollIntoView(
+		{behavior: 'smooth',block: 'start'}, 0)
+/* 		ScrlCont.scrollBy(slft, 0);
+/*		ScrlCont.scrollBy({slft, behavior: 'smooth'}, 0);
+/*		ScrlCont.scrollTo(slft/8, 0);
+		}, 1000);
+alert(ScrlCont.scrollLeft);
 */
 
-let portFl = document.querySelectorAll(".portFl");//элемент переключения
-for (let i = 0; i < portFl.length; i++) {
-	let butnL = portFl[i].querySelectorAll(".butnL");butnL=butnL[0];//кнопка переключения влево
-	let butnR = portFl[i].querySelectorAll(".butnR");butnR=butnR[0];//кнопка переключения вправо
-	let scrlInd = portFl[i].querySelectorAll(".scrlInd");scrlInd=scrlInd[0];//контейнер элементов-индикаторов
-	let prtfItem = portFl[i].querySelectorAll(".prtfItem");//элементы переключения - слайды
-	let itmQan = prtfItem.length; //количество элементов переключения
+
+let HorScrl = document.querySelectorAll(".HorScrl");//элемент переключения
+for (let i = 0; i < HorScrl.length; i++) {
+	let butnL = HorScrl[i].querySelectorAll(".butnL");butnL=butnL[0];//кнопка переключения влево
+	let butnR = HorScrl[i].querySelectorAll(".butnR");butnR=butnR[0];//кнопка переключения вправо
+	let ScrlCont = HorScrl[i].querySelectorAll(".ScrlCont");ScrlCont=ScrlCont[0];//контейнер элементов-скролла
+	let ScrlElem = HorScrl[i].querySelectorAll(".ScrlElem");//элементы переключения - слайды
+	let scrlInd = HorScrl[i].querySelectorAll(".scrlInd");scrlInd=scrlInd[0];//контейнер элементов-индикаторов
+	let IndPoint;
+	let itmQan = ScrlElem.length; //количество элементов переключения
 	let itmOn = 0; //индекс включенного элемента
-
-	function SwSl(Nm, Dr) {  //если номер нового слайда больше старого, исчезновение влево, появление справа
-		if (Dr=='L') {
-			prtfItem[itmOn].style.transformOrigin = 'left bottom';
-			prtfItem[itmOn].style.transform = 'translate(-200px) scaleX(0.1)';
-			prtfItem[Nm].style.transformOrigin = 'right bottom';
-			prtfItem[Nm].style.transform = ' translate(200px) scaleX(0.1)';
-		} else {
-			prtfItem[itmOn].style.transformOrigin = 'right bottom';
-			prtfItem[itmOn].style.transform = ' translate(200px) scaleX(0.1)';
-			prtfItem[Nm].style.transformOrigin = 'left bottom';
-			prtfItem[Nm].style.transform = ' translate(-200px) scaleX(0.1)';
-		}
-		setTimeout( function() { prtfItem[itmOn].style.display = 'none';}, 200);
-		setTimeout( function() { prtfItem[Nm].style.display = null; }, 210);
-		setTimeout( function() { prtfItem[Nm].style.transform = 'scaleX(1) translate(0)'; }, 220);
-		setTimeout( function() { itmOn = Nm; }, 250);
-		for (let i = 0; i < itmQan; i++) {
-			if (i==Nm) {IndPoint[i].style.background = '#0057B3';
-				}else{	IndPoint[i].style.background = null;}	}
-		}
-
-
-	for (let i = 0; i < prtfItem.length; i++) {
-		let IPnt = document.createElement("button");
-		scrlInd.append(IPnt); //создаем индикаторы - для каждого элемента
-		IPnt.onclick = function(){if (i > itmOn){SwSl(i, 'R');}else{SwSl(i, 'L');}	};	}
-	butnL.onclick = function(){if(itmOn==0){SwSl((itmQan-1), 'L');}else{SwSl((itmOn-1), 'L');}	};
-	butnR.onclick = function(){if(itmOn < (itmQan - 1)){SwSl((itmOn+1), 'R');}else{SwSl(0, 'R');}	};
-
-	let IndPoint = scrlInd.querySelectorAll("button");
-		
-	for (let i = 0; i < itmQan; i++) {
-		if (i==itmOn) {IndPoint[i].style.background = '#0057B3';prtfItem[i].style.display = null;
-			}else{	IndPoint[i].style.background = null;prtfItem[i].style.display = 'none';}	}
-}
+	let scrlStep = ScrlCont.scrollWidth/itmQan; //шаг скроллинга в пикселах
+	function SwSl() {  //скроллинг слайдов и коррекция индикаторов
+		ScrlCont.scrollTo({left: scrlStep*itmOn, behavior: 'smooth'});
+		if (scrlInd) { //если существует контейнер индикаторов-переключателей
+			for (let i = 0; i < itmQan; i++) {
+				if (i==itmOn) {IndPoint[i].style.background = '#0057B3';
+					}else{	IndPoint[i].style.background = null;}	}	}	}
+	if (scrlInd) { //если существует контейнер индикаторов-переключателей
+		for (let i = 0; i < ScrlElem.length; i++) { //создаем в нем индикаторы-переключателей - для каждого слайда
+			let IPnt = document.createElement("button");
+			scrlInd.append(IPnt);
+			IPnt.onclick = function(){itmOn=i;SwSl();};	} //клик на индикаторе вызов функции скроллинга
+		IndPoint = scrlInd.querySelectorAll("button");	}
+	if (butnL) {butnL.onclick = function(){	if(itmOn>0){--itmOn;SwSl();}};}//кнопка переключения влево
+	if (butnR) {butnR.onclick = function(){	if(itmOn<(itmQan - 1)){++itmOn;SwSl();}};}//кнопка переключения вправо
+	//тачскрин
+	let touchStart = null; //Точка начала касания
+	let touchPosition = null; //Текущая позиция
+	let curShift = 0; //текущее смещение тача
+	function TouchStart(e) {//Получаем текущую позицию касания
+		touchStart = { x: e.changedTouches[0].clientX };
+		touchStart = touchStart.x; //запоминаем точку старта
+		touchPosition = touchStart;	}
+	function TouchMove(imG, e) {	//Получаем новую позицию
+		touchPosition = { x: e.changedTouches[0].clientX };
+		touchPosition = touchPosition.x; //запоминаем текущую позицию
+		curShift = (touchStart - touchPosition)*-1;} //текущее перемещение в текущее смещение
+	function TouchEnd(imG)	{ 
+		if (Math.abs(curShift)>(imG.clientWidth/2)) { //порог смещения, выше которого происходит смена слайда
+			if (curShift<0) {if(itmOn<(itmQan - 1)){++itmOn;}
+				} else {if(itmOn>0){--itmOn;}	}	}
+		setTimeout( function() {SwSl();}, 100);// либо просто возврат слайда на свое место
+		curShift = 0; //обнуляем текущее смещение тача
+		touchStart = null; //Точка начала касания
+		touchPosition = null; //Текущая позиция
+	}	
+	ScrlCont.addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
+	ScrlCont.addEventListener("touchmove", function (e) { TouchMove(ScrlCont, e); }); //Движение пальцем по экрану
+	ScrlCont.addEventListener("touchend", function (e) { TouchEnd(ScrlCont); });//Пользователь отпустил экран
+	ScrlCont.addEventListener("touchcancel", function (e) { TouchEnd(ScrlCont); });//Отмена касания
+//тачскрин
+	SwSl();		}
 
 
 /*
