@@ -1,36 +1,5 @@
-/*	<div class="portFl">
-		<button class="butnL"><img src="images/butArL.png"></button>
-		<button class="butnR"><img src="images/butArR.png"></button>
-		<div class="itemS06">
-			<div class="item06">
-				<h1>Судебная оценочная экспертизы 00</h1>
-				<h2>Место проведения работы:</h2>
-				<h3>Московская область.</h3>
-				<h2>Объект:</h2>
-				<h3>Земельный участок, здание магазина.</h3>
-				<h2>Цель работы:</h2>
-				<h3>Определение рыночной стоимости арендной платы за пользование частью земельного участка пропорционально площади помещений в здании, расположенном на участке.</h3>
-				<h2>Итог работы:</h2>
-				<h3>На основании натурного осмотра объекта экспертизы, изучения рынка недвижимости аналогичного исследуемому, а  также применении необходимых корректировок, определена рыночная стоимость арендной платы за пользование частью земельного участка пропорционально площади помещений в здании.</h3>
-			</div>
-		</div>
-		<div class="scrlInd"></div>
-	</div>
-
-*/
-	
-/*	setTimeout( function() {
-		ScrlCont.scrollTo({left: (scrlStep*2), behavior: 'smooth'});
-		setTimeout( function() {alert(ScrlCont.scrollLeft);}, 500);
-/*		ScrlElem[2].scrollIntoView(
-		{behavior: 'smooth',block: 'start'}, 0)
-/* 		ScrlCont.scrollBy(slft, 0);
-/*		ScrlCont.scrollBy({slft, behavior: 'smooth'}, 0);
-/*		ScrlCont.scrollTo(slft/8, 0);
-		}, 1000);
-alert(ScrlCont.scrollLeft);
-*/
-
+/*let testData = document.getElementById("testData");
+/*	testData.textContent = ScrlCont.scrollLeft + " --- " + itmOn;*/
 
 let HorScrl = document.querySelectorAll(".HorScrl");//элемент переключения
 for (let i = 0; i < HorScrl.length; i++) {
@@ -57,31 +26,14 @@ for (let i = 0; i < HorScrl.length; i++) {
 		IndPoint = scrlInd.querySelectorAll("button");	}
 	if (butnL) {butnL.onclick = function(){	if(itmOn>0){--itmOn;SwSl();}};}//кнопка переключения влево
 	if (butnR) {butnR.onclick = function(){	if(itmOn<(itmQan - 1)){++itmOn;SwSl();}};}//кнопка переключения вправо
-	//тачскрин
-	let touchStart = null; //Точка начала касания
-	let touchPosition = null; //Текущая позиция
-	let curShift = 0; //текущее смещение тача
-	function TouchStart(e) {//Получаем текущую позицию касания
-		touchStart = { x: e.changedTouches[0].clientX };
-		touchStart = touchStart.x; //запоминаем точку старта
-		touchPosition = touchStart;	}
-	function TouchMove(imG, e) {	//Получаем новую позицию
-		touchPosition = { x: e.changedTouches[0].clientX };
-		touchPosition = touchPosition.x; //запоминаем текущую позицию
-		curShift = (touchStart - touchPosition)*-1;} //текущее перемещение в текущее смещение
+//тачскрин
 	function TouchEnd(imG)	{ 
-		if (Math.abs(curShift)>(imG.clientWidth/2)) { //порог смещения, выше которого происходит смена слайда
-			if (curShift<0) {if(itmOn<(itmQan - 1)){++itmOn;}
-				} else {if(itmOn>0){--itmOn;}	}	}
-		setTimeout( function() {SwSl();}, 100);// либо просто возврат слайда на свое место
-		curShift = 0; //обнуляем текущее смещение тача
-		touchStart = null; //Точка начала касания
-		touchPosition = null; //Текущая позиция
-	}	
-	ScrlCont.addEventListener("touchstart", function (e) { TouchStart(e); }); //Начало касания
-	ScrlCont.addEventListener("touchmove", function (e) { TouchMove(ScrlCont, e); }); //Движение пальцем по экрану
-	ScrlCont.addEventListener("touchend", function (e) { TouchEnd(ScrlCont); });//Пользователь отпустил экран
-	ScrlCont.addEventListener("touchcancel", function (e) { TouchEnd(ScrlCont); });//Отмена касания
+		setTimeout( function() {
+			itmOn = Math.trunc((ScrlCont.scrollLeft/scrlStep)+0.5);
+			SwSl();}, 1500);	}	
+/*	e.preventDefault();*/
+	ScrlCont.addEventListener("touchend", function (e) { TouchEnd(ScrlCont, e);});//Пользователь отпустил экран
+	ScrlCont.addEventListener("touchcancel", function (e) { TouchEnd(ScrlCont, e);});//Отмена касания
 //тачскрин
 	SwSl();		}
 
