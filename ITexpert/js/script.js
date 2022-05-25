@@ -12,30 +12,40 @@ for (let i = 0; i < HorScrl.length; i++) {
 	let itmQan = ScrlElem.length; //количество элементов переключения
 	let itmOn = 0; //индекс включенного элемента
 	let scrlStep = ScrlCont.scrollWidth/itmQan; //шаг скроллинга в пикселах
-	function SwSl() {  //скроллинг слайдов и коррекция индикаторов
-		ScrlCont.scrollTo({left: scrlStep*itmOn, behavior: 'smooth'});
-		if (scrlInd) { //если существует контейнер индикаторов-переключателей
-			for (let i = 0; i < itmQan; i++) {
-				if (i==itmOn) {IndPoint[i].style.background = '#0057B3';
-					}else{	IndPoint[i].style.background = null;}	}	}	}
+
+	function SwSl() {  //скроллинг слайдов
+		ScrlCont.scrollTo({left: scrlStep*itmOn, behavior: 'smooth'});}
+					
 	if (scrlInd) { //если существует контейнер индикаторов-переключателей
 		for (let i = 0; i < ScrlElem.length; i++) { //создаем в нем индикаторы-переключателей - для каждого слайда
 			let IPnt = document.createElement("button");
 			scrlInd.append(IPnt);
 			IPnt.onclick = function(){itmOn=i;SwSl();};	} //клик на индикаторе вызов функции скроллинга
 		IndPoint = scrlInd.querySelectorAll("button");	}
-	if (butnL) {butnL.onclick = function(){	if(itmOn>0){--itmOn;SwSl();}};}//кнопка переключения влево
-	if (butnR) {butnR.onclick = function(){	if(itmOn<(itmQan - 1)){++itmOn;SwSl();}};}//кнопка переключения вправо
-//тачскрин
-	function TouchEnd(imG)	{ 
-		setTimeout( function() {
-			itmOn = Math.trunc((ScrlCont.scrollLeft/scrlStep)+0.5);
-			SwSl();}, 1500);	}	
-/*	e.preventDefault();*/
-	ScrlCont.addEventListener("touchend", function (e) { TouchEnd(ScrlCont, e);});//Пользователь отпустил экран
-	ScrlCont.addEventListener("touchcancel", function (e) { TouchEnd(ScrlCont, e);});//Отмена касания
-//тачскрин
-	SwSl();		}
+		
+	if (butnL) {butnL.onclick = function(){
+		if(itmOn>0){--itmOn;SwSl();	}	};}//кнопка переключения влево
+	if (butnR) {butnR.onclick = function(){
+		if(itmOn<(itmQan - 1)){	++itmOn;SwSl();	}	};}//кнопка переключения вправо
+	let ScrlTime;
+	let ScrlFlag = false;
+	
+	function AnScroll() {	//Обработка скролла
+		if (!ScrlFlag) {//выполняется, в состоянии движения скролла по инерции
+			let tmp=Math.trunc((ScrlCont.scrollLeft/scrlStep)+0.5)		
+			clearTimeout(ScrlTime);
+			ScrlTime = setTimeout( function() {	itmOn = tmp;SwSl();	}, 100);
+			if ((itmOn!=tmp )&&(scrlInd)) { //если скролл соответствует другому индикатору, и существует контейнер индикаторов-переключателей
+					IndPoint[tmp].style.background = '#0057B3';//корректируем индикаторы
+					IndPoint[itmOn].style.background = null;}
+			itmOn = tmp;}	}
+	ScrlCont.addEventListener("scroll", function (e) { AnScroll(); }); //Обработка скролла
+	ScrlCont.addEventListener("touchstart", function (e) { ScrlFlag = true; }); //Начало касания
+	ScrlCont.addEventListener("touchend", function (e) { ScrlFlag = false; AnScroll(); });//Пользователь отпустил экран
+	
+	SwSl();
+	IndPoint[itmOn].style.background = '#0057B3';
+	}
 
 
 /*
