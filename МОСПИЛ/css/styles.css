@@ -1,0 +1,462 @@
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 300;
+  font-style: normal;
+  src: url(../fonts/Rubik-Light.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/Rubik-Regular.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/Rubik-Medium.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 600;
+  font-style: normal;
+  src: url(../fonts/Rubik-SemiBold.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/Rubik-Bold.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 800;
+  font-style: normal;
+  src: url(../fonts/Rubik-ExtraBold.ttf);}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 900;
+  font-style: normal;
+  src: url(../fonts/Rubik-Black.ttf);}
+
+
+
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 100;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Thin.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 200;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-ExtraLight.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 300;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Light.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Regular.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Medium.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 600;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-SemiBold.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Bold.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 800;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-ExtraBold.ttf);}
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: 900;
+  font-style: normal;
+  src: url(../fonts/LexendDeca-Black.ttf);}
+
+
+body {text-align: center;}
+body * {font-family: 'Lexend Deca', sans-serif;}
+body>* {width:100%;}
+button {font-family: 'Rubik', sans-serif;cursor: pointer;}
+.wrap1 {max-width:804px;margin:0 auto;padding:0 5px;overflow:hidden;}
+a {color:inherit;text-decoration:none;}
+span {color:#4CAB30;}
+header {color:white;
+background: url(../images/CloudsTop.png) top center no-repeat
+			,url(../images/CloudsBot.png) bottom center no-repeat
+			,url(../images/Wood_boardas.png) center right no-repeat
+			,url(../images/Shad_BackgBanUp.png) center center no-repeat
+			,url(../images/BackgBanUp.jpg) center center no-repeat;
+background-size: 100% 50%, 100% auto, auto, cover, cover;}
+header .wrap1 {height:100%;position:relative;}
+.topMenu>* {display: inline-block;float:left;color:black;}
+.topMenu {display: inline-block;float:left;width:100%;padding:18px 0;}
+.topMenu>* {box-sizing:border-box;display: inline-block;float:left;}
+header .Logo {padding:0 10px 0 0;
+font-size: 33px;
+font-weight: 400;
+line-height: 26px;
+text-align: left;}
+header .wideMenu {width:calc(100% - 115px - 160px - 10px);
+font-size: 10px;
+font-weight: 500;
+line-height: 12px;
+text-align: left;}
+.topMenu button {float:right;
+height: 32px;width: 115px;margin: 10px 0 0 0;
+border-radius: 45px;border: none;
+background:#397D25;
+color:white;
+font-size: 9px;
+font-weight: 600;
+line-height: 11px;
+letter-spacing: 0em;
+text-align: center;}
+header .wideMenu>div {display: inline-block;float:left;width:calc(20%);text-align:center;margin:20px 0 10px 0;}
+header .burgBut {display:none;float:right;margin:5px;padding:10px;border-radius:5px;}
+header .burgBut:hover {background:#4CAB30;}
+header .burgMenu {display:none;
+width:158px;padding:14px 50px 14px 24px;
+position:fixed;top:0;right:0;
+font-size: 13px;
+font-weight: 400;
+line-height: 27px;
+letter-spacing: 0em;
+text-align: left;
+color:white;
+background:black;
+opacity:0;}
+header .burgMenu .ClosCrs {position:absolute;top:0;right:0;margin:17px 17px 0 0;}
+header .burgMenu .ClosCrs:hover {cursor:pointer;}
+header .Tit {display: inline-block;float:left;text-align:left;max-width:600px;}
+header .Tit>* {display: inline-block;box-sizing:border-box;}
+header .Tit1 span {color:#4CAB30;}
+header .Tit1 {margin:172px 0 0 0;
+font-size: 36px;
+font-weight: 600;
+line-height: 48px;
+letter-spacing: 0em;
+text-align: left;}
+header .Tit2 {margin-top:20px;
+font-size: 13px;
+font-weight: 600;
+line-height: 24px;
+text-align: left;}
+header .Tit button {
+height: 46px;width: 147px;margin:70px 0 140px 0;
+border: 2px solid white;border-radius: 50px;
+color:white;padding-right: 30px;
+background: url(../images/Butt_Ellipse.png) 104px center no-repeat, #397D25;}
+@media (max-width: 1100px) {.HeadTit1 {margin:50px 0 0 0;}}
+@media (max-width: 800px) {header .wideMenu {width:100%;}}
+@media (max-width: 500px) {
+header {color:white;
+background: url(../images/CloudsTop.png) top center no-repeat
+			,url(../images/CloudsBot.png) bottom center no-repeat
+			,url(../images/Shad_BackgBanUp.png) center center no-repeat
+			,url(../images/BackgBanUp.jpg) center center no-repeat;
+background-size: 100% 50%, 100% auto, cover, cover;}
+header .Tit1 {margin:106px 0 0 0;
+font-size:20px;font-weight: 600;line-height: 25px;text-align: center;}
+header .Tit2 {font-size:10px;font-weight:600;line-height:16px;text-align:center;}
+header .Tit button {display: block;margin:33px auto 99px auto;}
+.topMenu {width:100%;}
+header .wideMenu, .topMenu button {display:none;}
+header .burgBut {display:inline-block;}
+header .wideMenu, header .wideMenu>div {width:100%;}
+header .wideMenu>div {text-align:left;padding-left:5%;}}
+
+.order {display:none;
+background: url(../images/ordBGL.png) left bottom no-repeat,
+			url(../images/ordBGR.png) right bottom no-repeat,
+			#397D25;
+color:white;}
+.order .Tit {margin:58px 0 54px 0;display:inline-block;	
+font-family: 'Rubik';
+font-size: 28px;
+font-weight: 700;
+line-height: 48px;
+letter-spacing: 0em;
+text-align: center;}
+.order form {max-width: 592px;display:inline-block;}
+.order form input[type="text"], .order form input[type="tel"], .order form textarea {
+margin-top:24px;padding:14px 22px;
+display:inline-block;box-sizing:border-box;
+width:100%;height:48px;
+border-radius: 5px;
+border: 1px solid rgba(201, 197, 185, 1);
+font-family: 'Rubik';
+font-size: 16px;
+font-weight: 400;
+line-height: 19px;
+text-align: left;}
+.order form textarea[name="requ"] {height:160px;}
+.order form input[type="submit"]:hover {cursor:pointer;}
+.order form input[type="submit"] {
+margin:36px auto 57px auto;
+height:48px;width:176px;border-radius: 50px;
+border: 1.5px solid rgba(54, 189, 60, 1);
+color:white;background:transparent;
+font-family: 'Rubik';
+font-size: 14px;
+font-weight: 500;
+line-height: 17px;
+text-align: center;}
+.order form .Agre {margin-top:15px;
+font-family: 'Rubik';
+font-size: 12px;
+font-weight: 400;
+line-height: 14px;}
+.order form .Agre a{text-decoration:underline;}
+@media (max-width: 900px) {
+.order {background:#397D25;}
+.order .wrap1{width:80%;}
+.order .Tit {width:70%;margin:43px 0 4px 0;font-size:14px;line-height:17px;}
+.order form input[type="text"], .order form input[type="tel"], .order form textarea {
+margin-top:16px;padding:14px 11px;height:33px;font-size: 14px;line-height: 17px;}
+.order form textarea[name="requ"] {height:87px;}
+.order form input[type="submit"] {margin:27px auto 40px auto;font-size:12px;line-height:14px;}
+.order form .Agre {margin-top:11px;font-size:10px;line-height:12px;}}
+
+/*
+<div class="order">
+<div class="wrap1">
+	<div class="Tit">Закажите пиломатериалы с удобной доставкой</div>
+	<form>
+		<input class="H4" type="text" name="FIO" placeholder="Имя" maxlength="100">
+		<input class="H4" type="tel" name="Phone" placeholder="Телефон" pattern="^[0-9\-]+$">
+		<div class="Descr"><h4>оставить заявку</h4></div>
+		<input class="SingUpRound" type="submit" value="">
+	</form>
+</div>
+</div>
+*/
+
+/*=============*/
+.GoodsInCache {
+background: url(../images/Saw.png) 80% -130px no-repeat
+			,url(../images/Elki1.png) -80px 102.5% no-repeat
+			,url(../images/Elki2.png) 125% 105% no-repeat;}
+.GoodsInCache .head {margin-top:136px;
+font-size: 24px;
+font-weight: 700;
+line-height: 16px;
+text-align: center;}
+.GoodsInCache .ProdS {margin:121px 0 142px 0;}
+.GoodsInCache .Prod {margin-top:60px;text-align:left;}
+.GoodsInCache .Prod img {margin: 0 40px 20px 0;float:left;}
+.GoodsInCache .Prod p {text-align: left;}
+.GoodsInCache .Prod p:nth-child(2) {
+font-size:16px;font-weight:600;line-height:20px;}
+.GoodsInCache .Prod p:nth-child(3) {
+font-size:12px;font-weight:400;line-height:24px;}
+@media (max-width: 600px) {
+.GoodsInCache {
+background: url(../images/Saw.png) -40px 30px no-repeat;
+background-size: 80px 80px;}
+.GoodsInCache .head {margin-top:65px;font-size:16px;}
+.GoodsInCache .ProdS {margin:88px 0 120px 0;}}
+@media (max-width: 400px) {
+.GoodsInCache .Prod, .GoodsInCache .Prod p {text-align:center;}
+.GoodsInCache .Prod img {margin: 0 0 20px 0;float:none;}}
+
+.AdvnS {background: url(../images/BackAdvnS.png) center top no-repeat;
+background-size: cover;color:white;}
+.AdvnS .Tit {
+margin-top:127px;
+font-size: 24px;
+font-weight: 700;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: center;}
+.AdvnS .Tit span {color:#4CAB30;}
+.AdvnS .pntS{margin-top:146px;display:inline-block;}
+.AdvnS .pnt{
+width:20%;min-width:110px;margin-bottom:25px;
+display:inline-block;float:left;
+box-sizing:border-box;padding:0 20px;
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: center;}
+.AdvnS button {margin:140px auto 119px auto;
+height:50px;width:181px;border-radius: 50px;
+border: 1.5px solid rgba(54, 189, 60, 1);
+color:white;background:transparent;}
+@media (max-width: 1000px) {
+.AdvnS .Tit {margin-top:68px;}
+.AdvnS .pntS{margin-top:61px;}
+.AdvnS button {margin:56px 0 81px 0;}
+.AdvnS .pnt{width:49%;float:none;padding:0 10%;}
+.AdvnS .Tit {font-size:16px;font-weight:700;line-height:20px;}}
+@media (max-width: 400px) {
+.AdvnS button {height:40px;width:160px;}
+.AdvnS .pnt{width:100%;padding:0;}}
+
+/*=============*/
+
+.AboUs {background: url(../images/BackAbUs.png) center bottom no-repeat;
+background-size: cover;}
+.AboUs .head {margin-top:136px;
+font-size: 24px;
+font-weight: 700;
+line-height: 16px;
+text-align: center;}
+.AboUs .ProdS {margin:37px 0 170px 0;}
+.AboUs .Prod {margin-top:47px;text-align:left;display:inline-block;}
+.AboUs .Prod img {margin: 0 40px 0 0;float:left;}
+.AboUs .Prod p {margin: 20px 0 0 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;}
+.AboUs .Prod p b {font-weight: 700;}
+@media (max-width: 600px) {
+.AboUs .head {margin-top:65px;font-size:16px;}
+.AboUs .ProdS {margin:23px 0 52px 0;}}
+@media (max-width: 400px) {
+.AboUs .Prod, .AboUs .Prod p {text-align:center;}
+.AboUs .Prod img {margin:0;float:none;}}
+
+/*=============*/
+
+.Deliv {background: url(../images/BackDeliv.png) center top no-repeat;
+background-size: cover;color:white;}
+.Deliv .pntS{width:100%;display:inline-block;}
+.Deliv .pntS1 .pnt {width: 33.33%;}
+.Deliv .Tit {margin-top:119px;}
+.Deliv .pntS1 {margin-top:78px;}
+.Deliv .Tit2 {margin-top:74px;}
+.Deliv .pntS2 {margin-top:53px;display:inline-block;}
+.Deliv .pntS2 .pnt{width:160px;float:none;}
+.Deliv .Undr {margin:43px 0 100px 0;
+font-size:14px;font-weight:400;line-height:20px;}
+.Deliv button {background:transparent;border:none;}
+.Deliv .butnL {width:30px;height:31px;left:5%;background: url(../images/butArBlkL.png) center center no-repeat;}
+.Deliv .butnR {width:30px;height:31px;right:5%;background: url(../images/butArBlkR.png) center center no-repeat;}
+.Deliv {position:relative;}
+.Deliv button {position:absolute;bottom:135px;}
+@media (max-width: 1000px) {.Deliv .pntS2 {width:80%;}}
+@media (min-width: 1000px) {.Deliv button {display:none;}}
+@media (max-width: 600px) {
+.Deliv .Tit {margin-top:68px;}
+.Deliv .pntS{margin-top:61px;}
+.Deliv .pntS1 .pnt {width:32%;min-width:90px;float:left;padding:0 3%;}
+.Deliv .pntS2 .pnt {width:49%;float:none;}
+.Deliv .Tit {margin-top:73px;}
+.Deliv .pntS1 {margin-top:73px;}
+.Deliv .Tit2 {margin-top:68px;}
+.Deliv .pntS2 {margin-top:53px;}
+.Deliv .Undr {width:90%;margin:30px auto 77px auto;border-top:2px solid white;}}
+@media (max-width: 400px) {
+.Deliv button {height:40px;width:160px;}
+.Deliv .pntS1 .pnt, .Deliv .pntS2 .pnt {width:100%;padding:0;}
+.Deliv .Undr {font-size:12px;line-height:15px;}}
+
+
+/*=============*/
+
+.OurPartns {background: url(../images/BackOurPs.png) center bottom no-repeat;
+background-size: cover;}
+.OurPartns .wrap1 {max-width:100%;}
+.OurPartns .head {margin-top:136px;
+font-size: 24px;
+font-weight: 700;
+line-height: 16px;
+text-align: center;}
+.OurPartns .ProdS {margin:147px 0 260px 0;display:inline-block;}
+.OurPartns .Prod {
+width: 150px;
+height: 136px;
+border-radius:5px;
+background:white ;
+margin:13px;
+box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+display:inline-block;}
+.OurPartns .Prod img {margin-top:11px;}
+.OurPartns button {background:transparent;border:none;}
+.OurPartns .butnL {width:30px;height:31px;left:5%;background: url(../images/roArWhiteL.png) center center no-repeat;}
+.OurPartns .butnR {width:30px;height:31px;right:5%;background: url(../images/roArWhiteR.png) center center no-repeat;}
+.OurPartns {position:relative;}
+.OurPartns button {position:absolute;top:365px;}
+@media (max-width: 900px) {
+.OurPartns .head {margin-top:65px;font-size:16px;}
+.OurPartns .ProdS {max-width:80%;margin:23px 0 52px 0;}
+.OurPartns button {top:180px;}
+.OurPartns .butnL {left:1%;}
+.OurPartns .butnR {right:1%;}}
+@media (max-width: 400px) {
+.OurPartns .ScrlCont {width:175px;}
+.OurPartns .butnL {left:33px;}
+.OurPartns .butnR {right:33px;}
+.OurPartns .butnL {background: url(../images/butArWhiteL.png) center center no-repeat;}
+.OurPartns .butnR {background: url(../images/butArWhiteR.png) center center no-repeat;}}
+
+.HorScrl .ScrlCont {white-space:nowrap;overflow-x:scroll;overflow-y:hidden;}
+.HorScrl .ScrlCont::-webkit-scrollbar {height: 0;}
+
+/*=============*/
+footer {background: url(../images/Saw2.png) center 118px no-repeat, url(../images/BackFooter.png) center top no-repeat;
+background-size: 125px, cover;color:white;display:inline-block;}
+footer .Tit {
+height:36px;width:100%;box-sizing:border-box;
+margin-top:181px;padding-top:10px;
+background:#397D25;
+font-size: 12px;
+font-weight: 700;
+line-height: 15px;
+letter-spacing: 0em;
+text-align: center;}
+footer .cntcS, footer .reqS {
+display:inline-block;float:left;width:50%;margin:13px 0 0 0;}
+footer .cntcS {text-align:left;}
+footer .reqS {text-align:right;}
+footer .tit {margin:10px 0 5px 0;
+font-size: 16px;
+font-weight: 700;
+line-height: 33px;
+letter-spacing: 0em;}
+footer .cont {
+font-size: 14px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 0em;}
+footer .socN {display:inline-block;width:100%;margin:43px 0 46px 0;}
+footer .socN >div {display:inline-block;max-width:300px;margin:0 auto;}
+footer .socN img {display:inline-block;margin:0 9px;}
+footer .footend {margin-bottom:71px;font-size:12px;}
+@media (max-width: 600px) {
+footer .cntcS, footer .reqS {width:100%;text-align:center;}
+footer .Tit {margin-top:66px;}
+footer {background-position: center 2px, center top;}
+footer .footend {margin-bottom:30px;}}
+
+/*=============*/
+
+
+.clearFlow:after {
+   content: '';
+   display: block;
+   height: 0; 
+   clear: both;
+}
