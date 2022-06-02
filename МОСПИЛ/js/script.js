@@ -48,17 +48,22 @@ let ordBut = header.querySelectorAll(".ordBut");ordBut=ordBut[0];
 let order = document.querySelectorAll(".order");order=order[0];
 let formOrd = order.querySelectorAll("form");formOrd=formOrd[0];
 let SubmBut = order.querySelectorAll("input[type='button']");SubmBut=SubmBut[0];
+let ClsCrs = order.querySelectorAll(".ClosCrs");ClsCrs=ClsCrs[0];
 order.style.transformOrigin = 'center top';
 order.style.transitionDuration = '0.3s';
 ordBut.onclick = function(){
 	order.style.transform = 'scaleY(0)';
 	setTimeout( function() {
 		order.style.display='inline-block';
+		document.location.href ="#order";
 		setTimeout( function() {
 			order.style.transform = 'scaleY(100%)';
 		}, 10);
 	}, 10);
 }
+ClsCrs.onclick = function(){
+	order.style.transform = 'scaleY(0)';
+	setTimeout( function() {order.style.display=null;}, 300);}
 /*
 SubmBut.onclick  = function(){
 	order.style.transform = 'scaleY(0)';
