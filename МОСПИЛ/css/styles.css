@@ -104,7 +104,8 @@ background: url(../images/CloudsTop.png) top center no-repeat
 			,url(../images/CloudsBot.png) bottom center no-repeat
 			,url(../images/Wood_boardas.png) center right no-repeat
 			,url(../images/Shad_BackgBanUp.png) center center no-repeat
-			,url(../images/BackgBanUp.jpg) center center no-repeat;
+			,url(../images/BackgBanUp.jpg) center center no-repeat
+			, rgba(0, 0, 0, 0.9);
 background-size: 100% 50%, 100% auto, auto, cover, cover;}
 header .wrap1 {height:100%;position:relative;}
 .topMenu>* {display: inline-block;float:left;color:black;}
@@ -170,9 +171,10 @@ background: url(../images/Butt_Ellipse.png) 104px center no-repeat, #397D25;}
 @media (max-width: 500px) {
 header {color:white;
 background: url(../images/CloudsTop.png) top center no-repeat
-			,url(../images/CloudsBot.png) bottom center no-repeat
-			,url(../images/Shad_BackgBanUp.png) center center no-repeat
-			,url(../images/BackgBanUp.jpg) center center no-repeat;
+			, url(../images/CloudsBot.png) bottom center no-repeat
+			, url(../images/Shad_BackgBanUp.png) center center no-repeat
+			, url(../images/BackgBanUp.jpg) center center no-repeat
+			, rgba(0, 0, 0, 0.9);
 background-size: 100% 50%, 100% auto, cover, cover;}
 header .Tit1 {margin:106px 0 0 0;
 font-size:20px;font-weight: 600;line-height: 25px;text-align: center;}
@@ -239,20 +241,6 @@ margin-top:16px;padding:14px 11px;height:33px;font-size: 14px;line-height: 17px;
 .order form input[type="submit"] {margin:27px auto 40px auto;font-size:12px;line-height:14px;}
 .order form .Agre {margin-top:11px;font-size:10px;line-height:12px;}}
 
-/*
-<div class="order">
-<div class="wrap1">
-	<div class="Tit">Закажите пиломатериалы с удобной доставкой</div>
-	<form>
-		<input class="H4" type="text" name="FIO" placeholder="Имя" maxlength="100">
-		<input class="H4" type="tel" name="Phone" placeholder="Телефон" pattern="^[0-9\-]+$">
-		<div class="Descr"><h4>оставить заявку</h4></div>
-		<input class="SingUpRound" type="submit" value="">
-	</form>
-</div>
-</div>
-*/
-
 /*=============*/
 .GoodsInCache {
 background: url(../images/Saw.png) 80% -130px no-repeat
@@ -281,7 +269,7 @@ background-size: 80px 80px;}
 .GoodsInCache .Prod, .GoodsInCache .Prod p {text-align:center;}
 .GoodsInCache .Prod img {margin: 0 0 20px 0;float:none;}}
 
-.AdvnS {background: url(../images/BackAdvnS.png) center top no-repeat;
+.AdvnS {background: url(../images/BackAdvnS.png) center top no-repeat, rgba(0, 0, 0, 0.9);
 background-size: cover;color:white;}
 .AdvnS .Tit {
 margin-top:127px;
@@ -343,7 +331,7 @@ text-align: left;}
 
 /*=============*/
 
-.Deliv {background: url(../images/BackDeliv.png) center top no-repeat;
+.Deliv {background: url(../images/BackDeliv.png) center top no-repeat, rgba(0, 0, 0, 0.9);
 background-size: cover;color:white;}
 .Deliv .pntS{width:100%;display:inline-block;}
 .Deliv .pntS1 .pnt {width: 33.33%;}
@@ -419,7 +407,9 @@ display:inline-block;}
 .HorScrl .ScrlCont::-webkit-scrollbar {height: 0;}
 
 /*=============*/
-footer {background: url(../images/Saw2.png) center 118px no-repeat, url(../images/BackFooter.png) center top no-repeat;
+footer {background: url(../images/Saw2.png) center 118px no-repeat
+					, url(../images/BackFooter.png) center top no-repeat
+					, rgba(0, 0, 0, 0.9);
 background-size: 125px, cover;color:white;display:inline-block;}
 footer .Tit {
 height:36px;width:100%;box-sizing:border-box;
