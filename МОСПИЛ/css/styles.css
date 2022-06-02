@@ -189,6 +189,9 @@ background: url(../images/ordBGL.png) left bottom no-repeat,
 			url(../images/ordBGR.png) right bottom no-repeat,
 			#397D25;
 color:white;}
+.order .wrap1 {position:relative;}
+.order .ClosCrs {position:absolute;top:0;right:0;margin:17px 17px 0 0;}
+.order .ClosCrs:hover {cursor:pointer;}
 .order .Tit {margin:58px 0 54px 0;display:inline-block;	
 font-family: 'Rubik';
 font-size: 28px;
