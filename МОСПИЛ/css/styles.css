@@ -297,9 +297,7 @@ color:white;background:transparent;}
 .AdvnS .Tit {margin-top:68px;}
 .AdvnS .pntS{margin-top:61px;}
 .AdvnS button {margin:56px 0 81px 0;}
-
 .AdvnS .pnt{width:49%;float:none;padding:0 10%;}
-
 .AdvnS .Tit {font-size:16px;font-weight:700;line-height:20px;}}
 @media (max-width: 400px) {
 .AdvnS button {height:40px;width:160px;}
@@ -334,40 +332,38 @@ text-align: left;}
 /*=============*/
 
 .Deliv {background: url(../images/BackDeliv.png) center top no-repeat, rgba(0, 0, 0, 0.9);
-background-size: cover;color:white;position:relative;}
-.Deliv .pntS{width:100%;display:inline-block;margin-top:146px;}
-.Deliv .pnt{min-width:110px;margin-bottom:25px;
-display:inline-block;float:left;
-box-sizing:border-box;padding:0 20px;
-font-size:12px;font-weight:400;line-height:16px;}
+background-size: cover;color:white;}
+.Deliv .pntS{width:100%;display:inline-block;}
 .Deliv .pntS1 .pnt {width: 33.33%;}
-.Deliv .Tit {margin-top:119px;font-size:24px;font-weight:700;line-height:30px;}
-.Deliv .Tit span {color:#4CAB30;}
+.Deliv .Tit {margin-top:119px;}
 .Deliv .pntS1 {margin-top:78px;}
 .Deliv .Tit2 {margin-top:74px;}
 .Deliv .pntS2 {margin-top:53px;display:inline-block;}
 .Deliv .pntS2 .pnt{width:160px;float:none;}
 .Deliv .Undr {margin:43px 0 100px 0;
 font-size:14px;font-weight:400;line-height:20px;}
-.Deliv button {position:absolute;bottom:135px;margin:140px auto 119px auto;
-width:30px;height:31px;border:none;color:white;}
-.Deliv .butnL {left:5%;background: url(../images/butArBlkL.png) center center no-repeat;}
-.Deliv .butnR {right:5%;background: url(../images/butArBlkR.png) center center no-repeat;}
-@media (max-width: 1000px) {
-.Deliv .Tit {margin-top:68px;font-size:16px;font-weight:700;line-height:20px;}
-.Deliv .pntS{margin-top:61px;}
-.Deliv .pntS2 {width:80%;}
-.Deliv button {margin:56px 0 81px 0;}}
+.Deliv button {background:transparent;border:none;}
+.Deliv .butnL {width:30px;height:31px;left:5%;background: url(../images/butArBlkL.png) center center no-repeat;}
+.Deliv .butnR {width:30px;height:31px;right:5%;background: url(../images/butArBlkR.png) center center no-repeat;}
+.Deliv {position:relative;}
+.Deliv button {position:absolute;bottom:135px;}
+@media (max-width: 1000px) {.Deliv .pntS2 {width:80%;}}
+@media (min-width: 1000px) {.Deliv button {display:none;}}
 @media (max-width: 600px) {
+.Deliv .Tit {margin-top:68px;}
+.Deliv .pntS{margin-top:61px;}
 .Deliv .pntS1 .pnt {width:32%;min-width:90px;float:left;padding:0 3%;}
 .Deliv .pntS2 .pnt {width:49%;float:none;}
+.Deliv .Tit {margin-top:73px;}
 .Deliv .pntS1 {margin-top:73px;}
 .Deliv .Tit2 {margin-top:68px;}
 .Deliv .pntS2 {margin-top:53px;}
 .Deliv .Undr {width:90%;margin:30px auto 77px auto;border-top:2px solid white;}}
 @media (max-width: 400px) {
+.Deliv button {height:40px;width:160px;}
 .Deliv .pntS1 .pnt, .Deliv .pntS2 .pnt {width:100%;padding:0;}
 .Deliv .Undr {font-size:12px;line-height:15px;}}
+
 
 /*=============*/
 
@@ -379,7 +375,7 @@ font-size: 24px;
 font-weight: 700;
 line-height: 16px;
 text-align: center;}
-.OurPartns .ProdS {margin:147px 0 260px 0;display:inline-block;}
+.OurPartns .ProdS {max-width:80%;margin:147px 0 260px 0;display:inline-block;}
 .OurPartns .Prod {
 width: 150px;
 height: 136px;
@@ -396,7 +392,7 @@ display:inline-block;}
 .OurPartns button {position:absolute;top:365px;}
 @media (max-width: 900px) {
 .OurPartns .head {margin-top:65px;font-size:16px;}
-.OurPartns .ProdS {max-width:80%;margin:23px 0 52px 0;}
+.OurPartns .ProdS {margin:23px 0 52px 0;}
 .OurPartns button {top:180px;}
 .OurPartns .butnL {left:1%;}
 .OurPartns .butnR {right:1%;}}
