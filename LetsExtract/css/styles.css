@@ -55,35 +55,23 @@ line-height: 24px;
 letter-spacing: 0em;}
 button a {text-decoration:none;color:white;}
 img {max-width:100%;}
-/*
-@media (max-width: 600px) {
-.wrap1 {margin:10% auto;}
-.wrap1>*:nth-child(1) {margin-top:0;margin-bottom:10%;}
-.wrap1>*:nth-child(2) {margin-top:0;margin-bottom:0;}}
-*/
 
+.Tit1 {line-height:47px;font-size:40px;font-weight:800;}
+.Tit2 {font-size: 21px;font-weight: 400;line-height: 30px;margin-top:21px;}
 
 .MainTit {text-align:left;background: #F2F7FD;}
 .MainTit .wrap1>* {display:inline-block;}
-.MainTit .Tit1 {line-height: 55px;font-size: 45px;}
-.MainTit .Tit2 {margin-top:21px;
-font-size: 21px;
-font-weight: 400;
-line-height: 30px;}
 .MainTit .wrap2 button {margin-top:31px;}
-.MainTit .wrap2 {max-width:613px;margin:110px 0 0 0;}
+.MainTit .wrap2 {max-width:613px;margin-top:110px;}
 .MainTit img {margin:67px 0 65px 0;float:right;}
+@media (max-width: 900px) {.MainTit .wrap2 {margin-top:40px;}}
+@media (min-width: 900px) {.MainTit .Tit1 {line-height: 55px;font-size: 45px;}}
 
 .PresentInstr {margin:59px 0 80px 0;}
-.PresentInstr .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 50px;}
 .PresentInstr .Tit2 {margin-top:11px;
 font-size: 20px;
 font-weight: 500;
-line-height: 24px;
-letter-spacing: 0em;}
+line-height: 24px;}
 .PresentInstr .Tit2 span {color:#1E7CCF;}
 .PresentInstr .blockCont.wrap1 {max-width:1216px;text-align:center;}
 .PresentInstr .blockCont {margin-top:20px;}
@@ -103,14 +91,6 @@ padding:17px 0 0 0;}
 
 .YourClients {text-align:left;background: #1E7CCF;color:white;}
 .YourClients .wrap1>* {display:inline-block;}
-.YourClients .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
-.YourClients .Tit2 {margin-top:21px;
-font-size: 21px;
-font-weight: 400;
-line-height: 30px;}
 .YourClients .wrap2 {max-width:554px;margin:108px 0 0 0;}
 .YourClients img {margin:60px 0 62px 0;float:right;}
 .YourClients .Tit3 {margin-top:21px;
@@ -121,18 +101,12 @@ position:relative;
 padding-left:35px;}
 .YourClients .Tit3::before {content:'';position:absolute;left:0;top:0;
 width:28px;height:28px;background: url(../images/CheckWhite.png) center center no-repeat;}
+@media (max-width: 900px) {.YourClients .wrap2 {margin:50px 0 0 0;}
+.YourClients img {margin:35px 0;}}
 
 
 .KnowSite {text-align:left;}
 .KnowSite .wrap1>* {display:inline-block;}
-.KnowSite .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
-.KnowSite .Tit2 {margin-top:21px;
-font-size: 21px;
-font-weight: 400;
-line-height: 30px;}
 .KnowSite .wrap2 {max-width:578px;margin:108px 0 0 0;float:right;}
 .KnowSite img {margin:60px 0 62px 0;}
 .KnowSite .Tit3 {margin-top:21px;
@@ -144,13 +118,11 @@ padding-left:35px;}
 .KnowSite .Tit3::before {content:'';position:absolute;left:0;top:0;
 width:28px;height:28px;background: url(../images/CheckBlue.png) center center no-repeat;}
 
+@media (max-width: 1120px) {.KnowSite .wrap2 {max-width:100%;margin:0 0 40px 0;}}
+
 
 .Social {text-align:left;background: #F2F7FD;}
 .Social .wrap1>* {display:inline-block;}
-.Social .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
 .Social .Tit2 {margin-top:15px;
 font-size: 16px;
 font-weight: 500;
@@ -170,10 +142,6 @@ line-height: 24px;}
 .getAll .wrap1>* {display:inline-block;}
 .getAll .wrap2 {max-width:561px;margin:71px 0 76px 0;float:right;}
 .getAll img {margin:66px 0 77px 0;}
-.getAll .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
 .getAll .Tit2 {margin-top:23px;
 font-size: 16px;
 font-weight: 500;
@@ -183,14 +151,11 @@ color: #1E7CCF;
 font-size: 18px;
 font-weight: 600;
 line-height: 26px;}
-@media (max-width: 1140px) {.getAll img {margin:0 0 77px 0;}}
+@media (max-width: 1140px) {.getAll img {margin:0 0 30px 0;}
+.getAll .wrap2 {max-width:100%;margin:30px 0;float:none;}}
 
 
 .FunctionaLE {padding:53px 0 89px 0;background: #F2F7FD;}
-.FunctionaLE .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
 .FunctionaLE .Tit2 {margin-top:23px;
 font-size: 20px;
 font-weight: 500;
@@ -221,19 +186,14 @@ line-height: 24px;}
 
 
 .whyChoos {text-align:left;padding:60px 0 52px 0;}
-.whyChoos .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
 .whyChoos .blockCont {margin-top:27px;}
 .whyChoos .blockCont>div {
 height: 290px;width: 100%;
 border-radius:20px;border:1px solid #CED7E2;
 margin:5px 0;overflow:hidden;}
-.whyChoos .blockCont>div>* {display:inline-block;}
-.whyChoos .blockCont>div>div {width:calc(100% - 271px);
-height:100%;overflow-y:auto;
-float:right;padding:30px 30px 10px 30px;}
+.whyChoos .blockCont>div>* {display:inline-block;float:left;}
+.whyChoos .blockCont>div>div {width:calc(100% - 331px);
+height:calc(100% - 60px);overflow-y:auto;margin:30px;}
 .whyChoos .blockCont>div>div>div:nth-child(1) {
 color: #1E7CCF;
 font-size: 18px;
@@ -245,15 +205,13 @@ margin-top:7px;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;}
+@media (max-width: 600px) {.whyChoos .blockCont>div>img {display:none;}
+.whyChoos .blockCont>div>div {width:calc(100% - 60px);}}
 
 
 .detCompare {padding:38px 0 61px 0;background: #F2F7FD;}
 .detCompare .ScrlCont {width:100%;overflow-x:auto;overflow-y:hidden;}
-.detCompare .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;
-margin-bottom:33px;}
+.detCompare .Tit1 {margin-bottom:33px;}
 .detCompare table {
 font-size: 16px;
 font-weight: 500;
@@ -304,10 +262,6 @@ text-align: left;}
 
 
 .feedBack {padding:38px 0 61px 0;background: #F2F7FD;display: inline-block;}
-.feedBack .Tit1 {
-font-size: 40px;
-font-weight: 800;
-line-height: 47px;}
 .feedBack .HScrol {margin:33px auto 0 auto;max-width:1358px;}
 .feedBack .HScrol>div {display: inline-block;float:left;}
 .feedBack .LArr, .feedBack .RArr {width:54px;margin-top:120px;}
@@ -339,7 +293,6 @@ text-align: left;}
 .feedBack .ScrlCont {width:100%;margin:0;}
 .feedBack .ScrlCont>div{width:calc(100% - 30px);}}
 
-/*================*/
 
 header, footer {font-size: 16px;font-weight: 400;}
 header .wrap1>div, footer .wrap1>div {float:left;}
@@ -378,40 +331,6 @@ color:white;background: #333333;text-align:center;}
 .logoMenu {padding:22px 0 21px 0;}
 .logoMenu .wrap1>div {width:100%;text-align:center;}
 .Menu2 {padding:10px 0;}}
-/*@media (max-width:430px) {footer .Logo span::before {content:'<br>';}}*/
-
-
-/*
-<footer class="clearFlow">
-<div>
-	<div class="wrap1">
-		<div class="Logo">
-			<div>LetsExtract <span>Email Studio</span></div>
-			<div>софт для email-маркетинга и SMM</div>
-		</div>
-		<div class="sect">
-			<div class="wrap2">
-				<div>Главная</div>
-				<div>Возможности</div>
-				<div>Цены</div>
-				<div>Поддержка</div>
-			</div>
-		</div>
-		<button><a href="#">Скачать</a></button>
-	</div>
-</div>
-<div>
-	<div class="wrap1">
-		<div>Как стать партнером   |   Политика конфиденциальности</div>
-		<div>Техподдержка: <a href="mailto:support@letsextract.com">support@letsextract.com</a></div>
-		<div>По вопросам покупки: <a href="mailto:sales@letsextract.com">sales@letsextract.com</a></div>
-	</div>
-</div>
-<div>2017-2022 © LetsExtract Software. Все права защищены.</div>
-</footer>
-
-*/
-
 
 .clearFlow:after {
    content: '';
