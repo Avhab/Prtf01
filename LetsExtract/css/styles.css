@@ -216,7 +216,7 @@ line-height: 24px;}
 .detCompare table {font-size:16px;font-weight:500;line-height:20px;text-align:center;}
 .detCompare table td {vertical-align:middle;}
 .detCompare table td {border: 1px solid #CED7E2;padding:5px;}
-.detCompare table thead, .detCompare table tbody tr:first-child td, .detCompare .StatCont table td {text-align:left;padding:19px 17px;}
+.detCompare table tbody tr:first-child td, .detCompare .StatCont table td {text-align:left;padding:19px 17px;}
 .detCompare .ScrlCont table td {width:16.66%}
 .detCompare table tbody tr:nth-child(odd){background:white;}
 .detCompare table thead {background: #1E7CCF;color:white;}
@@ -254,34 +254,33 @@ text-align: left;}
 .tested .Lables {width:534px;display:block;margin:0 auto;}
 .tested .Lables>* {float:left;}
 .tested .cont {width:100%;}}
-@media (max-width:520px) {.tested .Lables {width:302px;}}
-
+@media (max-width:520px) {.tested .Lables {width:302px;}
+.tested .Lables>* {float:none;}}
 
 .feedBack {padding:38px 0 61px 0;background: #F2F7FD;display: inline-block;}
 .feedBack .HScrol {margin:33px auto 0 auto;max-width:1358px;}
 .feedBack .HScrol>div {display: inline-block;float:left;}
 .feedBack .LArr, .feedBack .RArr {width:54px;margin-top:120px;}
 .feedBack .LArr:hover, .feedBack .RArr:hover {cursor:pointer;}
-.feedBack .ScrlCont {width:calc(100% - 148px);height:320px;margin:0 20px;white-space:nowrap;overflow-x:auto;overflow-y:hidden;}
+.feedBack .ScrlCont {width:calc(100% - 148px);
+margin:0 20px;white-space:nowrap;overflow-x:auto;}
 .feedBack .ScrlCont>div{
 display:inline-block;
 white-space: normal;
-position:relative;
 width: 570px;
-height:290px;
 background: white;
 border-radius: 20px;
 border: 1px solid #CED7E2;
 margin: 0 15px;
+padding:30px;
 font-size: 16px;
 font-weight: 400;
 line-height: 24px;
 text-align: left;}
-.feedBack .ScrlCont>div>div{position:absolute;width:calc(100% - 60px);left:30px;}
-.feedBack .ScrlCont>div>div:nth-child(1) {top:30px;}
-.feedBack .ScrlCont>div>div:nth-child(2) {top:55px;font-weight:800;}
-.feedBack .ScrlCont>div>div:nth-child(3) {top:90px;height:144px;overflow-y:auto;}
-.feedBack .ScrlCont>div>div:nth-child(4) {bottom:25px;}
+.feedBack .ScrlCont>div>div{width:100%;}
+.feedBack .ScrlCont>div>div:nth-child(2) {font-weight:800;}
+.feedBack .ScrlCont>div>div:nth-child(3) {margin-top:10px;height:144px;overflow-y:auto;}
+.feedBack .ScrlCont>div>div:nth-child(4) {margin-top:5px;}
 @media (max-width:760px) {
 .feedBack {padding:18px 0 30px 0;}
 .feedBack .HScrol>div.LArr, .feedBack .HScrol>div.RArr {display:none;}
