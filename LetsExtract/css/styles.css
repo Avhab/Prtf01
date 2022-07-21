@@ -210,30 +210,26 @@ line-height: 24px;}
 
 
 .detCompare {padding:38px 0 61px 0;background: #F2F7FD;}
-.detCompare .ScrlCont {width:100%;overflow-x:auto;overflow-y:hidden;}
+.detCompare .StatCont {width:160px;float:left;}
+.detCompare .ScrlCont {width:calc(100% - 160px);overflow-x:auto;overflow-y:hidden;}
 .detCompare .Tit1 {margin-bottom:33px;}
-.detCompare table {
-font-size: 16px;
-font-weight: 500;
-line-height: 20px;
-text-align: center;}
+.detCompare table {font-size:16px;font-weight:500;line-height:20px;text-align:center;}
 .detCompare table td {vertical-align:middle;}
-.detCompare table thead, .detCompare table tbody tr:first-child td, .detCompare table tbody tr td:first-child {text-align:left;}
-.detCompare table tbody tr:nth-child(3) td:nth-child(3) {color:red;}
-.detCompare table tbody span{
-font-size: 18px;
-font-weight: 800;
-line-height: 20px;}
+.detCompare table td {border: 1px solid #CED7E2;padding:5px;}
+.detCompare table thead, .detCompare table tbody tr:first-child td, .detCompare .StatCont table td {text-align:left;padding:19px 17px;}
+.detCompare .ScrlCont table td {width:16.66%}
 .detCompare table tbody tr:nth-child(odd){background:white;}
 .detCompare table thead {background: #1E7CCF;color:white;}
-.detCompare table td {border: 1px solid #CED7E2;padding:19px 17px;}
-.detCompare table td:nth-child(1) {width:289px;}
+.detCompare table tbody tr:nth-child(3) td:nth-child(2) {color:red;}
+.detCompare table tbody span{font-size:18px;font-weight:800;line-height:20px;}
 @media (max-width:900px) {
 .detCompare {padding:18px 0 25px 0;}
+.detCompare .StatCont {width:120px;}
+.detCompare .ScrlCont {width:calc(100% - 120px);}
 .detCompare .Tit1 {margin-bottom:16px;}
-.detCompare table td {padding:5px;}
 .detCompare table {font-size:12px;line-height:16px;}
-.detCompare table tbody span{font-size:14px;line-height:18px;}}
+.detCompare table tbody span{font-size:14px;line-height:18px;}
+.detCompare table thead, .detCompare table tbody tr:first-child td, .detCompare .StatCont table td {padding:7px;}}
 
 
 .tested {padding:53px 0 62px 0;}
