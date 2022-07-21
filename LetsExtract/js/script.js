@@ -16,3 +16,22 @@ for (let i = 0; i < HScrol.length; i++) {
 		ScrlCont.scrollTo({left: (tmp), behavior: 'smooth'});}	}//стрелка переключения вправо
 	//КОНЕЦ - стрелки вправо и влево	
 }
+
+//НАЧАЛО - коррекция таблицы - выполняется после загрузки страницы
+window.addEventListener("load", function () {
+let detCompare = document.querySelector(".detCompare");
+let StatCont = detCompare.querySelector(".StatCont");
+let ScrlCont = detCompare.querySelector(".ScrlCont");
+let StatTr = StatCont.querySelectorAll("tr");
+let ScrlTr = ScrlCont.querySelectorAll("tr");
+
+if (StatTr.length==ScrlTr.length) {
+	for (let i = 0; i < StatTr.length; i++) {
+		let maxH = 0;
+		if (maxH<StatTr[i].offsetHeight) {maxH = StatTr[i].offsetHeight;}
+		if (maxH<ScrlTr[i].offsetHeight) {maxH = ScrlTr[i].offsetHeight};
+		maxH++;
+		StatTr[i].style.height = maxH + 'px';
+		ScrlTr[i].style.height = maxH + 'px';}	}	})
+//НАЧАЛО - коррекция таблицы - выполняется после загрузки страницы
+
