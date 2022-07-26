@@ -253,8 +253,10 @@ text-align: left;}
 .aboutC .wrap1>div:nth-child(3)>div:nth-child(3) {text-align:right;}}
 
 .Nav {padding:0;}
+.Nav, .Nav>div>iframe {height:700px;}
+@media (max-width:1100px) {.Nav, .Nav>div>iframe {height:300px;}}
 
-footer {background: #272727;color:white;
+footer {background: #272727; color:white;
 font-size: 18px;font-weight: 700;line-height: 25px;letter-spacing: 0.01em;}
 footer .Logo {padding-top: 9px;}
 footer a {color:white;}
