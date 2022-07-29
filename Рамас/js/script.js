@@ -1,3 +1,26 @@
+/*НАЧАЛО бургер-меню в хедере*/
+let adres = document.querySelector(".logoMenu .adres");
+let telph = document.querySelector(".logoMenu .telph");
+let burger = document.querySelector(".logoMenu .burger");
+let burgerMenu = document.querySelector(".logoMenu .burgerMenu");
+let topMenu = document.querySelector(".topMenu");
+if (adres && telph && burger && burgerMenu ) {
+	if (document.documentElement.clientWidth < 750) {
+		adres.before(telph);
+		burgerMenu.style.display = "none";
+		topMenu.style.boxShadow = "4px 4px 40px #555555";
+		burgerMenu.style.opacity = "0";
+		burgerMenu.prepend(topMenu);
+		burger.onclick = function() {
+			burgerMenu.style.display = null;
+			setTimeout( function() {burgerMenu.style.opacity = "1";}, 25);
+			event.stopPropagation();	}	
+		document.addEventListener("click", function() {
+			burgerMenu.style.opacity = "0";
+			setTimeout( function() {burgerMenu.style.display = "none";}, 300);	});		
+	} else {burger.style.display = "none";}	}
+/*КОНЕЦ бургер-меню в хедере*/
+
 /*НАЧАЛО слайды наверху страницы*/
 let HScrol = document.querySelector(".HScrol");
 if (HScrol){
@@ -51,3 +74,18 @@ if (form && blur && thankY) {
 		blur.style.display = "block";
 		thankY.style.display = "block";	}	}
 /*КОНЕЦ модальное окно после события формы submit*/
+
+/*НАЧАЛО коррекция таблицы в форме отправки сообщения из контактов*/
+if (document.documentElement.clientWidth < 700) {
+	let tbody = document.querySelector(".Contacts table tbody");
+	if (tbody) {
+		let tr = tbody.querySelectorAll("tr");
+		let td = tr[0].querySelectorAll("td");
+		let trNew = document.createElement("tr");tr[0].after(trNew);
+		tr = tbody.querySelectorAll("tr");
+		tr[1].append(td[1]);
+		let td0 = tr[0].querySelector("td");
+		let td1 = tr[1].querySelector("td");
+		td0.setAttribute("colspan", 2);
+		td1.setAttribute("colspan", 2);	}	}
+/*КОНЕЦ коррекция таблицы в форме отправки сообщения из контактов*/
