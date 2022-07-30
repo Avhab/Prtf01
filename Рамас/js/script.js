@@ -61,6 +61,7 @@ if (Nav){
 let form = document.querySelector('.Contacts form');
 let blur = document.querySelector('.blur');
 let thankY = document.querySelector('.thankY');
+let bann = document.querySelector('.thankY .bann');
 if (form && blur && thankY) {
 	form.addEventListener("submit", function(e) {localStorage.setItem("submKey",JSON.stringify(true));});
 	let blurOn = function() {
@@ -72,7 +73,12 @@ if (form && blur && thankY) {
 	let submOk = JSON.parse(localStorage.getItem("submKey"));
 	if (submOk == true) {
 		blur.style.display = "block";
-		thankY.style.display = "block";	}	}
+		thankY.style.display = "block";
+		let widt = document.documentElement.clientWidth - 30;
+		if (widt<500) {
+		thankY.style.width = widt + 'px';
+		widt = widt / 2;
+		thankY.style.marginLeft ='-' + widt + 'px';	}		}	}
 /*КОНЕЦ модальное окно после события формы submit*/
 
 /*НАЧАЛО коррекция таблицы в форме отправки сообщения из контактов*/
