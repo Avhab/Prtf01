@@ -71,11 +71,12 @@ header, footer {padding:0;font-size:18px;}
 header .wrap1>div, footer .wrap1>div {float:left;}
 
 .logoMenu {min-height:80px;padding:18px 0 22px 0;position:relative;}
-.logoMenu .wrap1>div {width:calc(100% - 90px);text-align:center;}
+.logoMenu .wrap1>div {width:100%;text-align:center;}
+.logoMenu .wrap1>div.Logo {width:calc(100% - 90px);}
 .logoMenu .adres {padding-top:7px;}
 .logoMenu .telph {padding-top:3px;}
 .logoMenu a img {margin-right:24px;}
-.logoMenu .burger {/*width:52px;height:52px;*/position:absolute;top:15px;right:22px;border-radius:8px;}
+.logoMenu .burger {width:76px;position:absolute;top:15px;right:10px;border-radius:8px;text-align:center;}
 .logoMenu .burgerMenu {position:absolute;z-index:80;max-width:320px;top:15px;right:22px;}
 .logoMenu .burger:hover {cursor:pointer;background:#FFDFC9;}
 
