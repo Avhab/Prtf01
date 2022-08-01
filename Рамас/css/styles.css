@@ -118,7 +118,7 @@ header .wrap1>div {float:none;}
 .MainTit .ScrlCont>div {width:95%;margin:0 auto;padding:5%;
 background:white;border-radius:30px;box-shadow: 10px 4px 40px 0px rgba(0, 0, 0, 0.15);}
 .MainTit .ScrlCont>div img {width:95%;}
-.MainTit .dots {width:153px;height:25px;margin:15px auto 5% auto;}
+.MainTit .dots {height:25px;margin:15px auto 5% auto;text-align:center;}
 .MainTit .dots>div {width:26px;height:26px;background:#353535;display:inline-block;margin:0 12px;border-radius:30px;}
 .MainTit .dots>div:hover {cursor:pointer;}
 .MainTit .dots>div.on {width:20px;height:20px;background:#F66303;margin:3px 15px;border-radius:30px;}
