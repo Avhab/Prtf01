@@ -26,25 +26,24 @@ let HScrol = document.querySelector(".HScrol");
 if (HScrol){
 	let img = HScrol.querySelectorAll("img");
 	let dots = HScrol.querySelector(".dots");
-	let dot = dots.querySelectorAll(".dots>div");
 	let indI = 0;
-
+	let imgLen = img.length - 1;
 	for (let i = 0; i < img.length; i++) {
-		img[i].style.transitionDuration = '0.3s';
-		if (indI==i) {
-			dot[i].className='on';
-		} else {img[i].style.display = 'none'; }	}
-
+		let dot = document.createElement("div");dots.append(dot);
+		if (indI==i) {dot.className='on';} else {img[i].style.display = 'none'; }	}
+	let dot = dots.querySelectorAll(".dots>div");
+	let imScrl = function(indN){
+		img[indN].style.opacity = '0';
+		img[indI].style.opacity = '0';
+		setTimeout( function() {
+			img[indI].style.display = 'none';
+			dot[indI].className='';
+			dot[indN].className='on';
+			img[indN].style.display = null;
+			setTimeout( function() {img[indN].style.opacity = '1';indI = indN;}, 25);	}, 300);	}
 	for (let i = 0; i < dot.length; i++) {
-		dot[i].onclick = function(){
-			img[i].style.opacity = '0';
-			img[indI].style.opacity = '0';
-			setTimeout( function() {
-				img[indI].style.display = 'none';
-				dot[indI].className='';
-				dot[i].className='on';
-				img[i].style.display = null;
-				setTimeout( function() {img[i].style.opacity = '1';indI = i;}, 25);	}, 300);	}	}	}
+		dot[i].onclick = function(){imScrl(i);}
+		img[i].onclick = function(){let indN=0;	if(indI!=imgLen){indN=indI+1;}imScrl(indN);	}	}		}
 /*КОНЕЦ слайды наверху страницы*/
 
 /*НАЧАЛО уборка модального окна с карты*/
