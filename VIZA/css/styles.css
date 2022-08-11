@@ -122,7 +122,7 @@ text-align:left;}
 
 @media (max-width:700px) {
 .Tit1 {font-size:34px;}
-.Tit2 {font-size:28px;}
+.Tit2 {font-size:28px;line-height:40px;}
 .ordin  {padding:40px 0 30px 0;}}
 
 header {color:white;padding:0;background: url(../images/bg01.jpg) center top no-repeat;background-size:cover;}
@@ -186,7 +186,8 @@ span {color:#FF7600;}
 .dearG .elem>div>div>div {font-family: 'Oswald';font-size: 24px;font-weight: 600;line-height: 30px;text-align:left;}
 .dearG .elem ul {margin-top:25px;}
 @media (max-width:1200px) {.dearG .elem {width:100%;}
-.dearG .Tit2 {text-align:center;}}
+.dearG .Tit2 {text-align:center;}
+.dearG .elem>div>div, .dearG .elem ul {margin-top:10px;}}
 @media (min-width:620px) {
 .dearG .elem>div {width:570px;}
 .dearG .elem>div>* {float:left;}
@@ -196,8 +197,8 @@ span {color:#FF7600;}
 .your250 .reflect {color:#F1F1F1;opacity:0.2;}
 .your250 .wrap1 {margin:0 0 0 40%;
 max-width:760px;border-radius:5px;padding:52px;background:rgba(0, 0, 0, 0.8);}
-.your250 .wrap1>div:nth-child(2) {margin-top:60px;}
-@media (max-width:1300px) {.your250 .wrap1 {margin:0 0 0 auto;}}
+.your250 .wrap1 .cont {margin-top:60px;}
+@media (max-width:1300px) {.your250 .wrap1 {margin:0;}}
 @media (max-width:600px) {.your250 .wrap1 {padding:10px;}}
 
 .actions {background: url(../images/bg04.jpg) left top repeat;
@@ -208,14 +209,16 @@ font-size: 15px;font-weight: 600;line-height: 25px;}
 margin:30px 0 15px 0;}
 .actions .comm {text-align:center;max-width:558px;margin:60px auto 0 auto;}
 @media (max-width:900px) {.actions .Tit2 {text-align:center;}
-.actions .elem {width:100%;float:none;padding:0;text-align:center;}}
+.actions .elem {width:100%;float:none;padding:0;text-align:center;}
+.actions .elem>div>div:nth-child(1) {margin:10px 0 0 0;}}
 @media (min-width:900px) {.actions .Tit2 {padding:0 15px;}
 .actions .elem {height:330px;}}
 
 .feedB .wrap1 {overflow:visible;}
 .feedB .ScrlCont {width:100%;margin:50px 0;}
 .feedB .ScrlCont>div {height:420px;width:calc(100% - 15px);margin:0 15px;padding:30px;
-border-radius:5px;background:white;}
+border-radius:5px;background:white;overflow:auto;}
+@media (max-width:900px) {.feedB .ScrlCont {margin:25px 0;}}
 
 .allFor {background: url(../images/bg05.jpg) center top no-repeat;background-size:cover;
 font-size: 15px;font-weight: 600;line-height: 25px;}
@@ -239,8 +242,11 @@ font-family: 'Oswald';font-size: 24px;font-weight: 600;line-height: 30px;}
 .saunKit .elem {float:left;width:33.33%;margin-top:50px;padding:0 15px;/*height:301px;*/}
 .saunKit .elem>div {max-width:351px;margin:30px auto 0 auto;text-align:left;}
 .saunKit .elem>div>div {font-family:'Oswald';font-size: 24px;font-weight: 600;line-height: 30px;}
-@media (max-width:900px) {.saunKit .Tit2 {text-align:center;}
-.saunKit .elem {width:100%;float:none;padding:0;text-align:center;}}
+@media (max-width:900px) {
+.saunKit .cont {margin-top:20px;}
+.saunKit .Tit2 {text-align:center;}
+.saunKit .elem {width:100%;float:none;padding:0;text-align:center;}
+.saunKit .elem>div {margin:5px auto 0 auto;}}
 @media (min-width:900px) {.saunKit .Tit2 {padding:0 15px;}
 .saunKit .elem {height:275px;}}
 
@@ -305,6 +311,7 @@ position:relative;}
 .unfPart .elem>div>div {font-family:'Oswald';font-size: 24px;font-weight: 600;line-height: 30px;}
 .unfPart .elem:nth-child(2)>div:nth-child(1) {font-size: 15px;font-weight: 600;line-height: 25px;text-align: center;}
 @media (max-width:900px) {.unfPart .Tit2 {text-align:center;}
+.unfPart .cont, .unfPart .elem>div {margin-top:0;}
 .unfPart .elem {width:100%;float:none;padding:0;text-align:center;}}
 @media (min-width:900px) {.unfPart .Tit2 {padding:0 15px;}
 .unfPart .elem {height:275px;}}
