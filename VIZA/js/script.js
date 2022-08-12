@@ -99,17 +99,49 @@ for (let i = 0; i < FAQ.length; i++) {
 		wrapArr.className = 'wrapArr';
 		qAns[i].append(wrapArr);
 		let qAnsN = qAns[i];
+
+		qAnsN.style.transitionDuration = "0";
+		Ans.style.transitionDuration = "0";
+
+		let clHeitOpen;
+		let clHeitClose;
+		
+		setTimeout(function(){
+			
+			clHeitOpen = qAnsN.clientHeight;
+			Ans.style.transform = 'scaleY(0)';
+			Ans.style.opacity = '0';	
+			Ans.style.display = 'none';	
+
+			setTimeout(function(){
+				clHeitClose = qAnsN.clientHeight;
+				qAnsN.style.height = clHeitClose+"px";
+				qAnsN.style.transitionDuration = null;
+				Ans.style.transitionDuration = null;
+			}, 20);
+		}, 20);
+		
+	
 		qAnsN.onclick = function() {
 			wrapArr.classList.toggle("ArrUp");
 			if (wrapArr.classList.contains("ArrUp")) {
-				Ans.style.display = 'inline-block';
-				Que.style.color = '#EA8F41';
-				setTimeout(function(){Ans.style.opacity = '1';Ans.style.transform = 'scaleY(1)';}, 20);
+				Ans.style.display = null;	
+				setTimeout(function(){
+					Que.style.color = '#EA8F41';
+					Ans.style.opacity = '1';
+					Ans.style.transform = 'scaleY(1)';
+					qAnsN.style.height = clHeitOpen+"px";
+				}, 20);
 			} else {
+				Que.style.color = null;
 				Ans.style.opacity = '0';
 				Ans.style.transform = 'scaleY(0)';
-				setTimeout(function(){Ans.style.display = 'none';Que.style.color = null;}, 300);	}	}
-		Ans.style.display = 'none';
-		Ans.style.transform = 'scaleY(0)';
-		Ans.style.opacity = '0';	}	}
+				qAnsN.style.height = clHeitClose+"px";
+				setTimeout(function(){
+					Ans.style.display = 'none';	
+				}, 20);
+					}	}
+		
+		}	}
+
 //---------------раскрывающиеся списки FAQ
