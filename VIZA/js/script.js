@@ -31,12 +31,17 @@ for (let i = 0; i < HScrol.length; i++) {
 			setTimeout( function() {
 				let scrolStep = ScrlCont.scrollWidth / ScrlElem.length;//шаг скроллинга
 				if (LArr) {LArr.onclick = function(){
-					let tmp = (Math.trunc(ScrlCont.scrollLeft / scrolStep)) * scrolStep;
-					ScrlCont.scrollTo({left: (tmp), behavior: 'smooth'});}	}//стрелка переключения влево
+					let tmp = ScrlCont.scrollLeft / scrolStep;
+					let hl = Math.floor(tmp);
+					if ((tmp-hl)<0.05) {tmp=hl-1;}else{tmp=hl;}
+					tmp = tmp * scrolStep;
+					ScrlCont.scrollTo({left: (tmp), behavior: 'smooth'});}	}//стрелка скроллинга влево
 				if (RArr) {RArr.onclick = function(){
-					let tmp = (Math.round(ScrlCont.scrollLeft / scrolStep)) * scrolStep + scrolStep;
-					if (tmp > (ScrlCont.scrollWidth-scrolStep)) {tmp=ScrlCont.scrollWidth-scrolStep;}
-					ScrlCont.scrollTo({left: (tmp), behavior: 'smooth'});}	}//стрелка переключения вправо
+					let tmp = ScrlCont.scrollLeft / scrolStep;
+					let hl = Math.floor(tmp);
+					if ((tmp-hl)>0.95) {tmp=hl+2;}else{tmp=hl+1;}
+					tmp = tmp * scrolStep;
+					ScrlCont.scrollTo({left: (tmp), behavior: 'smooth'});}	}//стрелка скроллинга вправо
 			}, 600);
 		//------------- стрелки скроллинга вправо и влево
 		} else {
