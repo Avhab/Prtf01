@@ -118,9 +118,8 @@ for (let i = 0; i < FAQ.length; i++) {
 				qAnsN.style.height = clHeitClose+"px";
 				qAnsN.style.transitionDuration = null;
 				Ans.style.transitionDuration = null;
-			}, 20);
-		}, 20);
-		
+			}, 100);
+		}, 100);
 	
 		qAnsN.onclick = function() {
 			wrapArr.classList.toggle("ArrUp");
@@ -131,7 +130,7 @@ for (let i = 0; i < FAQ.length; i++) {
 					Ans.style.opacity = '1';
 					Ans.style.transform = 'scaleY(1)';
 					qAnsN.style.height = clHeitOpen+"px";
-				}, 20);
+				}, 50);
 			} else {
 				Que.style.color = null;
 				Ans.style.opacity = '0';
@@ -139,7 +138,7 @@ for (let i = 0; i < FAQ.length; i++) {
 				qAnsN.style.height = clHeitClose+"px";
 				setTimeout(function(){
 					Ans.style.display = 'none';	
-				}, 20);
+				}, 50);
 					}	}
 		
 		}	}
