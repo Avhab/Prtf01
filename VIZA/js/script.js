@@ -111,10 +111,8 @@ for (let i = 0; i < FAQ.length; i++) {
 				if (!heigOn) {
 					heigOff = qAns[i].clientHeight;
 					Ans.style.display = null;
-					setTimeout(function(){
-						heigOn = qAns[i].clientHeight;
-						Ans.style.display = "none";
-					}, 10);			}
+					heigOn = qAns[i].clientHeight;
+					Ans.style.display = "none";		}
 				setTimeout(function(){
 					Ans.style.display = null;
 					setTimeout(function(){
@@ -131,7 +129,7 @@ for (let i = 0; i < FAQ.length; i++) {
 				qAns[i].style.height = heigOff+"px";
 				setTimeout(function(){
 					Ans.style.display = "none";
-				}, 300);			}	}		}	}
+				}, 300);	}		}		}	}
 //---------------раскрывающиеся списки FAQ
 /*
 let FAQ = document.querySelectorAll(".FAQ");
