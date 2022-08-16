@@ -112,24 +112,23 @@ for (let i = 0; i < FAQ.length; i++) {
 					heigOff = qAns[i].clientHeight;
 					Ans.style.display = null;
 					heigOn = qAns[i].clientHeight;
-					Ans.style.display = "none";		}
+					qAns[i].style.height = heigOff+"px";	}
 				setTimeout(function(){
-					Ans.style.display = null;
+					qAns[i].style.height = heigOn+"px";
 					setTimeout(function(){
-						Que.style.color = '#EA8F41';
-						Ans.style.opacity = '1';
-						Ans.style.transform = 'scaleY(1)';
-						qAns[i].style.height = heigOn+"px";
+						Ans.style.display = null;
+						setTimeout(function(){
+							Que.style.color = '#EA8F41';
+							Ans.style.opacity = '1';
+							Ans.style.transform = 'scaleY(1)';
+						}, 50);
 					}, 50);
-				}, 100);				
+				}, 50);				
 			} else {
 				Que.style.color = null;
 				Ans.style.opacity = '0';
 				Ans.style.transform = 'scaleY(0)';
-				qAns[i].style.height = heigOff+"px";
-				setTimeout(function(){
-					Ans.style.display = "none";
-				}, 300);	}		}		}	}
+				qAns[i].style.height = heigOff+"px";}		}		}	}
 //---------------раскрывающиеся списки FAQ
 /*
 let FAQ = document.querySelectorAll(".FAQ");
