@@ -98,27 +98,24 @@ for (let i = 0; i < FAQ.length; i++) {
 		let wrapArr = document.createElement("div");
 		wrapArr.className = 'wrapArr';
 		qAns[i].append(wrapArr);
-/*		let qAnsN = qAns[i];*/
 
 		qAns[i].style.transitionDuration = "0";
 		Ans.style.transitionDuration = "0";
-
 		let clHeitOpen;
 		let clHeitClose;
-
 		setTimeout(function(){
 			clHeitOpen = qAns[i].clientHeight;
 			setTimeout(function(){
 				Ans.style.transform = 'scaleY(0)';
 				Ans.style.opacity = '0';	
 				Ans.style.display = 'none';
-
 				setTimeout(function(){
 					clHeitClose = qAns[i].clientHeight;
 					setTimeout(function(){
 						qAns[i].style.height = clHeitClose+"px";
 						qAns[i].style.transitionDuration = null;
 						Ans.style.transitionDuration = null;
+						Ans.style.display = null;
 					}, 100);
 				}, 100);
 			}, 100);
@@ -127,24 +124,18 @@ for (let i = 0; i < FAQ.length; i++) {
 		qAns[i].onclick = function() {
 			wrapArr.classList.toggle("ArrUp");
 			if (wrapArr.classList.contains("ArrUp")) {
-				Ans.style.display = null;
 				setTimeout(function(){
 					Que.style.color = '#EA8F41';
 					Ans.style.opacity = '1';
 					Ans.style.transform = 'scaleY(1)';
 					qAns[i].style.height = clHeitOpen+"px";
-/*					setTimeout(function(){qAns[i].style.height = null;}, 300);*/
 				}, 50);
 			} else {
 				Que.style.color = null;
 				Ans.style.opacity = '0';
 				Ans.style.transform = 'scaleY(0)';
 				qAns[i].style.height = clHeitClose+"px";
-/*				setTimeout(function(){
-					Ans.style.display = 'none';
-				}, 50);*/
 					}	}
 		
 		}	}
-
 //---------------раскрывающиеся списки FAQ
