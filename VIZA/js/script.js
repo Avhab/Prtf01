@@ -99,6 +99,51 @@ for (let i = 0; i < FAQ.length; i++) {
 		wrapArr.className = 'wrapArr';
 		qAns[i].append(wrapArr);
 
+		let heigOn;
+		let heigOff;
+		Ans.style.transform = 'scaleY(0)';
+		Ans.style.opacity = '0';	
+		Ans.style.display = "none";
+
+		qAns[i].onclick = function() {
+			wrapArr.classList.toggle("ArrUp");
+			if (wrapArr.classList.contains("ArrUp")) {
+				if (!heigOn) {
+					heigOff = qAns[i].clientHeight;
+					Ans.style.display = null;
+					setTimeout(function(){
+						heigOn = qAns[i].clientHeight;
+						Ans.style.display = "none";
+					}, 10);			}
+				setTimeout(function(){
+					Ans.style.display = null;
+					setTimeout(function(){
+						Que.style.color = '#EA8F41';
+						Ans.style.opacity = '1';
+						Ans.style.transform = 'scaleY(1)';
+						qAns[i].style.height = heigOn+"px";
+					}, 50);
+				}, 100);				
+			} else {
+				Que.style.color = null;
+				Ans.style.opacity = '0';
+				Ans.style.transform = 'scaleY(0)';
+				qAns[i].style.height = heigOff+"px";
+				setTimeout(function(){
+					Ans.style.display = "none";
+				}, 300);			}	}		}	}
+//---------------раскрывающиеся списки FAQ
+/*
+let FAQ = document.querySelectorAll(".FAQ");
+for (let i = 0; i < FAQ.length; i++) {
+	let qAns = FAQ[i].querySelectorAll(".qAns");
+	for (let i = 0; i < qAns.length; i++) {
+		let Que = qAns[i].querySelector(".Que");
+		let Ans = qAns[i].querySelector(".Ans");
+		let wrapArr = document.createElement("div");
+		wrapArr.className = 'wrapArr';
+		qAns[i].append(wrapArr);
+
 		Ans.style.transform = 'scaleY(0)';
 		Ans.style.opacity = '0';	
 		Ans.style.display = "none";
@@ -119,4 +164,4 @@ for (let i = 0; i < FAQ.length; i++) {
 				setTimeout(function(){
 					Ans.style.display = "none";
 				}, 300);			}	}		}	}
-//---------------раскрывающиеся списки FAQ
+				*/
