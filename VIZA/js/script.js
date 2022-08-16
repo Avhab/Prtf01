@@ -89,56 +89,34 @@ for (let i = 0; i < Tit2.length; i++) {
 //--------------отражение заголовков Tit2
 
 //раскрывающиеся списки FAQ ------------
-document.addEventListener("DOMContentLoaded", function() {
-	setTimeout(function(){
-		let FAQ = document.querySelectorAll(".FAQ");
-		for (let i = 0; i < FAQ.length; i++) {
-			let qAns = FAQ[i].querySelectorAll(".qAns");
-			for (let i = 0; i < qAns.length; i++) {
-				let Que = qAns[i].querySelector(".Que");
-				let Ans = qAns[i].querySelector(".Ans");
-				let wrapArr = document.createElement("div");
-				wrapArr.className = 'wrapArr';
-				qAns[i].append(wrapArr);
+let FAQ = document.querySelectorAll(".FAQ");
+for (let i = 0; i < FAQ.length; i++) {
+	let qAns = FAQ[i].querySelectorAll(".qAns");
+	for (let i = 0; i < qAns.length; i++) {
+		let Que = qAns[i].querySelector(".Que");
+		let Ans = qAns[i].querySelector(".Ans");
+		let wrapArr = document.createElement("div");
+		wrapArr.className = 'wrapArr';
+		qAns[i].append(wrapArr);
 
-				qAns[i].style.transitionDuration = "0";
-				Ans.style.transitionDuration = "0";
-				let clHeitOpen;
-				let clHeitClose;
+		Ans.style.transform = 'scaleY(0)';
+		Ans.style.opacity = '0';	
+		Ans.style.display = "none";
+
+		qAns[i].onclick = function() {
+			wrapArr.classList.toggle("ArrUp");
+			if (wrapArr.classList.contains("ArrUp")) {
+				Ans.style.display = null;
 				setTimeout(function(){
-					clHeitOpen = qAns[i].clientHeight;
-					setTimeout(function(){
-						Ans.style.transform = 'scaleY(0)';
-						Ans.style.opacity = '0';	
-						Ans.style.display = 'none';
-						setTimeout(function(){
-							clHeitClose = qAns[i].clientHeight;
-							setTimeout(function(){
-								qAns[i].style.height = clHeitClose+"px";
-								qAns[i].style.transitionDuration = null;
-								Ans.style.transitionDuration = null;
-								Ans.style.display = null;
-							}, 100);
-						}, 100);
-					}, 100);
-				}, 100);
-			
-				qAns[i].onclick = function() {
-					wrapArr.classList.toggle("ArrUp");
-					if (wrapArr.classList.contains("ArrUp")) {
-						setTimeout(function(){
-							Que.style.color = '#EA8F41';
-							Ans.style.opacity = '1';
-							Ans.style.transform = 'scaleY(1)';
-							qAns[i].style.height = clHeitOpen+"px";
-						}, 50);
-					} else {
-						Que.style.color = null;
-						Ans.style.opacity = '0';
-						Ans.style.transform = 'scaleY(0)';
-						qAns[i].style.height = clHeitClose+"px";
-							}	}
-				}	}
-	}, 300);
-});
+					Que.style.color = '#EA8F41';
+					Ans.style.opacity = '1';
+					Ans.style.transform = 'scaleY(1)';
+				}, 50);
+			} else {
+				Que.style.color = null;
+				Ans.style.opacity = '0';
+				Ans.style.transform = 'scaleY(0)';
+				setTimeout(function(){
+					Ans.style.display = "none";
+				}, 300);			}	}		}	}
 //---------------раскрывающиеся списки FAQ
