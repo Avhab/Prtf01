@@ -118,8 +118,8 @@ for (let i = 0; i < FAQ.length; i++) {
 				qAnsN.style.height = clHeitClose+"px";
 				qAnsN.style.transitionDuration = null;
 				Ans.style.transitionDuration = null;
-			}, 100);
-		}, 100);
+			}, 500);
+		}, 500);
 	
 		qAnsN.onclick = function() {
 			wrapArr.classList.toggle("ArrUp");
