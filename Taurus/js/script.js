@@ -191,7 +191,13 @@ function globMenu(globeLi) {
 		a.style.opacity = "0";
 		globeLi[j].onmouseover = function(){a.style.opacity = "1";}
 		globeLi[j].onmouseout = function(){a.style.opacity = "0";}
-		globeLi[j].onclick = function(){offBlur();}
+		globeLi[j].onclick = function(){
+			offBlur();
+			for (let k = 0; k < globeLi.length; k++) {
+				let a = globeLi[j].querySelector("a");
+				a.style.opacity = "0";	}
+			a.style.opacity = "1";
+			event.stopPropagation();	}
 		if (j==0) {adresPast(globeLi[j]);}
 		a.onclick = function(){
 			adresPast(globeLi[j]);
@@ -203,8 +209,7 @@ function globMenu(globeLi) {
 		let tmpSt = globeLi.innerHTML;
 		tmpSt = tmpSt.slice((tmpSt.indexOf("</b><br>", 0) + 8), (tmpSt.indexOf("<a href=", 0)))
 		let adr = document.querySelector("footer .adres");
-		adr.innerHTML = tmpSt;}
-			}
+		adr.innerHTML = tmpSt;}		}
 
 for (let i = 0; i < topMenuItm.length; i++) {
 	let inUl = topMenuItm[i].querySelector("ul");
