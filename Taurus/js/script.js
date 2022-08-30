@@ -26,6 +26,11 @@ if (document.documentElement.clientWidth > 900) {
 	let closeX = document.createElement("div");
 	closeX.classList.add("closeX");
 	closeX.style.float = "right";
+	closeX.onclick = function(){
+		offBurgMenuItm();
+		offBurger();
+		offBlur();
+	}
 	iconDiv.append(closeX);
 	iconDiv.style.padding = "0";
 	let iconsB = icons.cloneNode(true);
@@ -52,24 +57,22 @@ if (document.documentElement.clientWidth > 900) {
 
 	let globeB = burgerMenu.querySelector(".burgerMenu .globe");
 	let globeInUl = globeB.querySelector("ul");
+	globeInUl.classList.add("globeInUl");
+	icDiv.append(globeInUl);
 	
-	let iconMenuArea = document.createElement("div");
-	iconMenuArea.classList.add("iconMenuArea");
-	iconMenuArea.style.display = "none";
-	iconDiv.append(iconMenuArea);
-	iconMenuArea.prepend(globeInUl);
 	function offBurgMenuItm() {
 		for (let i = 0; i < burgMenuItm.length; i++) {
-			burgMenuItm[i].style.color = "";	}
+			let burgMenuItmDiv = burgMenuItm[i].querySelector("div");
+			burgMenuItmDiv.style.color = "";	}
 			globeB.style.background =  "url(images/globeWhite.png) center center no-repeat";
-			iconMenuArea.style.display="none";	}
+			globeInUl.style.display="none";	}
 	function offBurger() {
 		burgerMenu.style.opacity = "0";
 		setTimeout(function(){	burgerMenu.style.display = "none";	}, 300);	}
 		
 	burger.onclick = function(){
 		if (blur.style.display == "block") {
-			if (iconMenuArea) {iconMenuArea.style.display="none";}
+			if (globeInUl) {globeInUl.style.display="none";}
 			offUl();
 			offBurgMenuItm();
 			offBlur();
@@ -83,19 +86,19 @@ if (document.documentElement.clientWidth > 900) {
 	offBurger();
 
 	document.addEventListener("click", function(){
-		if (iconMenuArea) {iconMenuArea.style.display="none";}
+		if (globeInUl) {globeInUl.style.display="none";}
 		offBurgMenuItm();
 		offBurger();	});
 
-	let burgMenuItm = burgerMenu.querySelectorAll(".burgerMenu>div>div");
+	let burgMenuItm = burgerMenu.querySelectorAll(".burgerMenu>div");
 	for (let i = 0; i < burgMenuItm.length; i++) {
-		if (burgMenuItm[i].classList.contains("iconDiv")){
+		let iconDiv = burgMenuItm[i].querySelector(".iconDiv");
+		if (iconDiv){
 			//меню иконки globe в бургер-меню
 			globeB.onclick = function(){
-				if (iconMenuArea.style.display!="block") {
+				if (globeInUl.style.display!="block") {
 					offUl();
 					offBurgMenuItm();
-					iconMenuArea.style.display="block";
 					globeB.style.background =  "url(images/globeBlu.png) center center no-repeat";
 					globeInUl.style.display="block";
 					setTimeout(function(){globeInUl.style.opacity = "1";}, 20);
@@ -105,7 +108,6 @@ if (document.documentElement.clientWidth > 900) {
 					globeB.style.background =  "";
 					setTimeout(function(){
 						globeInUl.style.display="none";
-						iconMenuArea.style.display="none";
 						}, 300);
 					event.stopPropagation();}	}		
 		}else{
@@ -113,16 +115,17 @@ if (document.documentElement.clientWidth > 900) {
 			if (inUl) {
 				inUl.style.opacity="0";
 				inUl.style.display = "none";
+				let burgMenuItmDiv = burgMenuItm[i].querySelector("div");
 				burgMenuItm[i].addEventListener("click", function(){
 					if (inUl.style.display!="block") {
 						offUl();
 						offBurgMenuItm();
-						burgMenuItm[i].style.color = "#2D9CDB";
+						burgMenuItmDiv.style.color = "#2D9CDB";
 						inUl.style.display="block";
 						setTimeout(function(){inUl.style.opacity = "1";}, 20);
 						event.stopPropagation();
 					}else{
-						burgMenuItm[i].style.color = "";
+						burgMenuItmDiv.style.color = "";
 						inUl.style.opacity = "0";
 						setTimeout(function(){inUl.style.display="none";}, 300);
 						event.stopPropagation();	}	});
@@ -135,13 +138,34 @@ if (document.documentElement.clientWidth > 900) {
 						offBurger();
 						event.stopPropagation();	});	}	}	}	}
 	//ссылка На карте в бургер-меню
-	let globeLi = globeInUl.querySelectorAll("li>div");
-	globMenu(globeLi);
+	let globeLi = globeInUl.querySelectorAll(".burgerMenu ul.globeInUl li>div");
+	for (let j = 0; j < globeLi.length; j++) {
+	let a = globeLi[j].querySelector("a");
+	a.style.opacity = "0";
+	globeLi[j].onmouseover = function(){a.style.opacity = "1";}
+	globeLi[j].onmouseout = function(){a.style.opacity = "0";}
+	globeLi[j].onclick = function(){
+		a.style.opacity = "1";
+		event.stopPropagation();
+				}
+	if (j==0) {adresPast(globeLi[j]);}
+	a.onclick = function(){
+		adresPast(globeLi[j]);
+		let Nav = document.querySelector(".Nav");
+		let NavDiv = document.querySelector(".Nav>div");
+		if (NavDiv) {NavDiv.remove()};
+		Nav.append(NavLib[j].cloneNode(true));
+		offBlur();
+		offBurgMenuItm();
+		offBurger();
+		event.stopPropagation();
+				}	}
+	offBurgMenuItm();
 }
 
 logoMenu = document.querySelector(".logoMenu");
 topMenu = logoMenu.querySelector(".topMenu");
-topMenuItm = topMenu.querySelectorAll(".topMenu>div>div");
+topMenuItm = topMenu.querySelectorAll(".topMenu>div");
 
 let inUl = globe.querySelector("ul");
 globe.onclick = function(){
@@ -162,7 +186,27 @@ globe.onclick = function(){
 		event.stopPropagation();}	}
 //ссылка На карте
 let globeLi = globe.querySelectorAll(".globe li>div");
-globMenu(globeLi);
+for (let j = 0; j < globeLi.length; j++) {
+	let a = globeLi[j].querySelector("a");
+	a.style.opacity = "0";
+	globeLi[j].onmouseover = function(){a.style.opacity = "1";}
+	globeLi[j].onmouseout = function(){a.style.opacity = "0";}
+	globeLi[j].onclick = function(){
+		offBlur();
+		offUl();
+		for (let k = 0; k < globeLi.length; k++) {
+			let a = globeLi[j].querySelector("a");
+			a.style.opacity = "0";	}
+		a.style.opacity = "1";
+		event.stopPropagation();
+			}
+	if (j==0) {adresPast(globeLi[j]);}
+	a.onclick = function(){
+		adresPast(globeLi[j]);
+		let Nav = document.querySelector(".Nav");
+		let NavDiv = document.querySelector(".Nav>div");
+		if (NavDiv) {NavDiv.remove()};
+		Nav.append(NavLib[j].cloneNode(true));	}	}
 
 document.addEventListener("click", function(){
 	offUl();
@@ -176,6 +220,7 @@ function offBlur() {
 	blur.style.opacity="0";
 	setTimeout(function(){blur.style.display = "none";}, 300);	}
 function offUl() {
+	globe.style.background =  "";
 	let inUl = logoMenu.querySelectorAll("ul");
 	for (let i = 0; i < inUl.length; i++) {
 		inUl[i].style.opacity = "0";
@@ -185,32 +230,15 @@ function offMenuItm() {
 	globe.style.background =  "";	}
 
 // функции меню globe
-function globMenu(globeLi) {
-	for (let j = 0; j < globeLi.length; j++) {
-		let a = globeLi[j].querySelector("a");
-		a.style.opacity = "0";
-		globeLi[j].onmouseover = function(){a.style.opacity = "1";}
-		globeLi[j].onmouseout = function(){a.style.opacity = "0";}
-		globeLi[j].onclick = function(){
-			offBlur();
-			for (let k = 0; k < globeLi.length; k++) {
-				let a = globeLi[j].querySelector("a");
-				a.style.opacity = "0";	}
-			a.style.opacity = "1";
-			event.stopPropagation();	}
-		if (j==0) {adresPast(globeLi[j]);}
-		a.onclick = function(){
-			adresPast(globeLi[j]);
-			let Nav = document.querySelector(".Nav");
-			let NavDiv = document.querySelector(".Nav>div");
-			if (NavDiv) {NavDiv.remove()};
-			Nav.append(NavLib[j].cloneNode(true));	}	}
-	function adresPast(globeLi) {
-		let tmpSt = globeLi.innerHTML;
-		tmpSt = tmpSt.slice((tmpSt.indexOf("</b><br>", 0) + 8), (tmpSt.indexOf("<a href=", 0)))
-		let adr = document.querySelector("footer .adres");
-		adr.innerHTML = tmpSt;}		}
+//function globMenu(globeLi) {
+//}
 
+function adresPast(globeLi) {
+	let tmpSt = globeLi.innerHTML;
+	tmpSt = tmpSt.slice((tmpSt.indexOf("</b><br>", 0) + 8), (tmpSt.indexOf("<a href=", 0)))
+	let adr = document.querySelector("footer .adres");
+	adr.innerHTML = tmpSt;}
+		
 for (let i = 0; i < topMenuItm.length; i++) {
 	let inUl = topMenuItm[i].querySelector("ul");
 	if (inUl) {
@@ -269,6 +297,7 @@ if (img.length==descr.length) {
 
 	lArr.onclick = function(){	NewTogg();	indx--;	if (indx<0) {indx=descr.length-1;}	}
 	rArr.onclick = function(){	NewTogg();	indx++;	if (indx==descr.length) {indx=0;}	}
+	newsImg.onclick = function(){	NewTogg();	indx++;	if (indx==descr.length) {indx=0;}	}
 	NewTogg();	indx = 0;
 }
 
