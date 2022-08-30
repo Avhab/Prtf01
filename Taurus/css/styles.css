@@ -87,16 +87,21 @@ border-top: #2D9CDB solid 8px;margin:0;}
 .logoMenu .topMenu *:hover {color: #2D9CDB;}
 .logoMenu .topMenu>* {cursor:pointer;}
 
-.logoMenu .wrap1>.icons li, .iconMenuArea li {font-size: 14px;font-weight: 400;line-height: 24px;position:relative;}
-.logoMenu .wrap1>.icons li b, .iconMenuArea li b {font-weight:700;}
-.logoMenu .wrap1>.icons li a, .iconMenuArea li a {position:absolute;top:10px;right:32px;color:#56CCF2;font-weight:500;}
-
+.logoMenu .wrap1>.icons li {font-size: 14px;font-weight: 400;line-height: 24px;position:relative;}
+.logoMenu .wrap1>.icons li b {font-weight:700;}
+.logoMenu .wrap1>.icons li a {position:absolute;top:10px;right:32px;color:#56CCF2;font-weight:500;}
+.logoMenu ul {width:100%;background:#363B4B;overflow:hidden;}
+.logoMenu ul>li {width:100%;padding:0 32px;cursor:pointer;text-align:left;
+font-size:13px;font-weight:500;line-height:24px;}
+.logoMenu ul>li>div {width:100%;padding:8px 0;border-top:2px solid #565B6B;}
+.logoMenu .globe ul>li:first-child>div {border-top:none;}
 
 .burgerMenu {position:absolute;z-index:101;top:8px;right:0;width:360px;display:none;
 font-size: 16px;font-weight: 500;line-height: 32px;overflow:hidden;}
 .burgerMenu *, .logoMenu ul * {color:white;}
 .burgerMenu {text-align:left;padding:0;background:#363B4B;}
-.burgerMenu>* {width:100%;color:white;padding:0 32px;cursor:pointer;}
+.burgerMenu>* {width:100%;color:white;padding:0;cursor:pointer;}
+
 .burgerMenu.p100>* {padding:0 5px;}
 .burgerMenu>.icons {width:calc(100% - 64px);float:left;padding-right:0;}
 .burgerMenu .icons .globe {float:right;display:block;}
@@ -104,23 +109,19 @@ font-size: 16px;font-weight: 500;line-height: 32px;overflow:hidden;}
 .burgerMenu .closeX {background: url(../images/closeXblu.png) center center no-repeat;cursor:pointer;
 width:32px;height:32px;padding:0;margin-top:16px}
 
-.logoMenu ul {width:100%;background:#363B4B;overflow:hidden;}
-.logoMenu ul>li {width:100%;padding:0 32px;cursor:pointer;text-align:left;
-font-size:13px;font-weight:500;line-height:24px;}
+.burgerMenu>*>div {width:calc(100% - 64px);margin:0 32px;padding:8px 0;border-top:2px solid #565B6B;}
+.burgerMenu>*:first-child>div {border-top:none;}
 
-.burgerMenu>*>div, .logoMenu ul>li>div {width:100%;padding:8px 0;border-top:2px solid #565B6B;}
 .burgerMenu .icons>* {border-top:none;}
 .burgerMenu ul {transform: translateY(10px);}
-.burgerMenu .iconMenuArea ul {transform: translateY(0);}
-
-.topMenu ul {position:absolute;top:64px;z-index:101;display:none;width:360px;background:#363B4B;border-radius:8px;}
-.icons ul {position:absolute;z-index:101;top:64px;right:0;width:360px;display:none;border-radius:8px;}
-
-.logoMenu ul>li:first-child>div {border-top:none;}
-
+.burgerMenu ul>li {padding:0 32px 0 64px;}
+.burgerMenu .globeInUl li a {color:#56CCF2;}
+.burgerMenu .globeInUl {transform: translateY(0);}
 .burgerMenu>*:last-child, .burgerMenu>*>ul>li:last-child {border-bottom:none;}
 .burgerMenu>*:hover, .logoMenu ul>li:hover {background:#262B3B;}
 
+.topMenu ul {position:absolute;top:64px;z-index:101;display:none;width:360px;background:#363B4B;border-radius:8px;}
+.icons ul {position:absolute;z-index:101;top:64px;right:0;width:360px;display:none;border-radius:8px;}
 
 		
 .News {position:relative;}
@@ -234,7 +235,6 @@ body>* {margin:52px 0 0 0;}
 .Tit2 {font-size: 28px;line-height: 36px;margin-bottom:62px;}
 .plTxt {font-size: 12px;line-height: 18px;}
 .whitButt, .blueButt {padding:9px 14px;font-size:12px;}
-.iconMenuArea li a {position:static;width:100%;}
 .News .newsImg {height:264px;}
 .News .secLine {height:253px;}
 .News .secLine .descr {height:189px;}
