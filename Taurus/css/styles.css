@@ -100,9 +100,8 @@ font-size:13px;font-weight:500;line-height:24px;}
 font-size: 16px;font-weight: 500;line-height: 32px;overflow:hidden;}
 .burgerMenu *, .logoMenu ul * {color:white;}
 .burgerMenu {text-align:left;padding:0;background:#363B4B;}
-.burgerMenu>* {width:100%;color:white;padding:0;cursor:pointer;}
+.burgerMenu>* {width:100%;color:white;padding:0;cursor:pointer;float:left;}
 
-.burgerMenu.p100>* {padding:0 5px;}
 .burgerMenu>.icons {width:calc(100% - 64px);float:left;padding-right:0;}
 .burgerMenu .icons .globe {float:right;display:block;}
 .burgerMenu .icons>*:first-child {margin-left:0;}
