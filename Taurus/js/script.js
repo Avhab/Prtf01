@@ -48,7 +48,6 @@ if (document.documentElement.clientWidth > 900) {
 		
 		closeX.style.marginTop = "14px";
 		logoDiv.style.padding = "0";
-		burgerMenu.classList.add("p100");
 
 		let logo = logoMenu.querySelector(".Logo");
 		logo = logo.cloneNode(false);
@@ -64,7 +63,7 @@ if (document.documentElement.clientWidth > 900) {
 		for (let i = 0; i < burgMenuItm.length; i++) {
 			let burgMenuItmDiv = burgMenuItm[i].querySelector("div");
 			burgMenuItmDiv.style.color = "";	}
-			globeB.style.background =  "url(images/globeWhite.png) center center no-repeat";
+			globeB.style.background =  "";
 			globeInUl.style.display="none";	}
 	function offBurger() {
 		burgerMenu.style.opacity = "0";
