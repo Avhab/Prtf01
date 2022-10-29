@@ -20,11 +20,9 @@ body * {font-family:'Roboto', sans-serif;font-weight:400;box-sizing:border-box;t
 body>* {overflow:hidden;position:relative;z-index:10;}
 * {transition-duration:0.3s;}
 .wrap1 {display:block;max-width:1130px;margin:0 auto;padding:0 5px;text-align:center;/*overflow:hidden;*/}
-.bluGrad {background:linear-gradient(77.53deg, #5531D2 0%, #9273E4 52%, #E7CDFC 100%);}
+.bluGrad {background:linear-gradient(77deg, #5531D2 0%, #9273E4 52%, #E7CDFC 100%);}
 
-header {background-size:100% 100%;
-color:white;font-weight: 400;text-align: left;position:relative;}
-
+header {color:white;font-weight: 400;text-align: left;position:relative;}
 header * {background:transparent;}
 .bluGrad * {color:white;}
 a {color:white;text-decoration:none;}
@@ -84,19 +82,27 @@ header button {height: 57px;color:white;font-size:18px;font-weight:400;line-heig
 .btnMod {margin:34px -16px 121px -16px;}
 .btnMod>* {width:255px;margin:8px 16px;}
 .doctor {display:block;position:absolute;z-index:-2;}
-@media (max-width: 800px) {.doctor {position:static;width:100%;}
+@media (max-width: 800px) {
+
+.doctor {position:static;width:100%;}
+.doctor {position:relative;width:100%;}
+
+
+
 .btnMod {margin:34px -16px 21px -16px;}}
 @media (max-width: 600px) {
 .btnMod {margin:20px 0;}
 .btnMod>* {width:100%;margin:8px 0;}}
 
-.bgdec {width:100%;position:absolute;left:50%;transform:translateX(-50%);}
-.bgdec1 {z-index:-5;top:0;height:143px;}
-.bgdec2 {z-index:-1;bottom:-5px;height:108px;}
-.bgdec img {width:100%;height:100%;}
-@media (max-width: 500px) {.bgdec1 {height:60px;} .bgdec2 {height:40px;}}
+.clipDec {width:100%;position:absolute;left:50%;transform:translateX(-50%);}
+.clipDec1 {z-index:-5;top:0;height:143px;}
+.clipDec2 {z-index:-1;bottom:0;height:108px;}
+.clipDec img {position:absolute;width:100%;height:100%;}
+.clipDec1 img {top:0;}
+.clipDec2 img {bottom:0;}
 
 header .doctor {bottom:-200px;left:47%;}
+@media (max-width: 800px) {header .doctor {bottom:-50px;left:0;}}
 
 .mobMenu {display:none;width:100%;margin:20px 0 0 0;text-align:right;}
 .burgerMenu {display:none;padding:20px 5px;text-align:right;background:#5531D2;}
@@ -110,7 +116,7 @@ header .doctor {bottom:-200px;left:47%;}
 header .Title1 {margin-top:24px;}}
 
 /*=============*/
-.scrlCont>div:hover {transform: scale(1.03);/*box-shadow: 0px 4px 20px 10px #2B118533;*/}
+.scrlCont>div:hover {transform: scale(1.03);}
 
 .comprCode .Title2 {text-align:center;margin:160px auto 56px auto;max-width:743px;}
 @media (min-width: 1150px) {.comprCode .scrlCont {width:calc(100% + 100px);transform:translateX(-40px);}}
@@ -144,9 +150,13 @@ ul.disAdv li::before {content:'';display:inline-block;height:20px;width:20px;bac
 
 .ourWarr .Title2 {text-align:center;margin:150px auto 56px auto;max-width:743px;color:white;}
 .ourWarr .Cont {margin:0 -32px 100px -32px;text-align: center;}
-@media (max-width: 1150px) {.ourWarr .bgdec img {width:1920px;}
+@media (max-width: 1150px) {
+.ourWarr .clipDec1 {height:50px;}
+.ourWarr .clipDec2 {height:30px;}
 .ourWarr .Title2 {margin:100px auto 56px auto;}
 .ourWarr .Cont {margin:0 -32px 80px -32px;}}
+@media (max-width: 600px) {.ourWarr .Title2 {margin:50px auto 26px auto;}
+.ourWarr .Cont {margin:0 -32px 30px -32px;}}
 .ourWarr .Cont>div {display:inline-block;position:relative;height:252px;width:256px;margin:16px;}
 .ourWarr .descr {
 position:absolute;left:0;bottom:0;z-index:2;
@@ -194,6 +204,9 @@ height:18px;width:18px;border-radius:23px;background:#9E00FF;margin-right:8px;}
 .Consult .Cont {display:inline-block;max-width:500px;margin:0;}
 .Consult .Title2 {margin:150px 0 10px 0;color:white;}
 .Consult .doctor {bottom:0;left:47%;}
+@media (max-width: 800px) {.Consult .doctor {left:0;}
+.Consult .clipDec1 {height:50px;}
+.Consult .clipDec2 {height:30px;}}
 form.req {width:100%;border-radius:20px;padding:14px;background: #FFFFFF;margin-top:10px;}
 .Consult form.req {margin-bottom:100px;}
 
@@ -225,9 +238,8 @@ height:42px;width:42px;border-radius:40px;background: rgba(231, 205, 252, 0.3);}
 height:188px;width:256px;border-radius:20px;padding:24px;margin:0 16px;box-shadow: 0px 4px 20px 0px #2B118533;}
 /*===============*/
 
-footer {text-align:center;font-size: 16px;font-weight: 400;line-height: 22px;}
+footer {text-align:center;font-size: 16px;font-weight: 400;line-height: 22px;color:white;}
 footer .wrap1 {display:inline-block;margin-top:150px;}
-
 footer .Title4, .burgerMenu .Title4 {margin-bottom:16px;}
 footer .subTit {max-width:300px;}
 footer .wrap1>* {float:left;}
@@ -238,12 +250,14 @@ footer .wrap1>* {float:left;}
 
 footer .logoDiv>div {width:173px;}
 footer .Cont1>* {width:100%;display:inline-block;}
+@media (max-width: 800px) {footer .clipDec1 {height:50px;}}
 .copyR {display:inline-block;width:100%;margin:36px 0;font-size: 12px;font-weight: 400;line-height: 17px;text-align: center;}
 
-@media (max-width: 400px) {.Consult .Title2 {margin:50px 0 10px 0;}
+@media (max-width: 1180px) {.Cont1, .Cont2, .Cont3, .Cont4 {width:50%;margin-right:0;}}
+@media (max-width: 800px) {.Consult .Title2 {margin:50px 0 10px 0;}
 .Consult form.req {margin-bottom:20px;}
-footer .wrap1 {margin-top:60px;}
-.Cont1, .Cont2, .Cont3, .Cont4 {width:100%;margin-right:0;}}
+footer .wrap1 {margin-top:60px;}}
+@media (max-width: 550px) {.Cont1, .Cont2, .Cont3, .Cont4 {width:100%;}}
 
 /*===============*/
 .clearFlow:after {
