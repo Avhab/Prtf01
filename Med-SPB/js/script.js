@@ -1,12 +1,5 @@
 let bkgr = document.querySelector("header");
-//let bkgr = document.querySelector("body");
-//let script = document.querySelector("script");
 let decor01 = document.createElement("div");
-// 1 - 10
-/*
-bkgr.prepend(decor01); bkgr.append(decor01);
-script.before(decor01);
-*/
 
 bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:668px;width:668px;left:-280px;top: -14px;`
@@ -31,7 +24,6 @@ decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;backgrou
 
 if (document.documentElement.clientWidth > 1100) {
 bkgr = document.querySelector(".comprCode");
-//bkgr = document.querySelector("body");
 
 //8 - 11
 decor01 = document.createElement("div");
@@ -49,10 +41,6 @@ decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;backgroun
 
 //11 - 13
 bkgr = document.querySelector(".ourWarr");
-/*
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:5;background:#F0F4FF;height:100px;width:270px;left:0;top:435px;`*/
 decor01 = document.createElement("div");
 bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:484px;width:484px;opacity:10%;left:-172px;top:229px;`
@@ -65,14 +53,12 @@ bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-104px;top:365px;transform:rotate(-15deg);`
 
 //14
-//bkgr = document.querySelector(".FAQ");
 bkgr = document.querySelector(".un01");
 decor01 = document.createElement("div");
 bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:59px;`
 
 //15 - 20
-//bkgr = document.querySelector(".WhoN");
 decor01 = document.createElement("div");
 bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;left:-100px;top:480px;transform:rotate(-15deg);`
@@ -116,10 +102,6 @@ decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;backgroun
 decor01 = document.createElement("div");
 bkgr.append(decor01);
 decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#9E00FF;height:176px;width:176px;opacity:30%;left:122px;top:620px;opacity:30%;`
-
-
-
-
 }
 
 
@@ -273,38 +255,39 @@ if (document.documentElement.clientWidth < 600) {
 	tmp = midMenu.querySelector(".midMenu .paleBtn");
 	tmp = tmp.cloneNode(true);	
 	burgerMenu.append(tmp);
-
-
+	
+	burgerMenu.style.transform = 'scaleY(0)';
+	burgerMenu.style.transformOrigin = 'top';
+	burgerMenu.style.opacity = '0'; 	
+	
 	burger.onclick = function() {
 		burgerMenu.style.display = 'block';
-		mobMenu.style.display = 'none';
+		setTimeout(function(){	burgerMenu.style.transform = null;	burgerMenu.style.opacity = null; }, 1);
 	}
 	cross.onclick = function() {
-		burgerMenu.style.display = 'none';
-		mobMenu.style.display = 'inline-block';
+		burgerMenu.style.transform = 'scaleY(0)';
+		burgerMenu.style.opacity = '0'; 	
+		setTimeout(function(){	burgerMenu.style.display = 'none';	}, 300);
 	}
 }
-
-
 //---------------мобильное меню
 
-/*
- * 
- * <div class="midMenu rowDiv">
-			<div>
-				<div class="logoDiv">
-					<a href="index.html"><img src="images/logo_icon.png" alt="Лого"></a>
-					<div>исследовательский центр новейших методов в наркологии</div>
-				</div>
-<header class="bluGrad">
-	<div class="wrap1">
-		<div class="topMenu rowDiv">
-			<div><a href="#">Лицензии</a></div>
-			<div><a href="#">Цены</a></div>
-			
-			
-footer .Cont1
-footer .Cont2
-footer .Cont3
-*/
+//видеорамка---------------
+let videoFrm = document.querySelectorAll(".videoFrm");
+for (let i = 0; i < videoFrm.length; i++) {
+	let playIcon = videoFrm[i].querySelector(".playIcon");
+	let videoCont = videoFrm[i].querySelector(".videoCont");
+	playIcon.onclick = function() {
+		videoCont.play();
+		videoCont.controls = true;	}
 
+	videoCont.addEventListener("play", function(){
+		playIcon.style.opacity = '0';
+		setTimeout(function(){	playIcon.style.visibility = 'hidden'; }, 1);
+		videoCont.focus();
+		videoCont.controls = true;	});
+	videoCont.addEventListener("pause", function(){
+		playIcon.style.visibility = 'visible';
+		setTimeout(function(){	playIcon.style.opacity = '1'; }, 1);	});	
+}
+//---------------видеорамка
