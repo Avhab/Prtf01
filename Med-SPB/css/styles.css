@@ -22,7 +22,17 @@ body>* {overflow:hidden;position:relative;z-index:10;}
 .wrap1 {display:block;max-width:1130px;margin:0 auto;padding:0 5px;text-align:center;/*overflow:hidden;*/}
 .bluGrad {background:linear-gradient(77deg, #5531D2 0%, #9273E4 52%, #E7CDFC 100%);}
 
+.clipDec {width:100%;position:absolute;left:50%;transform:translateX(-50%);}
+.clipDec1 {z-index:-5;top:0;height:143px;}
+.clipDec2 {z-index:-1;bottom:0;height:108px;}
+.clipDec img {position:absolute;width:100%;height:100%;}
+.clipDec1 img {top:0;}
+.clipDec2 img {bottom:0;}
+
 header {color:white;font-weight: 400;text-align: left;position:relative;}
+@media (max-width: 1000px) {header .clipDec2 img {width:200%;}}
+@media (max-width: 500px) {header .clipDec2 {height:60px;}}
+
 header * {background:transparent;}
 .bluGrad * {color:white;}
 a {color:white;text-decoration:none;}
@@ -46,8 +56,8 @@ a:hover {color: #2D9CDB;}
 .midMenu>*>*:nth-child(1n+2) {margin-top:10px;}
 
 .socMess>* {margin-right:10px;}
+.burgerMenu {position:absolute;top:0;left:0;display:none;padding:20px 5px;text-align:right;background:#5531D2;}
 .burgerMenu>*:nth-child(1n+3) {width:100%;display:inline-block;margin-top:16px;}
-
 
 .iconA>div {margin-top:6px;}
 .iconA>* {display:inline-block;float:left;}
@@ -83,29 +93,16 @@ header button {height: 57px;color:white;font-size:18px;font-weight:400;line-heig
 .btnMod>* {width:255px;margin:8px 16px;}
 .doctor {display:block;position:absolute;z-index:-2;}
 @media (max-width: 800px) {
-
-.doctor {position:static;width:100%;}
 .doctor {position:relative;width:100%;}
-
-
-
 .btnMod {margin:34px -16px 21px -16px;}}
 @media (max-width: 600px) {
 .btnMod {margin:20px 0;}
 .btnMod>* {width:100%;margin:8px 0;}}
 
-.clipDec {width:100%;position:absolute;left:50%;transform:translateX(-50%);}
-.clipDec1 {z-index:-5;top:0;height:143px;}
-.clipDec2 {z-index:-1;bottom:0;height:108px;}
-.clipDec img {position:absolute;width:100%;height:100%;}
-.clipDec1 img {top:0;}
-.clipDec2 img {bottom:0;}
-
 header .doctor {bottom:-200px;left:47%;}
 @media (max-width: 800px) {header .doctor {bottom:-50px;left:0;}}
 
 .mobMenu {display:none;width:100%;margin:20px 0 0 0;text-align:right;}
-.burgerMenu {display:none;padding:20px 5px;text-align:right;background:#5531D2;}
 .rTopCor {display:inline-block;margin:14px 14px 0 0;}
 .rTopCor:hover {cursor:pointer;}
 
@@ -193,12 +190,16 @@ background: url(../images/plus.png) center center no-repeat;}
 height:10px;width:10px;border-radius:23px;background:#9E00FF;margin-right:8px;}
 .WhoN ol {counter-reset:myCoun;}
 .WhoN ol li::before {counter-increment:myCoun;content:counter(myCoun);color:white;
-display: inline-block;text-align: center;line-height:normal;
+display:block;text-align: center;line-height:normal;
 height:18px;width:18px;border-radius:23px;background:#9E00FF;margin-right:8px;}
-.WhoN .video {float:right;max-width:544px;border-radius:40px;overflow:hidden;position:relative;}
-.WhoN .video .icon {position:absolute;left:50%;top:50%;margin: -32px 0 0 -32px;}
-.WhoN .video .scrTMP {width:100%;}
-@media (max-width: 554px) {.WhoN .video {width:100%;border-radius:20px;}}
+
+.WhoN .videoFrm {display:inline-block;float:right;width:100%;max-width:544px;
+overflow:hidden;border-radius:40px;line-height:0;
+position:relative;z-index:1;}
+.WhoN .videoFrm .playIcon {position:absolute;z-index:10;left:50%;top:46.7%;margin: -32px 0 0 -32px;}
+.WhoN .videoFrm .playIcon:hover {cursor:pointer;}
+.WhoN .videoFrm .videoCont {width:100%;}
+@media (max-width: 554px) {.WhoN .videoFrm {border-radius:20px;}}
 
 .Consult .wrap1 {text-align:left;}
 .Consult .Cont {display:inline-block;max-width:500px;margin:0;}
