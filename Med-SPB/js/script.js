@@ -1,109 +1,160 @@
 let bkgr = document.querySelector("header");
 let decor01 = document.createElement("div");
-
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:668px;width:668px;left:-280px;top: -14px;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1698px - 970px + 52px));top: -3px;opacity:30%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:20px;width:20px;left:calc(50% + (1590px - 970px + 10px));top:211px;opacity:30%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1558px - 970px + 52px));top:627px;opacity:30%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1858px - 970px + 52px));top:580px;opacity:30%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;left:calc(50% + (1752px - 970px + 30px));top:364px;opacity:30%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;left:calc(50% + (1035px - 970px + 30px));top:358px;opacity:30%;`
-
-if (document.documentElement.clientWidth > 1100) {
-bkgr = document.querySelector(".comprCode");
-
-//8 - 11
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;top:70px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;top:314px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;top:450px;transform:rotate(-15deg);`
-
-//11 - 13
-bkgr = document.querySelector(".ourWarr");
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:484px;width:484px;opacity:10%;left:-172px;top:229px;`
-
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-44px;top:175px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-104px;top:365px;transform:rotate(-15deg);`
-
-//14
-bkgr = document.querySelector(".un01");
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:59px;`
-
-//15 - 20
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;left:-100px;top:480px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;left:-170px;top:710px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;left:-40px;top:860px;transform:rotate(-15deg);`
-
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-50px;top:904px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#C5A6FD;height:70px;width:254px;right:-120px;top:1040px;transform:rotate(-15deg);`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-24px;top:1210px;transform:rotate(-15deg);`
-
-//21
-bkgr = document.querySelector(".Consult");
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:132px;width:132px;opacity:100%;left:124px;top:20px;opacity:10%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:94px;width:94px;opacity:100%;left:252px;top:420px;opacity:10%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;left:-54px;top:445px;transform:rotate(-15deg);opacity:40%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;left:-34px;top:245px;transform:rotate(-15deg);opacity:40%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-74px;top:285px;transform:rotate(-15deg);opacity:40%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-54px;top:485px;transform:rotate(-15deg);opacity:40%;`
-decor01 = document.createElement("div");
-bkgr.append(decor01);
-decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#9E00FF;height:176px;width:176px;opacity:30%;left:122px;top:620px;opacity:30%;`
+if (bkgr) {
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:668px;width:668px;left:-280px;top: -14px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1698px - 970px + 52px));top: -3px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:20px;width:20px;left:calc(50% + (1590px - 970px + 10px));top:211px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1558px - 970px + 52px));top:627px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1858px - 970px + 52px));top:580px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;left:calc(50% + (1752px - 970px + 30px));top:364px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;left:calc(50% + (1035px - 970px + 30px));top:358px;opacity:30%;`
 }
 
+bkgr = document.querySelector(".comprCode");
+//8 - 11
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;top:70px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;top:314px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;top:450px;transform:rotate(-15deg);`
+}
+//11 - 13
+bkgr = document.querySelector(".ourWarr");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:484px;width:484px;opacity:10%;left:-172px;top:229px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-44px;top:175px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-104px;top:365px;transform:rotate(-15deg);`
+}
+//14
+bkgr = document.querySelector(".FAQ");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:59px;`
+	//15 - 18
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;left:-100px;top:480px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;left:-170px;top:710px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;left:-40px;top:860px;transform:rotate(-15deg);`
+}
+//18 - 21
+bkgr = document.querySelector(".WhoN");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-50px;top:453px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#C5A6FD;height:70px;width:254px;right:-120px;top:589px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-24px;top:759px;transform:rotate(-15deg);`
+}	
+
+
+//21
+bkgr = document.querySelector(".Consult>div");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:132px;width:132px;left:124px;top:20px;opacity:10%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:94px;width:94px;left:252px;top:420px;opacity:10%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;left:-54px;top:445px;transform:rotate(-15deg);opacity:40%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;left:-34px;top:245px;transform:rotate(-15deg);opacity:40%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-74px;top:285px;transform:rotate(-15deg);opacity:40%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-54px;top:485px;transform:rotate(-15deg);opacity:40%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#9E00FF;height:176px;width:176px;left:122px;top:620px;opacity:30%;`
+}
+bkgr = document.querySelector(".prices");
+//8 - 11
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;top:70px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;top:314px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;top:450px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:959px;`
+}
+
+
+bkgr = document.querySelector(".inInet");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:477px;width:477px;opacity:20%;right:-182px;top:250px;`
+}
+
+bkgr = document.querySelector("footer");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:306px;left:-163px;top:190px;opacity:20%;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:306px;left:-163px;top:446px;opacity:20%;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;opacity:30%;right:44px;top:305px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;opacity:30%;right:422px;bottom:-55px;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;opacity:30%;right:322px;top:278px;`
+}
 
 
 let HScrol = document.querySelectorAll(".HScrol");
@@ -150,6 +201,7 @@ for (let i = 0; i < FAQ.length; i++) {
 			wrapArr.classList.toggle("ArrUp");
 			if (wrapArr.classList.contains("ArrUp")) {
 				Que.style.background = '#C5A6FD';
+				Que.style.color = 'white';
 				Que.style.borderRadius = '10px 10px 0 0';
 				Ans.style.padding = null;
 				Ans.style.height = heigOn + 'px';
@@ -159,6 +211,7 @@ for (let i = 0; i < FAQ.length; i++) {
 				Ans.style.padding = "0 17px";
 				Ans.style.opacity = '0';
 				Que.style.background = null
+				Que.style.color = null;
 				Que.style.borderRadius = null;	}	}	}	}
 //---------------раскрывающиеся списки FAQ
 
@@ -217,7 +270,7 @@ if (tmp&&Cont1) {
 //мобильное меню---------------
 if (document.documentElement.clientWidth < 600) {
 	let mobMenu = document.querySelector("header .mobMenu");
-	let burgerMenu = document.querySelector("header .burgerMenu");
+	let burgerMenu = document.querySelector(".burgerMenu");
 	let burger = mobMenu.querySelector(".rTopCor");
 	let cross = burgerMenu.querySelector(".rTopCor");
 
@@ -264,11 +317,11 @@ if (document.documentElement.clientWidth < 600) {
 		burgerMenu.style.display = 'block';
 		setTimeout(function(){	burgerMenu.style.transform = null;	burgerMenu.style.opacity = null; }, 1);
 	}
-	cross.onclick = function() {
+	burgerMenu.addEventListener("click", function(){
 		burgerMenu.style.transform = 'scaleY(0)';
 		burgerMenu.style.opacity = '0'; 	
 		setTimeout(function(){	burgerMenu.style.display = 'none';	}, 300);
-	}
+	});
 }
 //---------------мобильное меню
 
@@ -280,7 +333,6 @@ for (let i = 0; i < videoFrm.length; i++) {
 	playIcon.onclick = function() {
 		videoCont.play();
 		videoCont.controls = true;	}
-
 	videoCont.addEventListener("play", function(){
 		playIcon.style.opacity = '0';
 		setTimeout(function(){	playIcon.style.visibility = 'hidden'; }, 1);
