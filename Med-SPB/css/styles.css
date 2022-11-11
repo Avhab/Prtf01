@@ -167,16 +167,16 @@ background: url(../images/Vector5.png) top center no-repeat, white;
 height:420px;width:352px;border-radius:20px;padding:42px 24px;margin:0 14px;
 box-shadow: 0px 4px 20px 0px #2B118533;}
 
-.comprCode .Tit {font-size:24px;font-weight:700;line-height:29px;color:white;position:relative;z-index:5;}
-.comprCode .Tit::before {position:absolute;z-index:-1;left: -12px;top: -9px;content:'';display:block;
+.comprCode .scrlCont>div::before {position:absolute;left:12px;top:30px;content:'';display:block;
 height:42px;width:42px;border-radius:40px;background:#9E00FF;}
-.subTit {color:white;font-size:16px;line-height:22px;}
+.comprCode .Tit {font-size:24px;font-weight:700;line-height:29px;color:white;position:relative;}
+.subTit {color:white;font-size:16px;line-height:22px;position:relative;}
 .comprCode .adv, .comprCode .disAdv {font-size:16px;line-height:22px;margin-top:24px;}
 ul li, ol li {margin-top:10px;line-height:18px;}
 .comprCode .price {font-size:28px;font-weight:700;line-height:34px;}
-
 @media (max-width: 650px) {.comprCode .Title2 {margin:60px auto 46px auto;}}
 @media (max-width: 450px) {.comprCode .scrlCont>div {width:120%;padding:24px;background-position:top left;}
+.comprCode .scrlCont>div::before {left:12px;top:12px;}}
 .comprCode .adv, .comprCode .disAdv {font-size:14px;line-height:20px;margin-top:20px;}
 .comprCode .price {font-size:24px;line-height:28px;}
 .comprCode .Tit {font-size:18px;line-height:22px;}}
