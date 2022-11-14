@@ -109,7 +109,7 @@ if (bkgr) {
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#9E00FF;height:176px;width:176px;left:122px;top:620px;opacity:30%;`
 }
-bkgr = document.querySelector(".prices");
+bkgr = document.querySelector(".bgDecor01");
 //8 - 11
 if (bkgr) {
 	decor01 = document.createElement("div");
@@ -117,13 +117,13 @@ if (bkgr) {
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;top:70px;transform:rotate(-15deg);`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-180px;top:70px;transform:rotate(-15deg);`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;top:314px;transform:rotate(-15deg);`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:40px;top:314px;transform:rotate(-15deg);`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;top:450px;transform:rotate(-15deg);`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-170px;top:450px;transform:rotate(-15deg);`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:959px;`
@@ -223,6 +223,24 @@ for (let i = 0; i < stars.length; i++) {
 	score = (Number(score.innerHTML.replace(',','.')));
 	let intScore = Math.trunc(score);
 	let fraScore = score - intScore;
+	for (let j = 0; j < 5; j++) {
+		let grayStar = document.createElement("div");
+		stars[i].append(grayStar);
+		
+		if (intScore>-1) {
+			let filStar = document.createElement("div");
+			grayStar.append(filStar);
+			if (intScore==0) {
+				fraScore = fraScore * 14;
+				filStar.style.cssText=`width:`+fraScore+`px;`;
+			}
+			
+			--intScore;
+		}
+	}
+	
+	
+/*	
 	for (let j = 0; j < intScore; j++) {
 		let filStar = document.createElement("div");
 		stars[i].append(filStar);
@@ -231,7 +249,9 @@ for (let i = 0; i < stars.length; i++) {
 		let filStar = document.createElement("div");
 		stars[i].append(filStar);
 		fraScore = fraScore * 14;
-		filStar.style.cssText=`width:`+fraScore+`px;`;	}	}
+		filStar.style.cssText=`width:`+fraScore+`px;`;	}
+	*/	
+}
 //---------------закрашивание звезд
 
 //копирование из хедера в футер---------------
@@ -343,3 +363,117 @@ for (let i = 0; i < videoFrm.length; i++) {
 		setTimeout(function(){	playIcon.style.opacity = '1'; }, 1);	});	
 }
 //---------------видеорамка
+
+//текст с разворотом---------------
+let clipTxt = document.querySelectorAll(".clipTxt");
+for (let i = 0; i < clipTxt.length; i++) {
+	if (clipTxt[i].clientHeight<clipTxt[i].scrollHeight) {
+		let fadeBott = document.createElement("div");
+		clipTxt[i].append(fadeBott);
+		clipTxt[i].style.cssText=`position:relative;`;
+		fadeBott.style.cssText=`position:absolute;z-index:2;width:100%;height:3em;left:0;bottom:0;`;
+		fadeBott.style.background = 'linear-gradient(180deg, transparent 0%, ' + getComputedStyle(clipTxt[i].parentElement).backgroundColor + ' 35%)';
+		let butTxt = document.createElement("div");
+		clipTxt[i].append(butTxt);
+		butTxt.style.cssText=`position:absolute;z-index:3;width:15em;height:1.5em;right:0;bottom:0;padding-right:2em;text-align:right;`;
+		butTxt.innerHTML="... <span>читать полностью!<span>";
+		butTxt.style.cursor = "pointer";
+		let openFlag = false;
+		butTxt.onclick = function() {
+			if (openFlag) {
+				clipTxt[i].style.height = null;
+				butTxt.innerHTML="... <span>читать полностью!<span>";
+				fadeBott.style.display = null;
+				openFlag = false;				
+			}else{
+				let sumH = clipTxt[i].scrollHeight + 25;
+				clipTxt[i].style.height = sumH + 'px';
+				butTxt.innerHTML="... <span>скрыть<span>";
+				fadeBott.style.display = 'none';
+				openFlag = true;	}	}	}	}
+//---------------текст с разворотом
+
+let feedBacks = document.querySelector(".feedBacks");
+if (feedBacks) {
+	let cont = feedBacks.querySelector(".cont");
+	let feedBack = cont.querySelectorAll(".feedBack");
+	if (feedBack.length>3) {
+		let feedbNav = document.createElement("div");
+		cont.after(feedbNav);
+		feedbNav.classList.add('feedbNav');
+
+		let leftArr = document.createElement("div");
+		feedbNav.append(leftArr);
+		leftArr.innerHTML="<";
+		let rightArr = document.createElement("div");
+		feedbNav.append(rightArr);
+		rightArr.innerHTML=">";
+
+		let pnt1 = document.createElement("div");
+		leftArr.after(pnt1);
+		pnt1.innerHTML="1";
+		let pntN = document.createElement("div");
+		rightArr.before(pntN);
+		pntN.innerHTML=feedBack.length;
+		
+		let qnPnt = Math.trunc((document.documentElement.clientWidth-50) / 40); //количество указателей
+		if (qnPnt>10) {qnPnt = 10;} //ограничение количества указателей
+		let curN = Math.trunc(feedBack.length/2);
+		if (feedBack.length > (qnPnt-2)){ //количество объектов больше количества указателей
+			qnPnt = qnPnt-4;
+			let ellipL = document.createElement("div");
+			pntN.before(ellipL);
+			ellipL.innerHTML='...';
+			qnPnt = qnPnt-1;
+			if (qnPnt>0){
+				let ellipR = document.createElement("div");
+				pntN.before(ellipR);
+				ellipR.innerHTML='...';
+				qnPnt = qnPnt-1;
+				if (qnPnt>0){
+//					let curN = Math.trunc(feedBack.length/2);
+					let curPnt2 = document.createElement("div");
+					ellipR.before(curPnt2);
+					curPnt2.innerHTML=curN;
+					qnPnt = qnPnt-1;
+					if (qnPnt>0){
+						curN = curN-1;
+						let curPnt1 = document.createElement("div");
+						curPnt2.before(curPnt1);
+						curPnt1.innerHTML=curN;
+						qnPnt = qnPnt-1;
+						if (qnPnt>0){
+							curN = curN+2;
+							let curPnt3 = document.createElement("div");
+							curPnt2.after(curPnt3);
+							curPnt3.innerHTML=curN;
+							qnPnt = qnPnt-1;
+							if (qnPnt>0){
+								curN = curN+1;
+								let curPnt4 = document.createElement("div");
+								curPnt3.after(curPnt4);
+								curPnt4.innerHTML=curN;
+								qnPnt = qnPnt-1;
+								
+							}
+							
+						}
+					}
+				}
+			}
+		}else{//количество объектов меньше или равно количеству указателей
+			for (let i = 1; i < (feedBack.length-1); i++) {
+				let tmpN = document.createElement("div");
+				pntN.before(tmpN);
+				tmpN.innerHTML=i+1;
+			}
+			
+		}
+		curN = 0;
+		pnt1.classList.add('marked');
+		for (let i = 0; i < feedBack.length; i++) {
+			if (i>2){feedBack[i].style.display='none';}
+		}
+	}
+}
+
