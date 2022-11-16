@@ -2,7 +2,7 @@ let bkgr = document.querySelector("header");
 let decor01 = document.createElement("div");
 if (bkgr) {
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:668px;width:668px;left:-280px;top: -14px;`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:668px;width:668px;left:-280px;top:-14px;`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:103px;width:103px;left:calc(50% + (1698px - 970px + 52px));top: -3px;opacity:30%;`
@@ -22,68 +22,6 @@ if (bkgr) {
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;left:calc(50% + (1035px - 970px + 30px));top:358px;opacity:30%;`
 }
-
-bkgr = document.querySelector(".comprCode");
-//8 - 11
-if (bkgr) {
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;top:70px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;top:314px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;top:450px;transform:rotate(-15deg);`
-}
-//11 - 13
-bkgr = document.querySelector(".ourWarr");
-if (bkgr) {
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:484px;width:484px;opacity:10%;left:-172px;top:229px;`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-44px;top:175px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-104px;top:365px;transform:rotate(-15deg);`
-}
-//14
-bkgr = document.querySelector(".FAQ");
-if (bkgr) {
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:59px;`
-	//15 - 18
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;left:-100px;top:480px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;left:-170px;top:710px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;left:-40px;top:860px;transform:rotate(-15deg);`
-}
-//18 - 21
-bkgr = document.querySelector(".WhoN");
-if (bkgr) {
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-50px;top:453px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#C5A6FD;height:70px;width:254px;right:-120px;top:589px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-24px;top:759px;transform:rotate(-15deg);`
-}	
-
-
 //21
 bkgr = document.querySelector(".Consult>div");
 if (bkgr) {
@@ -109,34 +47,19 @@ if (bkgr) {
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#9E00FF;height:176px;width:176px;left:122px;top:620px;opacity:30%;`
 }
-bkgr = document.querySelector(".bgDecor01");
-//8 - 11
+//11 - 13
+bkgr = document.querySelector(".ourWarr");
 if (bkgr) {
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:484px;width:484px;opacity:10%;left:-172px;top:229px;`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-180px;top:70px;transform:rotate(-15deg);`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-44px;top:175px;transform:rotate(-15deg);`
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:40px;top:314px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-170px;top:450px;transform:rotate(-15deg);`
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:959px;`
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-104px;top:365px;transform:rotate(-15deg);`
 }
-
-
-bkgr = document.querySelector(".inInet");
-if (bkgr) {
-	decor01 = document.createElement("div");
-	bkgr.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:477px;width:477px;opacity:20%;right:-182px;top:250px;`
-}
-
 bkgr = document.querySelector("footer");
 if (bkgr) {
 	decor01 = document.createElement("div");
@@ -154,6 +77,106 @@ if (bkgr) {
 	decor01 = document.createElement("div");
 	bkgr.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:60px;width:60px;opacity:30%;right:322px;top:278px;`
+}
+
+
+let wrap0 = document.querySelector(".wrap0");
+let scrltop = 0;
+bkgr = document.querySelector(".comprCode");
+//8 - 11
+if (bkgr) {
+	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;`
+	decor01.style.top= scrltop + 450 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-50px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 70 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:20px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 314 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-40px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 450 +`px`;
+}
+
+//14
+bkgr = document.querySelector(".FAQ");
+if (bkgr) {
+	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;`
+	decor01.style.top= scrltop + 59 +`px`;
+	//15 - 18
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;left:-100px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 480 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;left:-170px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 710 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;left:-40px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 860 +`px`;
+}
+//18 - 21
+bkgr = document.querySelector(".WhoN");
+if (bkgr) {
+	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-50px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 53 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#C5A6FD;height:70px;width:254px;right:-120px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 589 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #E7CDFC;height:70px;width:254px;right:-24px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 759 +`px`;
+}	
+
+
+bkgr = document.querySelector(".bgDecor01");
+//8 - 11
+if (bkgr) {
+	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
+	decor01.style.top= scrltop + 150 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-180px;top:70px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 70 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #43CDD7;height:70px;width:254px;right:40px;top:314px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 314 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-170px;top:450px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 450 +`px`;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:959px;`
+	decor01.style.top= scrltop + 959 +`px`;
+}
+bkgr = document.querySelector(".inInet");
+if (bkgr) {
+	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
+	decor01 = document.createElement("div");
+	wrap0.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:477px;width:477px;opacity:20%;right:-182px;top:250px;`
+	decor01.style.top= scrltop - 450 +`px`;
 }
 
 
@@ -239,18 +262,6 @@ for (let i = 0; i < stars.length; i++) {
 		}
 	}
 	
-	
-/*	
-	for (let j = 0; j < intScore; j++) {
-		let filStar = document.createElement("div");
-		stars[i].append(filStar);
-		filStar.style.cssText=`width:14px;`;	}
-	if (fraScore>0) {
-		let filStar = document.createElement("div");
-		stars[i].append(filStar);
-		fraScore = fraScore * 14;
-		filStar.style.cssText=`width:`+fraScore+`px;`;	}
-	*/	
 }
 //---------------закрашивание звезд
 
