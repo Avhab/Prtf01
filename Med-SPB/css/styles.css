@@ -3,7 +3,7 @@
   src: url(../fonts/Roboto.ttf);}
 
 body {background:#F0F4FF;color:#200F3F;/*position:relative;*/}
-body * {font-family:'Roboto', sans-serif;font-weight:400;box-sizing:border-box;text-align:left;}
+body * {font-family:'Roboto', sans-serif;font-weight:400;box-sizing:border-box;text-align:left;line-height:22px;}
 
 .wrap0 {position:relative;overflow:hidden;}
 .wrap0>* {position:relative;/*z-index:10;overflow:hidden visible;*/}
