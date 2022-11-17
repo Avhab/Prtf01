@@ -3,7 +3,7 @@
   src: url(../fonts/Roboto.ttf);}
 
 body {background:#F0F4FF;color:#200F3F;/*position:relative;*/}
-body * {font-family:'Roboto', sans-serif;font-weight:400;box-sizing:border-box;text-align:left;line-height:22px;}
+body * {font-family:'Roboto', sans-serif;font-weight:400;line-height:22px;text-align:left;box-sizing:border-box;}
 
 .wrap0 {position:relative;overflow:hidden;}
 .wrap0>* {position:relative;/*z-index:10;overflow:hidden visible;*/}
@@ -205,17 +205,15 @@ font-size: 18px;font-weight: 400;line-height: 25px;}
 .feedBacks .rightCol img {height:80px;width:80px;border-radius: 56px;}
 .feedBacks .rightCol>div:nth-child(2)>div {width:calc(100% - 80px);padding:20px 0 0 8px;}
 .feedBacks .rightCol>div:nth-child(3) {margin:12px -4px -4px -4px;}
-.feedBacks .rightCol>div:nth-child(3)>* {display:inline-block;border-radius:10px;padding: 4px 8px 4px 8px;background:#C5A6FD;color:white;margin:4px;}
-@media (max-width:750px) {.feedBacks .leftCol, .feedBacks .rightCol {width:100%;float:none;}}
-
+.feedBacks .rightCol>div:nth-child(3)>* {display:inline-block;border-radius:10px;padding: 4px 8px;background:#C5A6FD;color:white;margin:4px;}
 .feedbNav {margin:68px auto 0 auto;text-align:center;}
 .feedbNav>div {display:inline-block;margin:0 8px;cursor:pointer;
 height:33px;width:29px;border-radius:5px;padding:4px;
 font-size:18px;font-weight:400;line-height:25px;text-align:center;}
 .feedbNav>div.marked {background: #E7CDFC;}
 .feedbNav>div:hover {background: #F6EEFD;}
-
 .feedBackButt {margin:52px auto 0 auto;width:352px;}
+@media (max-width:750px) {.feedBacks .leftCol, .feedBacks .rightCol {width:100%;float:none;}}
 @media (max-width:400px) {.feedBackButt {width:100%;}}
 
 
@@ -238,13 +236,13 @@ font-size:18px;font-weight:400;line-height:25px;text-align:center;}
 .prices .strn>div {display:inline-block;}
 .prices .descr {float:left;font-size:18px;font-weight:300;}
 .prices .price {font-size:18px;font-weight:700;line-height:25px;text-align:right;}
-.prices button {height:45px;width:98px;margin:-10px 0 0 10px;
+.prices button {height:45px;width:98px;margin:-10px 0 0 10px;padding:0;
 float:right;font-size:18px;font-weight:400;}
 @media (max-width: 600px) {
 .prices .strn {display:inline-block;width:100%;padding:25px 16px 16px 16px;}
 .prices .descr {width:calc(100% - 80px);}
 .prices .price {width:75px;}
-.prices button {width:100%;margin-top:10px;}}
+.prices button {width:100%;margin:10px 0 0 0;}}
 
 .aloneObj {margin-top:30px;margin-bottom:30px;}
 .aloneObj .socMess {margin:0 auto;text-align:center;display:inline-block;}
