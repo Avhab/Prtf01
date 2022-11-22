@@ -403,88 +403,109 @@ for (let i = 0; i < clipTxt.length; i++) {
 				fadeBott.style.display = 'none';
 				openFlag = true;	}	}	}	}
 //---------------текст с разворотом
-
+//снабжение N-количества одинаковых объектов /feedBack/, которые не показываются все сразу, навигационными кнопками
 let feedBacks = document.querySelector(".feedBacks");
 if (feedBacks) {
+	let fbNum = 0; //текущий номер фидбэка
+	let showSize = 3; //количество показываемых фидбэков
 	let cont = feedBacks.querySelector(".cont");
 	let feedBack = cont.querySelectorAll(".feedBack");
-	if (feedBack.length>3) {
-		let feedbNav = document.createElement("div");
+	if (feedBack.length>showSize) { //навигация создается, если количество фидбэков больше количества показываемых
+		let qnPnt = Math.trunc((document.documentElement.clientWidth-50) / 40); //задаем количество указателей по ширине страницы
+		if (qnPnt>10) {qnPnt = 10;} //ограничиваем максимальное количество указателей
+		if (qnPnt<7) {qnPnt = 7;} //ограничиваем минимальное количество указателей
+		let feedbNav = document.createElement("div"); //создаем контейнер для навигационных кнопок
 		cont.after(feedbNav);
 		feedbNav.classList.add('feedbNav');
+		let pnt = []; //массив переменных навигационных кнопок
+		let leftArr = null; //стрелка влево
+		let ellipL = null; //стрелка вправо
+		let ellipR = null; //первое/левое многоточие
+		let rightArr = null; //второе/правое многоточие
+		let midCor = 0; //размер средней группы указателей
 
-		let leftArr = document.createElement("div");
-		feedbNav.append(leftArr);
-		leftArr.innerHTML="<";
-		let rightArr = document.createElement("div");
-		feedbNav.append(rightArr);
-		rightArr.innerHTML=">";
-
-		let pnt1 = document.createElement("div");
-		leftArr.after(pnt1);
-		pnt1.innerHTML="1";
-		let pntN = document.createElement("div");
-		rightArr.before(pntN);
-		pntN.innerHTML=feedBack.length;
-		
-		let qnPnt = Math.trunc((document.documentElement.clientWidth-50) / 40); //количество указателей
-		if (qnPnt>10) {qnPnt = 10;} //ограничение количества указателей
-		let curN = Math.trunc(feedBack.length/2);
-		if (feedBack.length > (qnPnt-2)){ //количество объектов больше количества указателей
-			qnPnt = qnPnt-4;
-			let ellipL = document.createElement("div");
-			pntN.before(ellipL);
-			ellipL.innerHTML='...';
-			qnPnt = qnPnt-1;
-			if (qnPnt>0){
-				let ellipR = document.createElement("div");
-				pntN.before(ellipR);
-				ellipR.innerHTML='...';
-				qnPnt = qnPnt-1;
-				if (qnPnt>0){
-//					let curN = Math.trunc(feedBack.length/2);
-					let curPnt2 = document.createElement("div");
-					ellipR.before(curPnt2);
-					curPnt2.innerHTML=curN;
-					qnPnt = qnPnt-1;
-					if (qnPnt>0){
-						curN = curN-1;
-						let curPnt1 = document.createElement("div");
-						curPnt2.before(curPnt1);
-						curPnt1.innerHTML=curN;
-						qnPnt = qnPnt-1;
-						if (qnPnt>0){
-							curN = curN+2;
-							let curPnt3 = document.createElement("div");
-							curPnt2.after(curPnt3);
-							curPnt3.innerHTML=curN;
-							qnPnt = qnPnt-1;
-							if (qnPnt>0){
-								curN = curN+1;
-								let curPnt4 = document.createElement("div");
-								curPnt3.after(curPnt4);
-								curPnt4.innerHTML=curN;
-								qnPnt = qnPnt-1;
-								
-							}
-							
-						}
-					}
-				}
-			}
-		}else{//количество объектов меньше или равно количеству указателей
-			for (let i = 1; i < (feedBack.length-1); i++) {
-				let tmpN = document.createElement("div");
-				pntN.before(tmpN);
-				tmpN.innerHTML=i+1;
-			}
+		function pntNav(indx) { //функция переключения по кнопкам навигации
+			if (indx<0) {indx=0;} //коррекция не менее 0
+			if (indx>(pnt.length-1)) {indx=pnt.length-1;} //коррекция не более pnt.length
+			pnt[fbNum].classList.remove('marked');//на предыдущей подсветку убираем
+			pnt[indx].classList.add('marked');//подсвечиваем текущую навигационную кнопку
 			
+			if((ellipL)&&(ellipR)){
+				if(indx<3){
+					ellipL.style.display='none';
+					pnt[1].style.display=null;
+					ellipR.style.display=null;
+					pnt[(pnt.length-2)].style.display='none';
+					for (let i = 2; i < (midCor+2); i++) {	pnt[i].style.display=null;	}
+					for (let i = (midCor+2); i < (pnt.length-1); i++) {	pnt[i].style.display='none';	}
+				}else{
+					if(indx>=pnt.length-midCor-2){
+						ellipL.style.display=null;
+						pnt[1].style.display='none';
+						ellipR.style.display='none';
+						pnt[(pnt.length-2)].style.display=null;
+						for (let i = 2; i < (pnt.length-midCor-2); i++) {	pnt[i].style.display='none';	}
+						for (let i = (pnt.length-midCor-2); i < (pnt.length-2); i++) {	pnt[i].style.display=null;}
+					}else{
+						ellipL.style.display=null;
+						ellipR.style.display=null;
+						pnt[1].style.display='none';
+						pnt[(pnt.length-2)].style.display='none';
+						for (let i = 2; i < (pnt.length-2); i++) {
+							if((i>=indx)&&(i<indx+midCor)){	pnt[i].style.display=null;}else{pnt[i].style.display='none';}	}	}	}	}
+							
+			fbNum=indx;
+			for (let i = 0; i < (feedBack.length); i++) {
+				if(indx>(feedBack.length-showSize-1)){
+					if(i<(feedBack.length-showSize)){feedBack[i].style.display='none';
+					}else{feedBack[i].style.display=null;}
+				}else{
+					if((i>=indx)&&(i<(indx+showSize))){feedBack[i].style.display=null;
+					}else{feedBack[i].style.display='none';}	}	}
+		}//-------------функция переключения по кнопкам навигации
+
+		leftArr = document.createElement("div");
+		feedbNav.append(leftArr);
+		leftArr.innerHTML="<"; //стрелка влево
+		leftArr.onclick = function() {pntNav(fbNum-1);}
+		rightArr = document.createElement("div");
+		feedbNav.append(rightArr);
+		rightArr.innerHTML=">"; //стрелка вправо
+		rightArr.onclick = function() {	pntNav(fbNum+1);}
+		for (let j = 0; j < feedBack.length; j++) { //для каждого фидбэка создаем навигационную кнопку
+			pnt[j] = document.createElement("div");
+			rightArr.before(pnt[j]);
+			pnt[j].innerHTML=String(j+1);
+			let indx=j;
+			pnt[j].onclick = function() {pntNav(indx);}	}
+
+		if (feedBack.length > (qnPnt-4)){ //количество фидбэков больше количества указателей без учета стрелок
+			midCor = qnPnt-6; //вычисляем размер средней группы указателей
+			//первое/левое многоточие
+			ellipL = document.createElement("form");
+			pnt[0].after(ellipL);
+			inpL = document.createElement("input");
+			ellipL.append(inpL);
+			inpL.setAttribute('type', "text")
+			inpL.setAttribute('placeholder', "...")
+			ellipL.onsubmit = function(){
+				let inum = Number(inpL.value);
+				if ((inum)||(inum==0)){pntNav(Math.round(inum)-1);}
+				inpL.value="";
+				event.preventDefault();	}
+			//второе/правое многоточие
+			ellipR = document.createElement("form");
+			pnt[pnt.length-1].before(ellipR);
+			inpR = document.createElement("input");
+			ellipR.append(inpR);
+			inpR.setAttribute('type', "text")
+			inpR.setAttribute('placeholder', "...")
+			ellipR.onsubmit = function(){
+				let inum = Number(inpR.value);
+				if ((inum)||(inum==0)){pntNav(Math.round(inum)-1);}
+				inpR.value="";
+				event.preventDefault();	}
 		}
-		curN = 0;
-		pnt1.classList.add('marked');
-		for (let i = 0; i < feedBack.length; i++) {
-			if (i>2){feedBack[i].style.display='none';}
-		}
+		pntNav(fbNum);
 	}
 }
-
