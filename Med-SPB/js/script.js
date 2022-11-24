@@ -130,9 +130,6 @@ if (bkgr) {
 bkgr = document.querySelector(".WhoN");
 if (bkgr) {
 	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
-	decor01 = document.createElement("div");
-	wrap0.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#E7CDFC;height:70px;width:254px;right:-50px;transform:rotate(-15deg);`
 	decor01.style.top= scrltop + 53 +`px`;
 	decor01 = document.createElement("div");
 	wrap0.append(decor01);
@@ -152,7 +149,7 @@ if (bkgr) {
 	decor01 = document.createElement("div");
 	wrap0.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#5531D2;height:365px;width:365px;opacity:10%;left:-182px;top:150px;`
-	decor01.style.top= scrltop + 150 +`px`;
+	decor01.style.top= scrltop + 710 +`px`;
 	decor01 = document.createElement("div");
 	wrap0.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;border:4px solid #9E00FF;height:70px;width:254px;right:-180px;top:70px;transform:rotate(-15deg);`
@@ -375,13 +372,20 @@ for (let i = 0; i < videoFrm.length; i++) {
 }
 //---------------видеорамка
 
-//текст с разворотом---------------
+//частично скрытый развертываемый текст---------------
+//развертывание создается только при необходимости - при превышении текстом максимальной высоты
+//разделу присвоить класс clipTxt
+//желаемую максимальную высоту в свернутом состоянии прописать так
+//.xxx .clipTxt {max-height:100px;}
+//.xxx .clipTxt.fixHei {height:100px;}
 let clipTxt = document.querySelectorAll(".clipTxt");
 for (let i = 0; i < clipTxt.length; i++) {
 	if (clipTxt[i].clientHeight<clipTxt[i].scrollHeight) {
 		let fadeBott = document.createElement("div");
 		clipTxt[i].append(fadeBott);
 		clipTxt[i].style.cssText=`position:relative;`;
+		clipTxt[i].style.maxHeight = 'none';
+		clipTxt[i].classList.add('fixHei');
 		fadeBott.style.cssText=`position:absolute;z-index:2;width:100%;height:3em;left:0;bottom:0;`;
 		fadeBott.style.background = 'linear-gradient(180deg, transparent 0%, ' + getComputedStyle(clipTxt[i].parentElement).backgroundColor + ' 35%)';
 		let butTxt = document.createElement("div");
@@ -402,21 +406,24 @@ for (let i = 0; i < clipTxt.length; i++) {
 				butTxt.innerHTML="... <span>скрыть<span>";
 				fadeBott.style.display = 'none';
 				openFlag = true;	}	}	}	}
-//---------------текст с разворотом
-//снабжение N-количества одинаковых объектов /feedBack/, которые не показываются все сразу, навигационными кнопками
-let feedBacks = document.querySelector(".feedBacks");
-if (feedBacks) {
-	let fbNum = 0; //текущий номер фидбэка
-	let showSize = 3; //количество показываемых фидбэков
-	let cont = feedBacks.querySelector(".cont");
-	let feedBack = cont.querySelectorAll(".feedBack");
-	if (feedBack.length>showSize) { //навигация создается, если количество фидбэков больше количества показываемых
+//---------------частично скрытый развертываемый текст
+
+//снабжение N-количества одинаковых объектов /PaginObj>div/, которые не показываются все сразу, навигационными кнопками
+let Pagin = document.querySelector(".Pagin");
+if (Pagin) {
+	let fbNum = 0; //текущий номер PaginObj
+	let cont = Pagin.querySelector(".cont");
+	let showSize = 3; //количество показываемых PaginObj
+	let showQnt = Number(cont.getAttribute('showQnt'));
+	if(showQnt){showSize = showQnt;} //если cont имеет атрибут showQnt, считываем из него количество показываемых PaginObj
+	let PaginObj = cont.querySelectorAll(".cont.PaginObj>div");
+	if (PaginObj.length>showSize) { //навигация создается, если количество PaginObj больше количества показываемых
 		let qnPnt = Math.trunc((document.documentElement.clientWidth-50) / 40); //задаем количество указателей по ширине страницы
 		if (qnPnt>10) {qnPnt = 10;} //ограничиваем максимальное количество указателей
 		if (qnPnt<7) {qnPnt = 7;} //ограничиваем минимальное количество указателей
-		let feedbNav = document.createElement("div"); //создаем контейнер для навигационных кнопок
-		cont.after(feedbNav);
-		feedbNav.classList.add('feedbNav');
+		let PaginNav = document.createElement("div"); //создаем контейнер для навигационных кнопок
+		cont.after(PaginNav);
+		PaginNav.classList.add('PaginNav');
 		let pnt = []; //массив переменных навигационных кнопок
 		let leftArr = null; //стрелка влево
 		let ellipL = null; //стрелка вправо
@@ -455,31 +462,31 @@ if (feedBacks) {
 							if((i>=indx)&&(i<indx+midCor)){	pnt[i].style.display=null;}else{pnt[i].style.display='none';}	}	}	}	}
 							
 			fbNum=indx;
-			for (let i = 0; i < (feedBack.length); i++) {
-				if(indx>(feedBack.length-showSize-1)){
-					if(i<(feedBack.length-showSize)){feedBack[i].style.display='none';
-					}else{feedBack[i].style.display=null;}
+			for (let i = 0; i < (PaginObj.length); i++) {
+				if(indx>(PaginObj.length-showSize-1)){
+					if(i<(PaginObj.length-showSize)){PaginObj[i].style.display='none';
+					}else{PaginObj[i].style.display=null;}
 				}else{
-					if((i>=indx)&&(i<(indx+showSize))){feedBack[i].style.display=null;
-					}else{feedBack[i].style.display='none';}	}	}
+					if((i>=indx)&&(i<(indx+showSize))){PaginObj[i].style.display=null;
+					}else{PaginObj[i].style.display='none';}	}	}
 		}//-------------функция переключения по кнопкам навигации
 
 		leftArr = document.createElement("div");
-		feedbNav.append(leftArr);
+		PaginNav.append(leftArr);
 		leftArr.innerHTML="<"; //стрелка влево
 		leftArr.onclick = function() {pntNav(fbNum-1);}
 		rightArr = document.createElement("div");
-		feedbNav.append(rightArr);
+		PaginNav.append(rightArr);
 		rightArr.innerHTML=">"; //стрелка вправо
 		rightArr.onclick = function() {	pntNav(fbNum+1);}
-		for (let j = 0; j < feedBack.length; j++) { //для каждого фидбэка создаем навигационную кнопку
+		for (let j = 0; j < PaginObj.length; j++) { //для каждого PaginObj создаем навигационную кнопку
 			pnt[j] = document.createElement("div");
 			rightArr.before(pnt[j]);
 			pnt[j].innerHTML=String(j+1);
 			let indx=j;
 			pnt[j].onclick = function() {pntNav(indx);}	}
 
-		if (feedBack.length > (qnPnt-4)){ //количество фидбэков больше количества указателей без учета стрелок
+		if (PaginObj.length > (qnPnt-4)){ //количество PaginObj больше количества указателей без учета стрелок
 			midCor = qnPnt-6; //вычисляем размер средней группы указателей
 			//первое/левое многоточие
 			ellipL = document.createElement("form");
