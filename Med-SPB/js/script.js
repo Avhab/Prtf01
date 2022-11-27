@@ -1,3 +1,4 @@
+
 let bkgr = document.querySelector("header");
 let decor01 = document.createElement("div");
 if (bkgr) {
@@ -105,7 +106,7 @@ if (bkgr) {
 }
 
 //14
-bkgr = document.querySelector(".FAQ");
+bkgr = document.querySelector(".bgDecor02");
 if (bkgr) {
 	scrltop = window.pageYOffset + bkgr.getBoundingClientRect().top;
 	decor01 = document.createElement("div");
@@ -123,8 +124,8 @@ if (bkgr) {
 	decor01.style.top= scrltop + 710 +`px`;
 	decor01 = document.createElement("div");
 	wrap0.append(decor01);
-	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;left:-40px;transform:rotate(-15deg);`
-	decor01.style.top= scrltop + 860 +`px`;
+	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#9E00FF;height:70px;width:254px;left:-40px;transform:rotate(-15deg);`
+	decor01.style.top= scrltop + 760 +`px`;
 }
 //18 - 21
 bkgr = document.querySelector(".WhoN");
@@ -162,6 +163,7 @@ if (bkgr) {
 	wrap0.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:20px;background:#5531D2;height:70px;width:254px;right:-170px;top:450px;transform:rotate(-15deg);`
 	decor01.style.top= scrltop + 450 +`px`;
+
 	decor01 = document.createElement("div");
 	wrap0.append(decor01);
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#C5A6FD;height:563px;width:563px;opacity:10%;right:-260px;top:959px;`
@@ -175,6 +177,48 @@ if (bkgr) {
 	decor01.style.cssText=`position:absolute;z-index:-3;border-radius:500px;background:#E7CDFC;height:477px;width:477px;opacity:20%;right:-182px;top:250px;`
 	decor01.style.top= scrltop - 450 +`px`;
 }
+
+bkgr = document.querySelector(".actions .cont");
+if (bkgr) {
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#9E00FFCC;height:237px;width:363px;left:-45px;top:-87px;border-radius:67px;transform:rotate(15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:103px;width:103px;left:-53px;top:320px;border-radius:100px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#5531D2;height:70px;width:306px;left:615px;top:-33px;border-radius:20px;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:103px;width:103px;left:614px;top:336px;border-radius:100px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:103px;width:103px;left:437px;top:247px;border-radius:100px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#5531D2;height:126px;width:126px;left:350px;top:-14px;border-radius:100px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:185px;width:185px;left:581px;top:88px;border-radius:200px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:103px;width:103px;left:320px;top:144px;border-radius:100px;opacity:30%;`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;background:#E7CDFC;height:70px;width:306px;left:885px;top:102px;border-radius:20px;opacity:20%;transform:rotate(-15deg);`
+	decor01 = document.createElement("div");
+	bkgr.append(decor01);
+	decor01.style.cssText=`position:absolute;z-index:-3;height:70px;width:306px;left:919px;top:248px;border-radius:20px;opacity:20%;border:4px solid #E7CDFC;transform:rotate(-15deg);`
+}
+
+/*
+let body = document.querySelector("body");
+alert(`body=${body.offsetHeight}  document=${document.documentElement.clientHeight}`);
+if (body.offsetHeight<document.documentElement.clientHeight){
+	body.style.height=document.documentElement.clientHeight+'px';
+	alert(document.documentElement.clientHeight);}
+*/
 
 
 let HScrol = document.querySelectorAll(".HScrol");
@@ -263,12 +307,15 @@ for (let i = 0; i < stars.length; i++) {
 //---------------закрашивание звезд
 
 //копирование из хедера в футер---------------
-let tmp = document.querySelector("header .topMenu");
+let tmp = document.querySelectorAll("header .topMenu>div");
 let Cont2 = document.querySelector("footer .Cont2");
 if (tmp&&Cont2) {
-	tmp = tmp.cloneNode(true);
-	tmp.classList.remove("rowDiv");
-	Cont2.append(tmp);	}
+	for (let i = 0; i < tmp.length; i++) { Cont2.append(tmp[i].cloneNode(true));	}	}
+
+tmp = document.querySelectorAll("header .bottomMenu>div");
+let Cont3 = document.querySelector("footer .Cont3");
+if (tmp&&Cont3) {
+	for (let i = 0; i < tmp.length; i++) { Cont3.append(tmp[i].cloneNode(true));	}	}
 
 tmp = document.querySelector("header .logoDiv");
 let Cont1 = document.querySelector("footer .Cont1");
@@ -343,14 +390,11 @@ if (document.documentElement.clientWidth < 600) {
 	
 	burger.onclick = function() {
 		burgerMenu.style.display = 'block';
-		setTimeout(function(){	burgerMenu.style.transform = null;	burgerMenu.style.opacity = null; }, 1);
-	}
+		setTimeout(function(){	burgerMenu.style.transform = null;	burgerMenu.style.opacity = null; }, 1);	}
 	burgerMenu.addEventListener("click", function(){
 		burgerMenu.style.transform = 'scaleY(0)';
 		burgerMenu.style.opacity = '0'; 	
-		setTimeout(function(){	burgerMenu.style.display = 'none';	}, 300);
-	});
-}
+		setTimeout(function(){	burgerMenu.style.display = 'none';	}, 300);});		}
 //---------------мобильное меню
 
 //видеорамка---------------
