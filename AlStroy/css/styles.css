@@ -438,13 +438,13 @@ font-family: 'Inter';font-size: 18px;font-weight: 200;line-height: 22px;text-ali
 display:flex;justify-content: space-between;flex-wrap:wrap;}
 .geoLoc input {width:332px;}
 .geoLoc .colum {overflow:hidden;margin:12px 0;}
-.geoLoc .colum:nth-child(1) {width:40%;text-align:center;border-radius:20px;
+.geoLoc .colum:nth-child(1) {width:39%;text-align:center;border-radius:20px;
 font-size:25px;font-weight:500;line-height:30px;padding:76px 0;
 background:url(../images/photo006.png) center center no-repeat;background-size:120% 120%;}
-.geoLoc .colum:nth-child(2) {width:25%;padding:0 20px;}
-.geoLoc .colum:nth-child(3) {width:34.7%;border-radius:20px;line-height:0;}
+.geoLoc .colum:nth-child(2) {width:28%;padding:0 7px 0 20px;}
+.geoLoc .colum:nth-child(3) {width:33%;border-radius:20px;line-height:0;}
 .geoLoc .colum>a {display:block;}
-.geoLoc form>*:nth-child(n + 2) {margin-top:32px;}
+.geoLoc form>*:nth-child(n + 2) {margin:32px 12px 0;}
 .geoLoc .colum:nth-child(2)>* {margin-bottom:24px;}
 .geoLoc .colum:nth-child(2)>div:nth-child(2) {font-size:15px;font-weight:500;line-height:18px;}
 .geoLoc .colum:nth-child(2)>a:nth-of-type(1) {font-size:25px;font-weight:700;line-height:30px;}
@@ -457,8 +457,7 @@ background:url(../images/photo006.png) center center no-repeat;background-size:1
 .geoLoc .colum:nth-child(2) {width:280px;}
 .geoLoc .colum:nth-child(3) {width:100%;}}
 @media (max-width: 500px) {
-.geoLoc .colum:nth-child(2) {padding:0;}}
-
+.geoLoc input {width:calc(100% - 24px);padding: 22px 20px 18px;}}
 
 /*
 h1 {font-size:48px;font-weight:700;line-height:50px;}
