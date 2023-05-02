@@ -330,24 +330,24 @@ background:url(../images/greenRing.svg) center center no-repeat;}
 .detail .colum:nth-child(2) {position:relative;}
 .detail .colum:nth-child(2)::before {position:absolute;left:-5%;top:10%;content: '';width:0px;height:80%;
 border-left: 1px solid var(--color_text);}
-.detail .big, .detail .small {border-radius:15px;overflow:hidden;margin:14px 0;line-height:0;
+.detail .big, .detail .small {border-radius:15px;overflow:hidden;margin:11px 0;line-height:0;
 display: flex; align-items: center; justify-content: center;}
 .detail .big {max-height:268px;}
 .detail .small {max-height:100px;}
-.detail .big img, .detail .small img {min-height:100%;}
+.detail .big img, .detail .small img {width:100%;}
 .detail .big {width:100%;}
 .detail .small {width:47%;}
 .detail .colum .text10 {margin:35px 0 20px 0;text-align:justify;}
 .detail .colum .greenButton, .detail .colum .whiteButton {display:inline-block;width:270px;height:58px;margin:0;}
 @media (max-width: 1000px) {
-.detail .colum {justify-content:space-evenly;}
+.detail .colum:nth-child(2) {justify-content:space-evenly;}
 .detail .colum .greenButton, .detail .colum .whiteButton {margin:0 20px 20px;}}
+@media (max-width: 850px) {.detail {margin:40px auto;}}
 @media (min-width: 850px) {
 .detail .colum:nth-child(1) {width:37%;}
 .detail .colum:nth-child(2) {width:57%;}
 .detail .colum .text10 {margin:85px 0 35px 0;}}
 @media (min-width: 450px) {.detail .big img, .detail .small img {width:100%;}}
-
 .exOrd.fund .cont>div img {border-radius:0;box-shadow: none;}
 .exOrd.fund .cont>div {width:333px;padding:20px 5px;}
 .exOrd.fund .cont>div>*:nth-child(2) {margin-top:0}
