@@ -161,6 +161,7 @@ header .wrap1, footer .wrap1 {margin:0 auto;}
 .callNow {position:relative;padding-left:9px;}
 .callNow::before {position:absolute;left:0;top:calc(0.5em - 1px);content: '';height:5px;width:5px;background:url(../images/calLight.svg) center center no-repeat;}
 a.telPh {font-weight:700;}
+
 .topMenu a, .bottomMenu a {text-decoration:none;color:inherit;position:relative;}
 /*.topMenu a:hover, .bottomMenu a:hover {color:#227CE4;}
 .topMenu a:hover::before, .bottomMenu a:hover::before {position:absolute;left: 50%;bottom: -16px;content: '';height:16px;width:1px;background:#227CE4;}
