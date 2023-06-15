@@ -74,28 +74,36 @@ let logIn = document.querySelectorAll(".logIn");
 for (let i = 0; i < logIn.length; i++) { logIn[i].onclick = function(){ logInMenuOn();}	}
 
 /* всплывающий каталог */
-let catUnfold = document.querySelector(".catUnfold");
+let catUnfold = document.querySelectorAll(".catUnfold");
 let popupCat = document.querySelector(".popupCat");
-if (catUnfold&&popupCat) {
-	let cont = popupCat.querySelector(".cont");
-	popupCat.style.display = 'none';
-	cont.style.transformOrigin = 'top';
-	cont.style.transform = 'translateY(50px)';
-	cont.style.opacity = '0'; 	
-
-	function popupOff() {
+for (let i = 0; i < catUnfold.length; i++) {
+	if (popupCat) {
+		let cont = popupCat.querySelector(".cont");
+		popupCat.style.display = 'none';
+		cont.style.transformOrigin = 'top';
 		cont.style.transform = 'translateY(50px)';
 		cont.style.opacity = '0'; 	
-		setTimeout(function(){popupCat.style.display = 'none';}, 300);	}
 
-	catUnfold.onclick = function(){
-		if (popupCat.style.display == 'none'){
-			popupCat.style.display = null;
-			event.stopPropagation();
-			setTimeout(function(){cont.style.transform = null;cont.style.opacity = null;}, 10);
-		}else{	popupOff();	}	}
-	document.addEventListener("click", function(){
-		if (popupCat.style.display != 'none') {popupOff();}	});
+		function popupOff() {
+			if (popupCat.style.display != 'none') {
+				cont.style.transform = 'translateY(50px)';
+				cont.style.opacity = '0'; 	
+				setTimeout(function(){popupCat.style.display = 'none';}, 300);
+				document.removeEventListener("click", popupOff);
+			}
+		}
+
+		catUnfold[i].onclick = function(){
+			if (popupCat.style.display == 'none'){
+				popupCat.style.display = null;
+/*				event.stopPropagation();*/
+				setTimeout(function(){
+					cont.style.transform = null;cont.style.opacity = null;
+					document.addEventListener("click", popupOff);
+				}, 10);
+			}	
+		}
+	}
 }
 /* всплывающий каталог */
 
@@ -193,6 +201,52 @@ function CreateScroll(part) {
 		}
 	}
 }
+
+let goodGroup = document.querySelectorAll(".goodGroup");//группы карточек
+for (let i = 0; i < goodGroup.length; i++) {
+	let viewType = goodGroup[i].querySelector(".viewType");//переключатель отображения карточек
+	if (viewType) {
+		let viewTypeBlock = viewType.querySelector(".viewTypeBlock");//переключатель на блоки
+		let viewTypeLine = viewType.querySelector(".viewTypeLine");//переключатель на линии
+		viewTypeLine.style.display = "none";
+//		let goodCards = goodGroup[i].querySelector(".goodCards");//массив карточек
+//		if (goodCards) {
+			goodGroup[i].classList.add("blockView");
+			viewTypeBlock.onclick = function(){
+				viewTypeBlock.style.display = "none";
+				viewTypeLine.style.display = null;
+				goodGroup[i].classList.add("lineView");
+				goodGroup[i].classList.remove("blockView");
+			}
+			viewTypeLine.onclick = function(){
+				viewTypeLine.style.display = "none";
+				viewTypeBlock.style.display = null;
+				goodGroup[i].classList.add("blockView");
+				goodGroup[i].classList.remove("lineView");
+			}
+//		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 
 
