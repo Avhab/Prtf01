@@ -91,11 +91,10 @@ padding:12px 0 ;text-align:center;}
 button:hover, .button:hover {background: linear-gradient(0deg, #292929, #292929), linear-gradient(0deg, #FFFFFF, #FFFFFF);
 box-shadow: 0px 12px 7px 0px #FFFFFF40 inset, 0px 4px 4px 0px #00000040;}
 button img, .button img {margin:0 0 0 13px;vertical-align:middle;}
-
 .redButton {border-radius: 5px;border: 1px solid rgba(255, 255, 255, 0.23);background: #6E0B1D;
 box-shadow: 0px 9px 8px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 6px 0px rgba(224, 28, 64, 0.53);}
 .redButton:hover {background:#5C0515;}
-
+@media (max-width:320px) {button, .button {width:100%;}}
 
 
 .backBlack {color: var(--white_text);background: var(--black_back);}
@@ -124,9 +123,9 @@ header .vColumn {width:100%;}}
 .orderVideo .hLine:nth-child(1) {font-family:'SofiaSans';font-size:28px;font-weight:700;line-height:34px;margin-bottom:20px;}
 .orderVideo .hLine:nth-child(2) {font-size: 15px;font-weight: 700;line-height: 18px;}
 .orderVideo .vColumn:nth-child(1) {width:54.87%;}
-.orderVideo .vColumn:nth-child(2) {width:30.76%;min-width:260px;}
+.orderVideo .vColumn:nth-child(2) {width:30.76%;/*min-width:260px;*/}
 .orderVideo .vColumn>div:nth-child(1) {margin-bottom:20px;}
-.orderVideo .vColumn:nth-child(1)>div:nth-child(1) {width:303px;}
+.orderVideo .vColumn:nth-child(1)>div:nth-child(1) {max-width:303px;}
 .orderVideo .vColumn:nth-child(2)>div:nth-child(1) {font-family:'SofiaSans';font-size:28px;font-weight:1000;line-height:34px;text-transform:uppercase;}
 .orderVideo .vColumn:nth-child(2)>div:nth-child(2) {font-size: 14px;font-weight: 700;line-height: 17px;}
 .orderVideo button {margin-top:40px;}
@@ -148,31 +147,32 @@ animation-duration: 20s;animation-iteration-count: infinite;animation-timing-fun
 .playButt::after {position:absolute;left:0;top:0;content: '';height:100%;width:100%;
 background:url(../images/playButt.png) center center no-repeat;}
 
-.part3 {padding:115px 0 69px 0;
-font-size: 13px;font-weight: 400;line-height: 16px;}
+.part3 {padding:115px 0 69px 0;font-size: 13px;font-weight: 400;line-height: 16px;}
+.part3 .hLine {align-items: stretch;}
 .part3 .tit {font-family: 'Aqum';font-size: 14px;font-weight: 700;line-height: 13px;margin-bottom:17px;}
 .part3 .tit>* {display:inline-block;vertical-align:middle;}
 .part3 .tit>div {width:calc(100% - 45px);}
 .part3 .cont {margin-left:42px;}
 .part3 .tit img {margin-right:20px;}
 .part3 .tit:nth-child(n + 2) {margin-top:39px;}
+.part3 .vColumn {display:inline-block;}
 .part3 .vColumn:nth-child(1) {width:55%;}
-.part3 .vColumn:nth-child(2) {width:35%;min-width:312px;height: 479px;border-radius: 17px;position:relative;
-background: url(../images/oldCam.png) right bottom no-repeat, var(--main_back);}
+.part3 .vColumn:nth-child(2) {position:relative;width:35%;
+background: url(../images/oldCam.png) right top no-repeat, var(--main_back);}
 .part3 .vColumn:nth-child(2)::after {position:absolute;right:46px;top: -22px;content: '';height:35px;width:71px;
 background:url(../images/Price.svg) center center no-repeat;}
-.part3 .vColumn:nth-child(2)>div {margin-left:55px;margin-top:58px;max-width:40%;}
+.part3 .vColumn:nth-child(2)>div {margin-left:23px;margin-top:58px;max-width:130px;}
 .part3 .vColumn:nth-child(2) .tit {font-size: 18px;line-height: 18px;}
 .part3 .vColumn:nth-child(2) span {font-size: 14px;line-height: 17px;color:var(--dark_red);}
-.part3 .button {margin-left:32px;display:block;}
+.part3 .button {display:block;}
 .part3 .button:nth-of-type(1) {margin-top:54px;margin-bottom:6px;}
 @media (max-width:800px) {
 .part3 {padding:62px 0 48px 0;}
 .part3 .vColumn:nth-child(1), .part3 .vColumn:nth-child(2) {width:100%;margin:0 34px;}
-.part3 .vColumn:nth-child(2) {height:400px;background: url(../images/oldCam.png) right -40% no-repeat, var(--main_back);}
 .part3 .vColumn:nth-child(1) {margin-bottom:40px;}
 .part3 .vColumn:nth-child(2)>div {margin-left:36px;margin-top:46px;}
 .part3 button:nth-of-type(1) {margin-top:34px;}}
+@media (max-width:460px) {.part3 .vColumn:nth-child(2) {background-position: 120px top;}}
 
 
 .part4 {padding:74px 0;background:var(--black_back);}
