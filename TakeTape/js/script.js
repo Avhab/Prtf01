@@ -30,7 +30,7 @@ for (let i = 0; i < askQwe.length; i++) {
 			clearMark();
 			chMark.classList.add("marked");	}	}	}
 
-
+/*
 let phoneInput = document.querySelectorAll('input[type="tel"]');
 for (let i = 0; i < phoneInput.length; i++) {
 	let inputCode;
@@ -54,3 +54,4 @@ for (let i = 0; i < phoneInput.length; i++) {
 	});
 }
 //    console.log('length END: ' + phoneInput[i].value.length);
+*/
