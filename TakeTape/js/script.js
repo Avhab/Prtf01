@@ -35,8 +35,6 @@ let phoneInput = document.querySelectorAll('input[type="tel"]');
 for (let i = 0; i < phoneInput.length; i++) {
 	let inputCode;
 	function appMask(event) {
-		phoneInput[i].value = phoneInput[i].value + '-';
-		/*
 		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)) {
 			console.log('length END: ' + phoneInput[i].value.length);
 			switch(phoneInput[i].value.length) {
@@ -48,17 +46,12 @@ for (let i = 0; i < phoneInput.length; i++) {
 				case 7: phoneInput[i].value = phoneInput[i].value.slice(0, (phoneInput[i].value.length-1)) + '-' + phoneInput[i].value.slice(-1);	break;
 				case 10: phoneInput[i].value = phoneInput[i].value + '-';	break;
 				case 11: phoneInput[i].value = phoneInput[i].value.slice(0, (phoneInput[i].value.length-1)) + '-' + phoneInput[i].value.slice(-1);	break;
-				case 16: phoneInput[i].value = phoneInput[i].value.slice(0, 15); break;	}
-		}
-		*/
-	}
+				case 16: phoneInput[i].value = phoneInput[i].value.slice(0, 15); break;	}	}	}
 	phoneInput[i].addEventListener("input", appMask);
-/*
 	phoneInput[i].addEventListener('keydown', function(event){
 		inputCode = event.keyCode;
-		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	}
+/*		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	} */
 	});
-	*/
 }
 
 //    console.log('length END: ' + phoneInput[i].value.length);
