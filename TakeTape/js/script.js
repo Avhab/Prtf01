@@ -30,7 +30,7 @@ for (let i = 0; i < askQwe.length; i++) {
 			clearMark();
 			chMark.classList.add("marked");	}	}	}
 
-/*
+
 let phoneInput = document.querySelectorAll('input[type="tel"]');
 for (let i = 0; i < phoneInput.length; i++) {
 	let inputCode;
@@ -49,10 +49,10 @@ for (let i = 0; i < phoneInput.length; i++) {
 	phoneInput[i].addEventListener("input", appMask);
 	phoneInput[i].addEventListener('keydown', function(event){ inputCode = event.keyCode;});
 }
-*/
+
 //    console.log('length END: ' + phoneInput[i].value.length);
 
-
+/*
 window.addEventListener("DOMContentLoaded", function() {
     [].forEach.call( document.querySelectorAll('input[type="tel"]'), function(input) {
     let keyCode;
@@ -87,3 +87,4 @@ window.addEventListener("DOMContentLoaded", function() {
     input.addEventListener("keydown", mask, false)
   });
 });
+*/
