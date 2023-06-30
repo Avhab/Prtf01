@@ -49,7 +49,7 @@ for (let i = 0; i < phoneInput.length; i++) {
 	phoneInput[i].addEventListener("input", appMask);
 	phoneInput[i].addEventListener('keydown', function(event){
 		inputCode = event.keyCode;
-/*		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	} */
+		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	}
 	});
 }
 
