@@ -47,10 +47,7 @@ for (let i = 0; i < phoneInput.length; i++) {
 				case 11: phoneInput[i].value = phoneInput[i].value.slice(0, (phoneInput[i].value.length-1)) + '-' + phoneInput[i].value.slice(-1);	break;
 				case 16: phoneInput[i].value = phoneInput[i].value.slice(0, 15); break;	}	}	}
 	phoneInput[i].addEventListener("input", appMask);
-	phoneInput[i].addEventListener('keydown', function(event){
-		inputCode = event.keyCode;
-		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	}
-	});
+	phoneInput[i].addEventListener('keydown', function(event){ inputCode = event.keyCode;});
 }
 
 //    console.log('length END: ' + phoneInput[i].value.length);
