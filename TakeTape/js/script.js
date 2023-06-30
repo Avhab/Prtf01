@@ -36,7 +36,6 @@ for (let i = 0; i < phoneInput.length; i++) {
 	let inputCode;
 	function appMask(event) {
 		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)) {
-			console.log('length END: ' + phoneInput[i].value.length);
 			switch(phoneInput[i].value.length) {
 				case 1:	if ((phoneInput[i].value=='8')||(phoneInput[i].value=='+')){phoneInput[i].value = '+7 ';
 						}else{phoneInput[i].value = '+7 ' + phoneInput[i].value;}	break;
