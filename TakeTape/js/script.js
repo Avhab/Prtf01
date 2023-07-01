@@ -56,6 +56,36 @@ for (let i = 0; i < phoneInput.length; i++) {
 //    console.log('length END: ' + phoneInput[i].value.length);
 
 
+let phoneInput = document.querySelectorAll('input[type="tel"]');
+for (let j = 0; j < phoneInput.length; j++) {
+	function appMask(event) {
+		let tmpStr = phoneInput[j].value;
+		if (tmpStr.length>0) {
+			let i = 0;
+			function digCorr() {if (!tmpStr[i].match('[0-9]')){tmpStr = tmpStr.slice(0, (i)) + tmpStr.slice(i+1);}	}
+			function symReplc(symb) {if (tmpStr.slice(i, (i+1))!=symb){tmpStr = tmpStr.slice(0, (i)) + symb + tmpStr.slice(i);}	}
+			do { switch(i) {
+					case 0: symReplc('+'); break;
+					case 1: symReplc('7'); break;
+					case 2: symReplc(' '); break;
+					case 3:	case 4:	case 5: digCorr(); break;
+					case 6: symReplc('-'); break;
+					case 7:	case 8:	case 9: digCorr(); break;
+					case 10: symReplc('-'); break;
+					case 11: case 12: case 13: case 14: digCorr(); break;
+					case 15: tmpStr = tmpStr.slice(0, 15); break;}
+				i = i + 1;}
+			while (i<tmpStr.length);
+			phoneInput[j].value = tmpStr;	}	}
+
+	phoneInput[j].addEventListener("input", appMask, false);
+	phoneInput[j].addEventListener("focus", appMask, false);
+	phoneInput[j].addEventListener("blur", appMask, false);
+	phoneInput[j].addEventListener("keydown", appMask, false)
+}
+
+
+/*
 window.addEventListener("DOMContentLoaded", function() {
     [].forEach.call( document.querySelectorAll('input[type="tel"]'), function(input) {
     let keyCode;
@@ -90,4 +120,4 @@ window.addEventListener("DOMContentLoaded", function() {
     input.addEventListener("keydown", mask, false)
   });
 });
-
+*/
