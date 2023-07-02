@@ -1,36 +1,32 @@
 let header = document.querySelector("header");
 let headMenu = document.querySelector(".headMenu");
 let burger = document.querySelector(".burger");
+let blur = document.querySelector(".blur");
 let burgerMenu = headMenu.cloneNode(true);
 header.prepend(burgerMenu);
 burgerMenu.classList.add('burgerMenu');
 burgerMenu.style.transformOrigin = '0 0';
 burgerMenu.style.transform = 'scaleY(0)';
 burgerMenu.style.opacity = '0';
+blur.style.opacity = '0';
 
+function blurOff(){
+	setTimeout(function(){	blur.style.display = null;	}, 300);
+	blur.style.opacity = '0';}
 function closBurgerMenu(){
-	setTimeout(function(){
-		burgerMenu.style.display = null;
-	}, 300);
+	setTimeout(function(){	burgerMenu.style.display = null;	}, 300);
 	burgerMenu.style.transform = 'scaleY(0)';
 	burgerMenu.style.opacity = '0';
-//	blurOff();
-	document.removeEventListener("click", closBurgerMenu);
-}
-
+	blurOff();
+	document.removeEventListener("click", closBurgerMenu);}
 burger.onclick = function(){
-//	event.stopPropagation();
-//	blur.style.display = 'block';
+	blur.style.display = 'block';
 	burgerMenu.style.display = 'block';
 	setTimeout(function(){
 		burgerMenu.style.transform = null;
 		burgerMenu.style.opacity = null;
-//		blur.style.opacity = null;
-		document.addEventListener("click", closBurgerMenu);
-	}, 30);
-}
-
-
+		blur.style.opacity = null;
+		document.addEventListener("click", closBurgerMenu);	}, 30);	}
 
 let zoomLens = document.querySelectorAll(".zoomLens");
 for (let i = 0; i < zoomLens.length; i++) {
