@@ -1,3 +1,37 @@
+let header = document.querySelector("header");
+let headMenu = document.querySelector(".headMenu");
+let burger = document.querySelector(".burger");
+let burgerMenu = headMenu.cloneNode(true);
+header.prepend(burgerMenu);
+burgerMenu.classList.add('burgerMenu');
+burgerMenu.style.transformOrigin = '0 0';
+burgerMenu.style.transform = 'scaleY(0)';
+burgerMenu.style.opacity = '0';
+
+function closBurgerMenu(){
+	setTimeout(function(){
+		burgerMenu.style.display = null;
+	}, 300);
+	burgerMenu.style.transform = 'scaleY(0)';
+	burgerMenu.style.opacity = '0';
+//	blurOff();
+	document.removeEventListener("click", closBurgerMenu);
+}
+
+burger.onclick = function(){
+//	event.stopPropagation();
+//	blur.style.display = 'block';
+	burgerMenu.style.display = 'block';
+	setTimeout(function(){
+		burgerMenu.style.transform = null;
+		burgerMenu.style.opacity = null;
+//		blur.style.opacity = null;
+		document.addEventListener("click", closBurgerMenu);
+	}, 30);
+}
+
+
+
 let zoomLens = document.querySelectorAll(".zoomLens");
 for (let i = 0; i < zoomLens.length; i++) {
 	window.addEventListener('scroll', function() {zoomLens[i].style.transform = "rotate(" + (window.pageYOffset/8) + "deg)";});		}
@@ -29,31 +63,6 @@ for (let i = 0; i < askQwe.length; i++) {
 		qwVar[i].onclick = function(){
 			clearMark();
 			chMark.classList.add("marked");	}	}	}
-
-/*
-let phoneInput = document.querySelectorAll('input[type="tel"]');
-for (let i = 0; i < phoneInput.length; i++) {
-	let inputCode;
-	function appMask(event) {
-		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)) {
-			switch(phoneInput[i].value.length) {
-				case 1:	if ((phoneInput[i].value=='8')||(phoneInput[i].value=='+')){phoneInput[i].value = '+7 ';
-						}else{phoneInput[i].value = '+7 ' + phoneInput[i].value;}	break;
-				case 2:
-				case 3:	phoneInput[i].value = '+7 ' + phoneInput[i].value.slice(-1); break;
-				case 6: phoneInput[i].value = phoneInput[i].value + '-';	break;
-				case 7: phoneInput[i].value = phoneInput[i].value.slice(0, (phoneInput[i].value.length-1)) + '-' + phoneInput[i].value.slice(-1);	break;
-				case 10: phoneInput[i].value = phoneInput[i].value + '-';	break;
-				case 11: phoneInput[i].value = phoneInput[i].value.slice(0, (phoneInput[i].value.length-1)) + '-' + phoneInput[i].value.slice(-1);	break;
-				case 16: phoneInput[i].value = phoneInput[i].value.slice(0, 15); break;	}	}	}
-	phoneInput[i].addEventListener("input", appMask);
-	phoneInput[i].addEventListener('keydown', function(event){
-		inputCode = event.keyCode;
-		if (((inputCode>=96)&&(inputCode<=105))||(inputCode==107)||(inputCode==8)||(inputCode==13)) {}else{	event.preventDefault();	}
-	});
-}
-*/
-//    console.log('length END: ' + phoneInput[i].value.length);
 
 
 let phoneInput = document.querySelectorAll('input[type="tel"]');
