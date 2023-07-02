@@ -155,8 +155,8 @@ background:url(../images/playButt.png) center center no-repeat;}
 .part3 .tit {font-family: 'Aqum';font-size: 14px;font-weight: 700;line-height: 13px;margin-bottom:17px;}
 .part3 .tit>* {display:inline-block;vertical-align:middle;}
 .part3 .tit>div {width:calc(100% - 45px);}
-.part3 .cont {margin-left:42px;}
-.part3 .tit img {margin-right:20px;}
+.part3 .cont {margin-left:36px;}
+.part3 .tit img {margin-right:14px;}
 .part3 .tit:nth-child(n + 2) {margin-top:39px;}
 .part3 .vColumn {display:inline-block;}
 .part3 .vColumn:nth-child(1) {width:55%;}
