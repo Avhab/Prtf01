@@ -110,15 +110,16 @@ header .titImg {margin-top:30px;}
 .contactsTit {font-family:'Aqum';}
 .headTit {margin:58px 0 0 55px;font-family: 'SofiaSans';font-size: 38px;font-weight: 400;line-height: 46px;}
 .headTit span{font-weight: 1000;}
-.burger {cursor:pointer;width:35px;height:19px;}
-.burger:hover {background:#5B7FFF;}
+.burger {cursor:pointer;width:55px;height:39px;padding:10px;border-radius:5px;}
+.burger:hover {background:#C9C9C9;}
 @media (min-width:600px) {.burger {display:none;}}
 @media (max-width:600px) {
 header {padding:38px 0;}
 .headMenu {display:none;}
 .headTit {margin:28px 0 0 0;text-align:center;}
 header .vColumn {width:100%;}}
-.burgerMenu {display:none;position:absolute;right:0;top:0;background: var(--bej_back);margin:0;padding:30px;}
+.burgerMenu {display:none;position:absolute;right:0;top:0;background: var(--bej_back);max-width:330px;margin:0;padding:30px;}
+.blur {display:none;position:fixed;height:100%;width:100%;left:0;top:0;margin:0;background:#00000080;}
 
 .orderVideo {padding:58px 0;}
 .orderVideo .hLine:nth-child(1) {font-family:'SofiaSans';font-size:28px;font-weight:700;line-height:34px;margin-bottom:20px;}
