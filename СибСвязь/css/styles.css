@@ -374,8 +374,6 @@ font-family: 'Montserrat';font-size: 18px;font-weight: 600;line-height: 25px;}
 .lineView .goodCard .LikeH {bottom:66px;right:10px;}
 .lineView .goodCard .inStock, .lineView .goodCard .unOrder {right:10px;top:50px;}
 
-
-
 .titCatalog .Name {font-size: 16px;font-weight: 600;line-height: 17px;}
 .titCatalog .titCatalogCard {height:256px;width:182px;}
 .titCatalog .titCatalogCard>*, .titCatalog .titCatalogCard>*>* {width:142px;}
@@ -389,16 +387,22 @@ text-decoration:underline;margin-left:20px;color:#032465;cursor:pointer;}
 .wrapCont:hover {color:#5B7FFF;}
 
 .ourService .parTit {justify-content:left;}
-.ourService .servCard {width:380px;/*height:397px;*/padding:0;border:none;background:transparent;position:relative;}
+.ourService .servCard {/*width:380px;height:397px;*/padding:0;border:none;background:transparent;position:relative;}
 .ourService .servCard:hover {box-shadow:none;}
 .ourService .cont {margin: -15px;}
 .ourService .cont .servCard {margin:15px;}
 .ourService .Img {width:100%;border-radius:8px;margin-bottom:20px;}
 .ourService .DescrTit {font-family:'Montserrat';font-size: 18px;font-weight: 600;line-height: 25px;margin-bottom:15px;}
-.ourService .Descr {position:absolute;left:0;top:280px;
+.ourService .Descr {/*position:absolute;*/left:0;top:270px;
 font-family: 'Inter';font-size: 14px;font-weight: 300;line-height: 20px;margin-bottom:15px;}
-.ourService .button {position:absolute;left:0;top:370px;
+.ourService .button {/*position:absolute;*/left:0;bottom:0;
 font-family: 'Inter';font-size: 14px;font-weight:300;line-height: 20px;}
+@media (min-width: 500px) {
+.ourService .servCard {width:380px;height:397px;}
+.ourService.Serv .Descr {position:absolute;}
+.ourService.Serv .button {position:absolute;}
+}
+
 
 .brends2 .cont {justify-content:left;margin: -8px;}
 .brends2 .brendCard {height:62px;margin:8px;padding:15px;
