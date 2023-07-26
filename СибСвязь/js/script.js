@@ -229,15 +229,31 @@ for (let i = 0; i < goodGroup.length; i++) {
 
 let bets = document.querySelector(".bets");
 if (bets) {
-	let parTit_Tags = bets.querySelector(".parTit .Tags");
+	let tagFilter = bets.querySelector(".tagFilter");
 	let goodCards = bets.querySelector(".goodCards");
 	let goodCard = goodCards.querySelectorAll(".goodCard");
-	let FiltrTag = parTit_Tags.querySelectorAll(".Tag");
+	let FiltrTag = tagFilter.querySelectorAll(".Tag");
+
+	function cardOn(thisCard){
+		setTimeout(function(){
+			thisCard.style.display = null;
+			setTimeout(function(){
+				thisCard.style.transform = 'scaleY(1)';
+				thisCard.style.opacity = '1'; 	
+			}, 20);
+		}, 330);
+	}
+	function cardOff(thisCard){
+		thisCard.style.transformOrigin = 'center top';
+		thisCard.style.transform = 'scaleY(0)';
+		thisCard.style.opacity = '0'; 	
+		setTimeout(function(){thisCard.style.display = 'none';}, 300);
+	}
 	function swFiltr(){
-		let TagOn = parTit_Tags.querySelectorAll(".Tag.tagOn"); //включенные теги на панели фильтра
+		let TagOn = tagFilter.querySelectorAll(".Tag.tagOn"); //включенные теги на панели фильтра
 		if (TagOn.length>0) {//если включенные теги на панели фильтра присутствуют, перебираем все карточки
 			for (let i = 0; i < goodCard.length; i++) {
-				goodCard[i].style.display = "none";//сначала выключаем карточку
+				cardOff(goodCard[i]);//сначала выключаем карточку
 				let Tag = goodCard[i].querySelectorAll(".Tag"); //теги на карточке товара
 				for (let g = 0; g < Tag.length; g++) {
 					let goodList = Tag[g].classList; //для каждого тега на карточке товара анализируем его классы
@@ -245,7 +261,7 @@ if (bets) {
 						if ((goodList[j]!="Tag")&&(goodList[j]!="tagOn")){//вычленяем класс вида тега
 							for (let k = 0; k < TagOn.length; k++) {//перебираем включенные теги фильтра
 								if (TagOn[k].classList.contains(goodList[j])){//если тег фильтра содержит искомый вид тега
-									goodCard[i].style.display = null;//включаем карточку
+									cardOn(goodCard[i]);//включаем карточку
 								}
 							}
 						}
@@ -253,7 +269,10 @@ if (bets) {
 				}
 			}
 		}else{ //если включенные теги на панели фильтра отсутствуют, перебираем и включаем все карточки
-			for (let i = 0; i < goodCard.length; i++) {	goodCard[i].style.display = null;}
+			for (let i = 0; i < goodCard.length; i++) {	
+				cardOff(goodCard[i]);
+				cardOn(goodCard[i]);
+			}
 		}
 	}
 
