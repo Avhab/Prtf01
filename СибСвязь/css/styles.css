@@ -325,18 +325,18 @@ font-size: 15px;font-weight: 500;line-height: 21px;}
 .Tags {display:flex;justify-content:left;flex-wrap:wrap;margin: -2.5px;}
 .Tag {height: 30px;border-radius: 8px;padding: 5px;display:inline-block;background: #EDEDED;cursor:pointer;margin:2.5px;
 font-family: 'Inter';font-size: 14px;font-weight: 500;line-height: 20px;text-align: center;color:#010217;text-transform: uppercase;}
-.Tag:hover {background: #5B7FFF;color:white;}
 .Tag.Hit::before {content:'хит';}
 .Tag.Consid::before {content:'советуем';}
 .Tag.New::before {content:'новинка';}
 .Tag.Acton::before {content:'акция';}
 
 .goodCard .Tags {position:absolute;left:20px;top:20px;z-index:10;}
-.goodCard .Tag {color:white;cursor:auto;}
-.goodCard .Tag.Hit {background: #FF6565;}
-.goodCard .Tag.Consid {background: #A56FFD;}
-.goodCard .Tag.New {background: #32CB5D;}
-.goodCard .Tag.Acton {background: #FFEB81;color:#010217;}
+.goodCard .Tag {cursor:auto;}
+.Tag.Hit.tagOn {background: #FF6565;color:white;}
+.Tag.Consid.tagOn {background: #A56FFD;color:white;}
+.Tag.New.tagOn {background: #32CB5D;color:white;}
+.Tag.Acton.tagOn {background: #FFEB81;color:#010217;}
+.Tag:hover, .Tag.tagOn:hover {background: #5B7FFF;color:white;}
 
 .goodCard .Star {left:20px;bottom:69px;font-family: 'Inter';font-size: 12px;font-weight: 400;line-height: 17px;}
 .goodCard .Star::before {display:inline-block;content: '';height:16px;width:16px;margin-right:2px;vertical-align:top;
