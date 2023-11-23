@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="18"
+   height="18"
+   viewBox="0 0 18 18"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="popupArr.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   >
+
+  <line
+     x1="1"
+     y1="-1"
+     x2="11.0294"
+     y2="-1"
+     transform="matrix(0.706493 -0.70772 0.706493 0.70772 1.50195 17.5273)"
+     stroke="#414141"
+     stroke-width="2"
+     stroke-linecap="round"
+     id="line2" />
+  <line
+     x1="1.50195"
+     y1="1.9111819"
+     x2="8.5876513"
+     y2="9.0091887"
+     stroke="#414141"
+     stroke-width="2"
+     stroke-linecap="round"
+     id="line3" />
+</svg>
