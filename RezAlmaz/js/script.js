@@ -5,7 +5,9 @@ body.append(sizDisp);
 sizDisp.style.cssText = "position:fixed;top:2px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
 function sdReN() {
 	sizDisp.innerHTML = `${window.innerWidth} x ${window.innerHeight}`;
-	sizDisp.style.fontSize = `${window.innerWidth/70}px`;}		
+	if (window.innerWidth<900) {sizDisp.style.fontSize = `${window.innerWidth/20}px`;} else {
+		sizDisp.style.fontSize = `${window.innerWidth/70}px`;}
+	}
 sdReN();
 window.addEventListener("resize", function (e) {sdReN(); });
 /*тестовый вывод размеров окна---->*/
@@ -29,7 +31,7 @@ burgerBut.onclick = function() {
 /* >>>--- бургер-меню в заголовке*/
 
 
-/* <<<---выпадающий список --->>> */
+/* выпадающий список --->>> */
 let dropSel = document.querySelectorAll(".dropSel");
 for (let i = 0; i < dropSel.length; i++) {
 	let options = dropSel[i].querySelector(".options");
@@ -39,6 +41,7 @@ for (let i = 0; i < dropSel.length; i++) {
 	function dropSelClos() {
 		setTimeout(function(){options.style.transform = 'scaleY(0)';}, 20);
 		setTimeout(function(){options.style.display = 'none';flag = false;}, 300);}
+		
 	document.addEventListener("click", function (e) {	dropSelClos();	});
 	dropSel[i].onclick = function() {
 		event.stopPropagation();
@@ -47,10 +50,18 @@ for (let i = 0; i < dropSel.length; i++) {
 			flag = true;
 			options.style.display = null;
 			setTimeout(function(){
+				let c = dropSel[i].getBoundingClientRect();
+				if (c.left + options.clientWidth < document.documentElement.clientWidth) {	//коррекция положения выпадающего списка
+					options.style.left = '-15px';
+				}else{	
+					options.style.right = '-25px';
+					options.style.whiteSpace = 'normal';
+					options.style.textAlign = 'right';
+					options.style.width = document.documentElement.clientWidth + 'px';		}	//--->>>коррекция положения выпадающего списка
 				options.style.transform = 'scaleY(1)';
-				options.onmouseleave = function() { dropSelClos();}
+				options.onmouseleave = function() {dropSelClos();}
 				}, 20);	}	}	}
-/* выпадающий список --->>> */
+/*  --->>>выпадающий список */
 
 let hScrol = document.querySelectorAll(".hScrol");//элемент с скролл-контейнером
 for (let j = 0; j < hScrol.length; j++) {
