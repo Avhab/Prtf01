@@ -155,7 +155,7 @@ header .mnUnt.payCards {flex-direction:column;align-items:end;}
 header .wideMenu>.vCont:nth-child(1){order:1;}
 header .wideMenu>.vCont:nth-child(2){order:3;width:100%;}
 header .wideMenu>.vCont:nth-child(3){order:2;}}
-@media (max-width:1100px) {
+@media (max-width:1200px) {
 header .mnUnt.teleph {width:100%;justify-content:end;}
 header .mnUnt.payCards {width:100%;}}
 
@@ -228,8 +228,9 @@ box-shadow: 0px 9px 8px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 6px 0px rgb
 .HILTI {position:absolute;top: -10%;right:0;width:55%;z-index: -1;overflow:hidden;}
 .HILTI img {height:100%;}
 
-@media (max-width:1600px) {.HomeBack {background-size:120% 100%;}}
-@media (max-width:1200px) {.homePg .mainBanner {font-size:2em;}
+@media (max-width:1600px) {.HomeBack {height:980px;background-size:120% 100%;}}
+@media (max-width:1200px) {.HomeBack {height:1040px;background-size:140% 100%;}
+.homePg .mainBanner {font-size:2em;}
 .homePg .txtWrap {margin-top:25px;}
 .homePg .mainBanner .txtWrap>* {margin-bottom:20px;}}
 @media (max-width:900px) {.HILTI {height:300px;}
