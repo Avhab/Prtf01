@@ -76,13 +76,11 @@ h3 {color: var(--H_text);font-size:32px;font-weight:500;margin-bottom:36px;line-
 h4 {color: var(--H_text);font-size:20px;font-weight:400;line-height:22px;text-align:left;}
 
 @media (max-width:900px) {
-/*body {font-size:12px;}*/
 h1 {font-size:40px;margin-bottom:28px;}
 h2 {font-size:30px;margin-bottom:26px;}
 h3 {font-size:28px;margin-bottom:24px;}
 }
 @media (max-width:600px) {
-/*body {font-size:12px;}*/
 h1 {font-size:36px;margin-bottom:20px;}
 h2 {font-size:28px;font-weight:500;margin-bottom:18px;}
 h3 {font-size:24px;margin-bottom:18px;}
@@ -464,16 +462,18 @@ display:flex;flex-direction: column;justify-content:center;flex-wrap:nowrap;alig
 
 .FAQ h1 {text-align:center;margin:40px auto 56px auto;}
 .FAQ .cont {max-width:1110px;margin:0 auto;}
-.FAQ .qAns {position:relative;display:inline-block;cursor:pointer;width:100%;text-align:left;
+.FAQ .qAns {position:relative;cursor:pointer;width:100%;text-align:left;
 border-bottom: 1px solid #D2D2D2;font-family:'Inter';font-size:1em;line-height:1.4em;}
-.FAQ .Que {width:100%;padding:25px 60px 25px 0;color: #777;font-size:1.2em;font-weight:600;line-height:1.4em;}
-.FAQ .Ans {display:inline-block;overflow:hidden;width:100%;padding:22px 20px 25px 20px;transform-origin:0 0;color: rgba(119, 119, 119, 0.75);}
-.FAQ .wrapArr {position:absolute;top:26px;right:20px;width:18px;height:18px;
-background: url(../images/popupArr.svg) center center no-repeat;}
+.FAQ .Que {width:100%;padding:25px 60px 25px 25px;color: #777;font-size:1.2em;font-weight:600;}
+.FAQ .Ans {overflow:hidden;width:100%;padding:0 60px 32px 45px;transform-origin:0 0;color: rgba(119, 119, 119, 0.75);text-align:justify;}
+.FAQ .wrapArr {position:absolute;top:30px;right:15px;width:18px;height:18px;background: url(../images/popupArr.svg) center center no-repeat;}
 .FAQ .wrapArr.ArrUp {transform:rotate(90deg) translate(4px, 5px);}
+@media (max-width:900px) {.FAQ .Que {font-size:1em;font-weight:600;}}
 @media (max-width:900px) {
-.FAQ .Que {padding:5px 40px 0 0;font-size:1em;font-weight:600;}
-.FAQ .Ans {padding:7px 20px 0 20px;}}
+.FAQ .Que {padding:10px 40px 10px 10px;font-size:1em;font-weight:600;}
+.FAQ .Ans {padding:0 40px 18px 30px;}
+.FAQ .wrapArr {top:16px;right:5px;}}
+
 @media (max-width:300px) {.scrolCont>div {width:95%;}}
 
 .engn {margin:81px auto;color: color:var(--H_text);text-align: center;font-size:1em;}
