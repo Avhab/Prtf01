@@ -13,6 +13,23 @@ window.addEventListener("resize", function (e) {sdReN(); });
 /*тестовый вывод размеров окна---->*/
 
 
+/*<----тестовый вывод параметров скролла*/
+/*
+let scrolDisp = document.createElement("div");
+body.append(scrolDisp);
+scrolDisp.style.cssText = "position:fixed;top:50px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
+let strN01 = document.createElement("div");scrolDisp.append(strN01);
+let strN02 = document.createElement("div");scrolDisp.append(strN02);
+let strN03 = document.createElement("div");scrolDisp.append(strN03);
+let strN04 = document.createElement("div");scrolDisp.append(strN04);
+let strN05 = document.createElement("div");scrolDisp.append(strN05);
+let strN06 = document.createElement("div");scrolDisp.append(strN06);
+let strN07 = document.createElement("div");scrolDisp.append(strN07);
+let strN08 = document.createElement("div");scrolDisp.append(strN08);
+*/
+/*тестовый вывод параметров скролла---->*/
+
+
 /* <<<---бургер-меню в заголовке  */
 let burgerBut = document.getElementById("burger");
 let burgerMenu = document.querySelector("header .burgerMenu");
@@ -80,6 +97,7 @@ for (let j = 0; j < hScrol.length; j++) {
 		}else{	scrlStep = 4 + goodCard[0].offsetWidth; }
 		let visibleCount = Math.ceil(scrolCont.scrollWidth/scrlStep); //количество элементов скроллинга
 		let currNum = hScrol[j].querySelector(".currNum");//текущий слайд
+		let currScroll = 0;//величина текущего скролла
 		let allNum = hScrol[j].querySelector(".allNum");//число слайдов
 		
 		if (allNum) {
@@ -88,19 +106,19 @@ for (let j = 0; j < hScrol.length; j++) {
 		if (arrLeft) {arrLeft.classList.add("arrStop");}
 		
 		let dot = [];	//индикаторные точки
-
 	//создание индикаторных точек
 		if (dots) {
-
-			for (let i = 0; i < visibleCount; i++) {
+			let quanDots=Math.round(scrolCont.scrollWidth/scrolCont.clientWidth);	//задаем количество индикаторных точек
+			if (quanDots>7){quanDots=7;}else{
+				if ((quanDots*27 + 30)>scrolCont.clientWidth) {quanDots = Math.trunc((scrolCont.clientWidth - 30) / 27);}	}
+			for (let i = 0; i < quanDots; i++) {
 				dot[i] = document.createElement("div");
 				dots.append(dot[i]);
 				dot[i].classList.add("dot");
-				if (i==0) {dot[i].classList.add("selected");}
-			}
-		}			
-	//Обработка скролла выполняется, если есть индикаторные точки
+				if (i==0) {dot[i].classList.add("selected");}	}	}
+	//создание индикаторных точек
 
+	//Обработка скролла выполняется, если есть индикаторные точки
 		let ScrlFlag=true;
 		let ScrlTime;
 	//Функции, выполняемые во время скролла
@@ -111,13 +129,28 @@ for (let j = 0; j < hScrol.length; j++) {
 			ScrlTime = setTimeout( function() {
 				ScrlFlag=true;
 				//переключение индикаторных точек
-				if (dot) {
-					for (let i = 0; i < dot.length; i++) {dot[i].classList.remove("selected");}
-					let indx = scrolCont.scrollLeft/scrlStep;
-					let ind = Math.round(scrolCont.scrollLeft/scrlStep);
-					if ((indx-ind)>0.07) {ind = Math.ceil(indx);}
-					dot[ind].classList.add("selected");
+				if (dots) {
+					for (let i = 0; i < dot.length; i++) {dot[i].classList.remove("selected");} //гасим все точки
+					let indx = Math.round(scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length))
+					if (indx < dot.length) {if (indx < 0) {indx = 0;}}else{indx = (dot.length - 1);} //защита от некорректного индекса
+					//коррекция крайних значений индекса
+					if (currScroll<scrolCont.scrollLeft){
+						if (indx == (dot.length - 1)) {	if (Math.abs(scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)) > 20) {indx = (dot.length - 2);}}
+					}else{if (indx == 0) {if (scrolCont.scrollLeft>0) {indx = 1;}	}	}
+					currScroll = scrolCont.scrollLeft;
+					dot[indx].classList.add("selected");
+					
+/*					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
+					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
+					strN03.innerHTML = 'Точки  ' + dot.length;
+					strN04.innerHTML = 'Сегмент точки   ' + (scrolCont.scrollWidth/dot.length).toFixed(2);
+					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
+					strN06.innerHTML = 'Индекс   ' + indx + '  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
+					strN07.innerHTML = 'Текущий скролл  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
+					strN08.innerHTML = 'Осталось скролла  ' + (scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)).toFixed(2);
+*/
 				}//-----------переключение индикаторных точек
+
 				//изменение цвета стрелок
 				if (arrLeft && arrRight) {
 					if (scrolCont.scrollLeft==0) {
@@ -127,12 +160,11 @@ for (let j = 0; j < hScrol.length; j++) {
 						arrLeft.classList.remove("arrStop");
 						if ((scrolCont.scrollWidth-scrolCont.scrollLeft-scrolCont.clientWidth)<50) {
 							arrRight.classList.add("arrStop");}else{arrRight.classList.remove("arrStop");}	}	}
-						
-						
 				//------------изменение цвета стрелок
 				}, 100);
 			}
-		}); //Обработка скролла
+		});
+//Обработка скролла
 
 
 	/*
@@ -186,6 +218,8 @@ for (let i = 0; i < clrSel.length; i++) {
 }
 
 //раскрывающиеся списки FAQ ------------
+window.addEventListener("load", function() {
+
 
 let FAQ = document.querySelectorAll(".FAQ");
 for (let i = 0; i < FAQ.length; i++) {
@@ -196,23 +230,38 @@ for (let i = 0; i < FAQ.length; i++) {
 		let wrapArr = document.createElement("div");
 		wrapArr.className = 'wrapArr';
 		Que.append(wrapArr);
-		let heigOn = Ans.clientHeight*1.07;
+		let heigOn = Ans.clientHeight;
+//		Ans.style.transformOrigin = 'center top';
+//		Ans.style.display = "none";
 		Ans.style.height = "0";
+//		Ans.style.transform = 'scaleY(0)';
 		Ans.style.opacity = '0';
-		Ans.style.padding = "0";
+		Ans.style.paddingTop = "0";
+		Ans.style.paddingBottom = "0";
 		
 		qAns[i].onclick = function() {
 			wrapArr.classList.toggle("ArrUp");
 			if (wrapArr.classList.contains("ArrUp")) {
-				Que.style.borderRadius = '10px 10px 0 0';
-				Ans.style.padding = null;
-				Ans.style.height = heigOn + 'px';
+//				Que.style.borderRadius = '10px 10px 0 0';
+//				Ans.style.display = null;
+//				setTimeout(function(){
+					Ans.style.paddingTop = null;
+					Ans.style.paddingBottom = null;
+					Ans.style.height = heigOn + 'px';
+//					Ans.style.height = null;
+//					}, 20);
+//				setTimeout(function(){Ans.style.transform = 'scaleY(1)';}, 20);
 				Ans.style.opacity = '1';
 			} else {
 				Ans.style.height = "0";
-				Ans.style.padding = "0";
+//				Ans.style.transform = 'scaleY(0)';
+				Ans.style.paddingTop = "0";
+				Ans.style.paddingBottom = "0";
 				Ans.style.opacity = '0';
-				Que.style.borderRadius = null;
+//				Que.style.borderRadius = null;
+//				setTimeout(function(){	Ans.style.display = "none";	}, 300);
+				
 					}	}	}	}
 
+});
 //---------------раскрывающиеся списки FAQ
