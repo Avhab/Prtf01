@@ -247,7 +247,6 @@ box-shadow: 0px 9px 8px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 6px 0px rgb
 .whGrBill .vCont>div:nth-child(1) {font-weight:500;margin-bottom:20px;}
 .whGrBill .billHeader {background:#C4C4C4;font-weight:500;padding:20px 105px;min-height:107px;border-radius:10px;}
 .whGrBill .subHead {font-weight:500;padding:20px 105px;text-align:center;}
-/*.whGrBill .subHead.whit {background:transparent;}  headWh */
 .whGrBill.diamCut .hCont>div {width:28%;text-align:center;}
 .whGrBill.diamCut.twoCol .hCont>div {width:47%;text-align:left;}
 .whGrBill.diamCut .hCont {min-height:70px;}
@@ -275,19 +274,19 @@ box-shadow: 0px 9px 8px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 6px 0px rgb
 .scrolNav {text-align:left;}
 .scrolNav>*>* {display:inline-block;}
 .scrolNav .allNum, .scrolNav .dotArr, .scrolNav .dots, .scrolNav .lookAll {margin-left:20px;}
-.scrolNav .dotArr {background:url(../images/dotArr.svg) center center no-repeat;width:51px;height:30px;cursor:pointer;}
+.scrolNav .dotArr {background:url(../images/dotArr.svg) center center no-repeat;width:51px;height:30px;cursor:pointer;visibility:hidden;}
 .scrolNav .dot {display:inline-block;background:#C4C4C4;width:8px;height:8px;border-radius:10px;cursor:pointer;}
 .scrolNav .dot.selected {background:#FF6000;}
 .scrolNav .dot:nth-child(n + 2) {margin-left:19px;}
-.scrolNav .curNum {color:#414141;font-size:2em;}
+.scrolNav .curNum {color:#414141;font-size:1.6em;visibility:hidden;}
 .scrolNav .curNum::after {content:"/";}
-.scrolNav .allNum {color:#777;font-size:1.25em;}
-.scrolNav .lookAll {color:#FF6000;font-size:2em;text-decoration-line:underline;cursor:pointer;}
+.scrolNav .allNum {color:#777;visibility:hidden;}
+.scrolNav .lookAll {color:#FF6000;font-size:1.6em;text-decoration-line:underline;cursor:pointer;}
 .scrolNav .navLeftGr {display:flex;justify-content:start;flex-wrap:wrap;align-items:center;}
 .scrolNav .navRigthGr {width:200px;display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center;}
 .scrolNav .navCentrGr {display:flex;justify-content:center;flex-wrap:wrap;align-items:center;width:100%;}
 .scrolNav .navCentrGr .dots {margin:0 auto;}
-.scrolNav .arrLeft, .scrolNav .arrRight {background:url(../images/arrLongOran.svg) center center no-repeat;width:90px;height:39px;cursor:pointer;}
+.scrolNav .arrLeft, .scrolNav .arrRight {background:url(../images/arrLongOran.svg) center center no-repeat;width:90px;height:39px;cursor:pointer;visibility:hidden;}
 .scrolNav .arrLeft {transform: scaleX(-1);}
 .scrolNav .arrLeft.arrStop, .scrolNav .arrRight.arrStop {background:url(../images/arrLongGray.svg) center center no-repeat;}
 @media (max-width:900px) {
