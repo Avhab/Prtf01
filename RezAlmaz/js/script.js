@@ -27,6 +27,17 @@ let strN06 = document.createElement("div");scrolDisp.append(strN06);
 let strN07 = document.createElement("div");scrolDisp.append(strN07);
 let strN08 = document.createElement("div");scrolDisp.append(strN08);
 */
+/*					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
+					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
+					strN03.innerHTML = 'Точки  ' + dot.length;
+					strN04.innerHTML = 'Сегмент точки   ' + (scrolCont.scrollWidth/dot.length).toFixed(2);
+					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
+					strN06.innerHTML = 'Индекс   ' + indx + '  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
+					strN07.innerHTML = 'Текущий скролл  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
+					strN08.innerHTML = 'Осталось скролла  ' + (scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)).toFixed(2);
+*/
+
+
 /*тестовый вывод параметров скролла---->*/
 
 
@@ -91,17 +102,15 @@ for (let j = 0; j < hScrol.length; j++) {
 		let arrRight = hScrol[j].querySelector(".arrRight");
 		let dots = hScrol[j].querySelector(".dots");//индикаторные точки
 		let dotArr = hScrol[j].querySelector(".dotArr");//одиночная стрелка
-//		let lookAll = hScrol[j].querySelector(".lookAll");//Посмотреть все
-		let scrlStep = Math.trunc(scrolCont.clientWidth/goodCard[0].offsetWidth); //шаг скроллинга в пикселах
-		if (scrlStep > 0) {	scrlStep = 4 + (scrlStep*goodCard[0].offsetWidth);
-		}else{	scrlStep = 4 + goodCard[0].offsetWidth; }
-		let visibleCount = Math.ceil(scrolCont.scrollWidth/scrlStep); //количество элементов скроллинга
-		let currNum = hScrol[j].querySelector(".currNum");//текущий слайд
-		let currScroll = 0;//величина текущего скролла
+		let slidWhid = scrolCont.scrollWidth/goodCard.length; //реальная ширина слайда
+		let scrlStep = Math.trunc(scrolCont.clientWidth/slidWhid); //шаг скроллинга в пикселах
+		if (scrlStep > 0) {	scrlStep = 4 + (scrlStep*slidWhid);
+		}else{	scrlStep = 4 + slidWhid; }
+		let oldScroll = 0;//величина текущего скролла
+		let autoCentr=false; //флаг, разрешающий доводку скролла при отпускании тача
 		let allNum = hScrol[j].querySelector(".allNum");//число слайдов
+		if (allNum) {allNum.innerHTML = goodCard.length.toString().padStart(2, '0');	}
 		
-		if (allNum) {
-			allNum.innerHTML = goodCard.length.toString().padStart(2, '0');	}
 		scrolCont.scrollLeft=0;
 		if (arrLeft) {arrLeft.classList.add("arrStop");}
 		
@@ -110,7 +119,8 @@ for (let j = 0; j < hScrol.length; j++) {
 		if (dots) {
 			let quanDots=Math.round(scrolCont.scrollWidth/scrolCont.clientWidth);	//задаем количество индикаторных точек
 			if (quanDots>7){quanDots=7;}else{
-				if ((quanDots*27 + 30)>scrolCont.clientWidth) {quanDots = Math.trunc((scrolCont.clientWidth - 30) / 27);}	}
+				if (quanDots<2){quanDots=2;}else{
+					if ((quanDots*27 + 30)>scrolCont.clientWidth) {quanDots = Math.trunc((scrolCont.clientWidth - 30) / 27);}	}	}
 			for (let i = 0; i < quanDots; i++) {
 				dot[i] = document.createElement("div");
 				dots.append(dot[i]);
@@ -119,37 +129,28 @@ for (let j = 0; j < hScrol.length; j++) {
 	//создание индикаторных точек
 
 	//Обработка скролла выполняется, если есть индикаторные точки
-		let ScrlFlag=true;
-		let ScrlTime;
-	//Функции, выполняемые во время скролла
+		let ScrlFlag=true; //флаг, разрешающий выполнение дополнительных действий во время скролла
+		let ScrlTime;	//переменная для таймаута
+	//Функции, выполняемые во время скролла --->
 		scrolCont.addEventListener("scroll", function (e) {
-			if (ScrlFlag) {
-			ScrlFlag=false;
-			clearTimeout(ScrlTime);
-			ScrlTime = setTimeout( function() {
-				ScrlFlag=true;
-				//переключение индикаторных точек
+			if (ScrlFlag) {	//если выполнение разрешено
+			ScrlFlag=false; //запрещаем выполнение 
+			clearTimeout(ScrlTime);	//удаляем таймер
+			ScrlTime = setTimeout( function() {	//задаем новый таймер с действиями - через 100мс будет выполнен пакет дополнительных действий
+				//переключение индикаторных точек --->>
 				if (dots) {
 					for (let i = 0; i < dot.length; i++) {dot[i].classList.remove("selected");} //гасим все точки
 					let indx = Math.round(scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length))
 					if (indx < dot.length) {if (indx < 0) {indx = 0;}}else{indx = (dot.length - 1);} //защита от некорректного индекса
 					//коррекция крайних значений индекса
-					if (currScroll<scrolCont.scrollLeft){
-						if (indx == (dot.length - 1)) {	if (Math.abs(scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)) > 20) {indx = (dot.length - 2);}}
-					}else{if (indx == 0) {if (scrolCont.scrollLeft>0) {indx = 1;}	}	}
-					currScroll = scrolCont.scrollLeft;
-					dot[indx].classList.add("selected");
+					if (oldScroll<scrolCont.scrollLeft){
+						if (Math.abs(scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)) > 20) {
+							if (indx == (dot.length - 1)) {indx = (dot.length - 2);}
+						}else{	indx = dot.length - 1;	}
+					}else{	if (indx == 0) {if (scrolCont.scrollLeft>0) {indx = 1;}	}	}
 					
-/*					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
-					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
-					strN03.innerHTML = 'Точки  ' + dot.length;
-					strN04.innerHTML = 'Сегмент точки   ' + (scrolCont.scrollWidth/dot.length).toFixed(2);
-					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
-					strN06.innerHTML = 'Индекс   ' + indx + '  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
-					strN07.innerHTML = 'Текущий скролл  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
-					strN08.innerHTML = 'Осталось скролла  ' + (scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)).toFixed(2);
-*/
-				}//-----------переключение индикаторных точек
+					dot[indx].classList.add("selected");
+				}//---->> переключение индикаторных точек
 
 				//изменение цвета стрелок
 				if (arrLeft && arrRight) {
@@ -161,37 +162,29 @@ for (let j = 0; j < hScrol.length; j++) {
 						if ((scrolCont.scrollWidth-scrolCont.scrollLeft-scrolCont.clientWidth)<50) {
 							arrRight.classList.add("arrStop");}else{arrRight.classList.remove("arrStop");}	}	}
 				//------------изменение цвета стрелок
-				}, 100);
+				
+				// автодоводка слайда в центр --->>
+				if ((autoCentr)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<20)){
+					autoCentr = false;
+					acTime = setTimeout( function() {
+						let indx = 0; //номер центруемого слайда
+						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {	indx = scrolCont.scrollWidth;
+						}else{	indx = (slidWhid * (Math.trunc((scrolCont.scrollLeft + scrolCont.offsetWidth/2)/slidWhid) + 0.5)) - (scrolCont.offsetWidth/2)	}
+						scrolCont.scrollTo({left: indx, behavior: 'smooth'});
+					}, 100);
+				}
+				// --->> автодоводка слайда в центр
+				
+				oldScroll = scrolCont.scrollLeft;	//по окончании обновляем текущее значение скролла
+				ScrlFlag=true;	//по окончании разрешаем выполнение
+				}, 50);
 			}
 		});
-//Обработка скролла
+	//---> Функции, выполняемые во время скролла
 
+		scrolCont.addEventListener("touchstart", function (e) { autoCentr = false; }); //Начало касания
+		scrolCont.addEventListener("touchend", function (e) { autoCentr = true; });//Пользователь отпустил экран
 
-	/*
-			let ScrlFlag=false;
-			let ScrlTime;
-			let curSld = 0;
-	//		let scrlStep = Math.trunc(scrolCont.scrollWidth / visibleCount); //шаг скроллинга в пикселах
-			function AnScroll() {	//Обработка скролла
-				if (ScrlFlag) {//выполняется, в состоянии движения скролла по инерции
-					clearTimeout(ScrlTime);
-					ScrlTime = setTimeout( function() {
-						scrolCont.scrollTo({left: ((Math.round(scrolCont.scrollLeft/scrolCont.clientWidth))*(scrolCont.scrollWidth/visibleCount)), behavior: 'smooth'});
-						}, 100);
-						dotSwich("Rt");
-				}	}
-			scrolCont.addEventListener("scroll", function (e) { AnScroll(); }); //Обработка скролла
-			scrolCont.addEventListener("touchstart", function (e) { ScrlFlag = false; }); //Начало касания
-			scrolCont.addEventListener("touchend", function (e) { ScrlFlag = true; AnScroll(); });//Пользователь отпустил экран
-		*/
-
-
-
-/*		
-		if (lookAll) {
-			lookAll.onclick = function(){ //Посмотреть все
-				scrolCont.scrollTo({left: (scrolCont.scrollWidth), behavior: 'smooth'});	}	}
-*/
 		if (dotArr) {
 			dotArr.onclick = function(){ //одиночная стрелка
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});	}	}
@@ -219,49 +212,33 @@ for (let i = 0; i < clrSel.length; i++) {
 
 //раскрывающиеся списки FAQ ------------
 window.addEventListener("load", function() {
-
-
-let FAQ = document.querySelectorAll(".FAQ");
-for (let i = 0; i < FAQ.length; i++) {
-	let qAns = FAQ[i].querySelectorAll(".qAns");
-	for (let i = 0; i < qAns.length; i++) {
-		let Que = qAns[i].querySelector(".Que");
-		let Ans = qAns[i].querySelector(".Ans");
-		let wrapArr = document.createElement("div");
-		wrapArr.className = 'wrapArr';
-		Que.append(wrapArr);
-		let heigOn = Ans.clientHeight;
-//		Ans.style.transformOrigin = 'center top';
-//		Ans.style.display = "none";
-		Ans.style.height = "0";
-//		Ans.style.transform = 'scaleY(0)';
-		Ans.style.opacity = '0';
-		Ans.style.paddingTop = "0";
-		Ans.style.paddingBottom = "0";
-		
-		qAns[i].onclick = function() {
-			wrapArr.classList.toggle("ArrUp");
-			if (wrapArr.classList.contains("ArrUp")) {
-//				Que.style.borderRadius = '10px 10px 0 0';
-//				Ans.style.display = null;
-//				setTimeout(function(){
-					Ans.style.paddingTop = null;
-					Ans.style.paddingBottom = null;
-					Ans.style.height = heigOn + 'px';
-//					Ans.style.height = null;
-//					}, 20);
-//				setTimeout(function(){Ans.style.transform = 'scaleY(1)';}, 20);
-				Ans.style.opacity = '1';
-			} else {
-				Ans.style.height = "0";
-//				Ans.style.transform = 'scaleY(0)';
-				Ans.style.paddingTop = "0";
-				Ans.style.paddingBottom = "0";
-				Ans.style.opacity = '0';
-//				Que.style.borderRadius = null;
-//				setTimeout(function(){	Ans.style.display = "none";	}, 300);
-				
-					}	}	}	}
-
+	let FAQ = document.querySelectorAll(".FAQ");
+	for (let i = 0; i < FAQ.length; i++) {
+		let qAns = FAQ[i].querySelectorAll(".qAns");
+		for (let i = 0; i < qAns.length; i++) {
+			let Que = qAns[i].querySelector(".Que");
+			let Ans = qAns[i].querySelector(".Ans");
+			let wrapArr = document.createElement("div");
+			wrapArr.className = 'wrapArr';
+			Que.append(wrapArr);
+			let heigOn = Ans.clientHeight;
+			Ans.style.height = "0";
+			Ans.style.opacity = '0';
+			Ans.style.paddingTop = "0";
+			Ans.style.paddingBottom = "0";
+			
+			qAns[i].onclick = function() {
+				wrapArr.classList.toggle("ArrUp");
+				if (wrapArr.classList.contains("ArrUp")) {
+						Ans.style.paddingTop = null;
+						Ans.style.paddingBottom = null;
+						Ans.style.height = heigOn + 'px';
+					Ans.style.opacity = '1';
+				} else {
+					Ans.style.height = "0";
+					Ans.style.paddingTop = "0";
+					Ans.style.paddingBottom = "0";
+					Ans.style.opacity = '0';
+						}	}	}	}
 });
 //---------------раскрывающиеся списки FAQ
