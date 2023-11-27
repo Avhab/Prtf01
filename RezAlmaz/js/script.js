@@ -14,10 +14,11 @@ window.addEventListener("resize", function (e) {sdReN(); });
 
 
 /*<----тестовый вывод параметров скролла*/
-/*
+
 let scrolDisp = document.createElement("div");
 body.append(scrolDisp);
-scrolDisp.style.cssText = "position:fixed;top:50px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
+scrolDisp.style.cssText = "position:fixed;top:100px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
+scrolDisp.style.fontSize = `${window.innerWidth/70}px`;
 let strN01 = document.createElement("div");scrolDisp.append(strN01);
 let strN02 = document.createElement("div");scrolDisp.append(strN02);
 let strN03 = document.createElement("div");scrolDisp.append(strN03);
@@ -26,7 +27,7 @@ let strN05 = document.createElement("div");scrolDisp.append(strN05);
 let strN06 = document.createElement("div");scrolDisp.append(strN06);
 let strN07 = document.createElement("div");scrolDisp.append(strN07);
 let strN08 = document.createElement("div");scrolDisp.append(strN08);
-*/
+
 /*					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
 					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
 					strN03.innerHTML = 'Точки  ' + dot.length;
@@ -94,9 +95,7 @@ for (let i = 0; i < dropSel.length; i++) {
 let hScrol = document.querySelectorAll(".hScrol");//элемент с скролл-контейнером
 for (let j = 0; j < hScrol.length; j++) {
 	let scrolCont = hScrol[j].querySelector(".scrolCont");//контейнер элементов-скролла
-//	alert (`scrollWidth: ${scrolCont.scrollWidth}   clientWidth: ${scrolCont.clientWidth}`);
-	if (scrolCont.scrollWidth > (100 + scrolCont.clientWidth)) {
-		
+	if (scrolCont.scrollWidth > scrolCont.clientWidth) {
 		let goodCard = scrolCont.querySelectorAll(".scrolCont>div");//элементы переключения - слайды
 		let arrLeft = hScrol[j].querySelector(".arrLeft");
 		let arrRight = hScrol[j].querySelector(".arrRight");
@@ -108,10 +107,16 @@ for (let j = 0; j < hScrol.length; j++) {
 		}else{	scrlStep = 4 + slidWhid; }
 		let oldScroll = 0;//величина текущего скролла
 		let autoCentr=false; //флаг, разрешающий доводку скролла при отпускании тача
+		let curNum = hScrol[j].querySelector(".curNum");//текущий слайд
 		let allNum = hScrol[j].querySelector(".allNum");//число слайдов
 		if (allNum) {allNum.innerHTML = goodCard.length.toString().padStart(2, '0');	}
-		
+
 		scrolCont.scrollLeft=0;
+		if (dotArr) {dotArr.style.visibility = 'visible'};
+		if (curNum) {curNum.style.visibility = 'visible'};
+		if (allNum) {allNum.style.visibility = 'visible'};
+		if (arrLeft) {arrLeft.style.visibility = 'visible'};
+		if (arrRight) {arrRight.style.visibility = 'visible'};
 		if (arrLeft) {arrLeft.classList.add("arrStop");}
 		
 		let dot = [];	//индикаторные точки
@@ -137,6 +142,14 @@ for (let j = 0; j < hScrol.length; j++) {
 			ScrlFlag=false; //запрещаем выполнение 
 			clearTimeout(ScrlTime);	//удаляем таймер
 			ScrlTime = setTimeout( function() {	//задаем новый таймер с действиями - через 100мс будет выполнен пакет дополнительных действий
+				
+				//переключение текущего номера слайда --->>
+				if (curNum) {
+					let tmp = Math.ceil(scrolCont.scrollLeft/slidWhid);
+					if (tmp<goodCard.length){if (tmp<0){tmp=0;}}else{tmp = goodCard.length - 1; }
+					curNum.innerHTML = (tmp + 1).toString().padStart(2, '0');			};
+				// --->> переключение текущего номера слайда
+				
 				//переключение индикаторных точек --->>
 				if (dots) {
 					for (let i = 0; i < dot.length; i++) {dot[i].classList.remove("selected");} //гасим все точки
