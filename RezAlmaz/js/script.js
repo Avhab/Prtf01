@@ -13,36 +13,7 @@ window.addEventListener("resize", function (e) {sdReN(); });
 /*тестовый вывод размеров окна---->*/
 
 
-/*<----тестовый вывод параметров скролла*/
-
-let scrolDisp = document.createElement("div");
-body.append(scrolDisp);
-scrolDisp.style.cssText = "position:fixed;top:100px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
-scrolDisp.style.fontSize = `${window.innerWidth/70}px`;
-let strN01 = document.createElement("div");scrolDisp.append(strN01);
-let strN02 = document.createElement("div");scrolDisp.append(strN02);
-let strN03 = document.createElement("div");scrolDisp.append(strN03);
-let strN04 = document.createElement("div");scrolDisp.append(strN04);
-let strN05 = document.createElement("div");scrolDisp.append(strN05);
-let strN06 = document.createElement("div");scrolDisp.append(strN06);
-let strN07 = document.createElement("div");scrolDisp.append(strN07);
-let strN08 = document.createElement("div");scrolDisp.append(strN08);
-
-/*					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
-					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
-					strN03.innerHTML = 'Точки  ' + dot.length;
-					strN04.innerHTML = 'Сегмент точки   ' + (scrolCont.scrollWidth/dot.length).toFixed(2);
-					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
-					strN06.innerHTML = 'Индекс   ' + indx + '  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
-					strN07.innerHTML = 'Текущий скролл  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
-					strN08.innerHTML = 'Осталось скролла  ' + (scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)).toFixed(2);
-*/
-
-
-/*тестовый вывод параметров скролла---->*/
-
-
-/* <<<---бургер-меню в заголовке  */
+/* бургер-меню в заголовке--->>>  */
 let burgerBut = document.getElementById("burger");
 let burgerMenu = document.querySelector("header .burgerMenu");
 let wideMenu = document.querySelectorAll("header .wideMenu>div");
