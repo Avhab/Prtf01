@@ -179,6 +179,7 @@ for (let j = 0; j < hScrol.length; j++) {
 				// автодоводка слайда в центр --->>
 				if ((autoCentr)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<20)){
 					autoCentr = false;
+					slidWhid = scrolCont.scrollWidth/goodCard.length; //коррекция реальной ширины слайда
 					acTime = setTimeout( function() {
 						let indx = 0; //номер центруемого слайда
 						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {	indx = scrolCont.scrollWidth;
