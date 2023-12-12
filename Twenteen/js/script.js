@@ -53,26 +53,30 @@ let blur = document.querySelector(".blur");
 let burger = document.querySelector(".burger");
 let burgerMenu = document.querySelector(".burgerMenu");
 //let closCr = burgerMenu.querySelector(".closCr");
+let burgMOpn=true;
 function burgMenClos() {
+	if (burgMOpn==true) {
+		burgMOpn=false;
 		burgerMenu.style.transform = 'scaleY(0)';
 		blur.style.opacity = '0';
 		setTimeout(function(){
 			burgerMenu.classList.add("dispNon");
 			blur.classList.add("dispNon");
-			}, 300);	}
+			}, 300);
+		}
+	}
 burgMenClos();
+burgerMenu.onmouseleave = function() { burgMenClos();}
+burgerMenu.addEventListener("click", function (e) {	burgMenClos();});
+
 burger.onclick = function() {
 	burgerMenu.classList.remove("dispNon");
 	blur.classList.remove("dispNon");
 	setTimeout(function(){
 		burgerMenu.style.transform = 'scaleY(1)';
 		blur.style.opacity = '1';
-	}, 20);
-	setTimeout(function(){
-		burgerMenu.onmouseleave = function() { burgMenClos();}
-		burgerMenu.addEventListener("click", function (e) {	burgMenClos();});
-		burgMOpn=true;
-	}, 400);
+	}, 30);
+	setTimeout(function(){burgMOpn=true;}, 400);
 }
 /* >>>--- бургер-меню в заголовке*/
 
