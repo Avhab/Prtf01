@@ -181,14 +181,15 @@ for (let j = 0; j < hScrol.length; j++) {
 		let allNum = hScrol[j].querySelector(".allNum");//число слайдов
 		if (allNum) {allNum.innerHTML = goodCard.length.toString().padStart(2, '0');	}
 		let acTime;
-		scrolCont.scrollLeft=0; //предустановка скролла
+		let tStr = window.getComputedStyle(goodCard[0]).marginLeft;
+		if(tStr.indexOf("px")== -1) {scrolCont.scrollLeft=0; //предустановка скролла
+			}else{scrolCont.scrollLeft=tStr.slice(0, tStr.indexOf("px"));} //предустановка скролла
 		if (dotArr) {dotArr.style.visibility = 'visible'};
 		if (curNum) {curNum.style.visibility = 'visible'};
 		if (allNum) {allNum.style.visibility = 'visible'};
 //		if (arrLeft) {arrLeft.style.visibility = 'visible'};
 //		if (arrRight) {arrRight.style.visibility = 'visible'};
 //		if (arrLeft) {arrLeft.classList.add("arrStop");}
-		
 		let dot = [];	//индикаторные точки
 	//создание индикаторных точек
 		if (dots) {
