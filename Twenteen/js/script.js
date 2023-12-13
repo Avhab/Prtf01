@@ -279,18 +279,18 @@ for (let j = 0; j < hScrol.length; j++) {
 		if (dotArr) {
 			dotArr.onclick = function(){ //одиночная стрелка
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});	
-				setTimeout( function() {autoCentr = true;autoFit();}, 200);				}	}
+				setTimeout( function() {autoCentr = true;autoFit();}, 500);				}	}
 			
 		if (arrLeft) {
 			arrLeft.onclick = function(){ //кнопка переключения влево
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft - scrlStep), behavior: 'smooth'});	
-				setTimeout( function() {autoCentr = true;autoFit();	}, 200);
+				setTimeout( function() {autoCentr = true;autoFit();	}, 500);
 				}	}
 			
 		if (arrRight) {
 			arrRight.onclick = function(){ //кнопка переключения вправо
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});
-				setTimeout( function() {autoCentr = true;autoFit();}, 200);
+				setTimeout( function() {autoCentr = true;autoFit();}, 500);
 				}	}
 		}
 }
