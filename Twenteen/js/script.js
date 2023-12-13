@@ -31,7 +31,7 @@ let strN08 = document.createElement("div");scrolDisp.append(strN08);
 /*
 					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
 					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
-					strN03.innerHTML = 'Точки  ' + dot.length;
+					strN03.innerHTML = 'Шаг скроллинга  ' + scrlStep;
 					strN04.innerHTML = 'Сегмент точки   ' + (scrolCont.scrollWidth/dot.length).toFixed(2);
 					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
 					strN06.innerHTML = 'Индекс   ' + indx + '  ' + (scrolCont.scrollLeft/(scrolCont.scrollWidth/dot.length)).toFixed(2);
@@ -171,14 +171,16 @@ for (let j = 0; j < hScrol.length; j++) {
 		let dotArr = hScrol[j].querySelector(".dotArr");//одиночная стрелка
 		let slidWhid = scrolCont.scrollWidth/goodCard.length; //реальная ширина слайда
 		let scrlStep = scrolCont.clientWidth/slidWhid;
-		if	((scrlStep - (Math.trunc(scrlStep)))>0.98) {	scrlStep = Math.round(scrlStep)*slidWhid;
-			}else{	scrlStep = Math.trunc(scrlStep)*slidWhid;	}	//шаг скроллинга в пикселах
+		if	((scrlStep - (Math.trunc(scrlStep)))>0.98) {scrlStep = Math.round(scrlStep);
+			}else{	scrlStep = Math.trunc(scrlStep);}
+		if (scrlStep<1) {scrlStep = 1;}
+		scrlStep = scrlStep*slidWhid;	//шаг скроллинга в пикселах
 		let oldScroll = 0;//величина предустановленного скролла
 		let autoCentr=false; //флаг, разрешающий доводку скролла при отпускании тача
 		let curNum = hScrol[j].querySelector(".curNum");//текущий слайд
 		let allNum = hScrol[j].querySelector(".allNum");//число слайдов
 		if (allNum) {allNum.innerHTML = goodCard.length.toString().padStart(2, '0');	}
-
+		let acTime;
 		scrolCont.scrollLeft=0; //предустановка скролла
 		if (dotArr) {dotArr.style.visibility = 'visible'};
 		if (curNum) {curNum.style.visibility = 'visible'};
@@ -256,7 +258,7 @@ for (let j = 0; j < hScrol.length; j++) {
 		// автодоводка слайда в центр --->>
 		function autoFit() {
 			if (scrolCont.classList.contains("noAutoFit")==false) {
-				if ((autoCentr)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<20)){
+				if ((autoCentr==true)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<100)){
 					autoCentr = false;
 					slidWhid = scrolCont.scrollWidth/goodCard.length; //коррекция реальной ширины слайда
 					acTime = setTimeout( function() {
@@ -264,13 +266,13 @@ for (let j = 0; j < hScrol.length; j++) {
 						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {	indx = scrolCont.scrollWidth;
 						}else{	indx = (slidWhid * (Math.trunc((scrolCont.scrollLeft + scrolCont.offsetWidth/2)/slidWhid) + 0.5)) - (scrolCont.offsetWidth/2)	}
 						scrolCont.scrollTo({left: indx, behavior: 'smooth'});
-					}, 100);
+					}, 200);
 				}
 			}
 		}
 		// --->> автодоводка слайда в центр
 	
-		scrolCont.addEventListener("touchstart", function (e) { autoCentr = false; }); //Начало касания
+		scrolCont.addEventListener("touchstart", function (e) { autoCentr = false;clearTimeout(acTime); }); //Начало касания
 		scrolCont.addEventListener("touchend", function (e) { autoCentr = true; });//Пользователь отпустил экран
 
 		if (dotArr) {
@@ -281,12 +283,14 @@ for (let j = 0; j < hScrol.length; j++) {
 		if (arrLeft) {
 			arrLeft.onclick = function(){ //кнопка переключения влево
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft - scrlStep), behavior: 'smooth'});	
-				setTimeout( function() {autoCentr = true;autoFit();	}, 200);			}	}
+				setTimeout( function() {autoCentr = true;autoFit();	}, 200);
+				}	}
 			
 		if (arrRight) {
 			arrRight.onclick = function(){ //кнопка переключения вправо
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});
-				setTimeout( function() {autoCentr = true;autoFit();}, 200);				}	}
+				setTimeout( function() {autoCentr = true;autoFit();}, 200);
+				}	}
 		}
 }
 //раскрывающиеся списки FAQ ------------
