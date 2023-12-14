@@ -162,6 +162,7 @@ for (let i = 0; i < dropSel.length; i++) {
 */
 /*  --->>>выпадающий список */
 
+
 let hScrol = document.querySelectorAll(".hScrol");//элемент с скролл-контейнером
 for (let j = 0; j < hScrol.length; j++) {
 	let scrolCont = hScrol[j].querySelector(".scrolCont");//контейнер элементов-скролла
@@ -173,7 +174,7 @@ for (let j = 0; j < hScrol.length; j++) {
 		let dotArr = hScrol[j].querySelector(".dotArr");//одиночная стрелка
 		let slidWhid = scrolCont.scrollWidth/goodCard.length; //реальная ширина слайда
 		let scrlStep = scrolCont.clientWidth/slidWhid;
-		if	((scrlStep - (Math.trunc(scrlStep)))>0.98) {scrlStep = Math.round(scrlStep);
+		if	((scrlStep - (Math.trunc(scrlStep)))>0.9) {scrlStep = Math.round(scrlStep);
 			}else{	scrlStep = Math.trunc(scrlStep);}
 		if (scrlStep<1) {scrlStep = 1;}
 		scrlStep = scrlStep*slidWhid;	//шаг скроллинга в пикселах
@@ -236,7 +237,8 @@ for (let j = 0; j < hScrol.length; j++) {
 					}else{	if (indx == 0) {if (scrolCont.scrollLeft>0) {indx = 1;}	}	}
 					
 					dot[indx].classList.add("selected");
-				}//---->> переключение индикаторных точек
+				}
+				//---->> переключение индикаторных точек
 
 				//изменение цвета стрелок
 /*				if (arrLeft && arrRight) {
@@ -307,6 +309,8 @@ for (let j = 0; j < hScrol.length; j++) {
 			}
 		}
 }
+
+
 //раскрывающиеся списки FAQ ------------
 window.addEventListener("load", function() {
 	let FAQ = document.querySelectorAll(".FAQ");
