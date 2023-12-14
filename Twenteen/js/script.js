@@ -14,7 +14,7 @@ window.addEventListener("resize", function (e) {sdReN(); });
 
 
 /*<----тестовый вывод параметров скролла*/
-
+/*
 let scrolDisp = document.createElement("div");
 body.append(scrolDisp);
 scrolDisp.style.cssText = "position:fixed;top:100px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
@@ -259,26 +259,29 @@ for (let j = 0; j < hScrol.length; j++) {
 		// автодоводка слайда в центр --->>
 		function autoFit() {
 			if (scrolCont.classList.contains("noAutoFit")==false) {
-				if ((autoCentr)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<20)){
+				if ((autoCentr==true)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<30)){
 					autoCentr = false;
 					slidWhid = scrolCont.scrollWidth/goodCard.length; //коррекция реальной ширины слайда
 					acTime = setTimeout( function() {
 						let indx = 0; //номер центруемого слайда
-						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {	indx = scrolCont.scrollWidth;
-						}else{	indx = (slidWhid * (Math.trunc((scrolCont.scrollLeft + scrolCont.offsetWidth/2)/slidWhid) + 0.5)) - (scrolCont.offsetWidth/2)	}
+						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {
+							indx = scrolCont.scrollWidth;
+						}else{
+							indx = (slidWhid * (Math.trunc((scrolCont.scrollLeft + scrolCont.clientWidth/2)/slidWhid) + 0.5)) - (scrolCont.clientWidth/2)	}
+
 						scrolCont.scrollTo({left: indx, behavior: 'smooth'});
 					}, 100);
 					
-
+/*
 				setTimeout( function() {
 					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
 					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
-					strN03.innerHTML = 'Точки  ' + dot.length;
+					strN03.innerHTML = 'ширина слайда=ширина скролла/кол-во  ' + slidWhid;
 					strN04.innerHTML = 'шаг скроллинга   ' + scrlStep;
 					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft;
 					strN08.innerHTML = 'Осталось скролла  ' + (scrolCont.scrollWidth - (scrolCont.scrollLeft + scrolCont.offsetWidth)).toFixed(2);
 					}, 1000);
-					
+	*/				
 					
 				}
 			}
