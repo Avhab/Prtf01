@@ -1,4 +1,5 @@
 /*<----тестовый вывод размеров окна*/
+/*
 let sizDisp = document.createElement("div");
 let body = document.querySelector("body");
 body.append(sizDisp);
@@ -10,11 +11,12 @@ function sdReN() {
 	}
 sdReN();
 window.addEventListener("resize", function (e) {sdReN(); });
+*/
 /*тестовый вывод размеров окна---->*/
 
 
 /*<----тестовый вывод параметров скролла*/
-
+/*
 let scrolDisp = document.createElement("div");
 body.append(scrolDisp);
 scrolDisp.style.cssText = "position:fixed;top:100px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
@@ -27,7 +29,7 @@ let strN05 = document.createElement("div");scrolDisp.append(strN05);
 let strN06 = document.createElement("div");scrolDisp.append(strN06);
 let strN07 = document.createElement("div");scrolDisp.append(strN07);
 let strN08 = document.createElement("div");scrolDisp.append(strN08);
-
+*/
 /*
 					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
 					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
@@ -265,13 +267,6 @@ for (let j = 0; j < hScrol.length; j++) {
 					clearTimeout(acTime);
 					acTime = setTimeout( function() {
 						let indx = 0; //номер центруемого слайда
-
-					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
-					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
-					strN03.innerHTML = 'Шаг скроллинга  ' + scrlStep;
-					strN04.innerHTML = 'ширина слайда  ' + slidWhid;
-						
-						
 						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWhid/2)) {
 							indx = scrolCont.scrollWidth;
 						}else{
