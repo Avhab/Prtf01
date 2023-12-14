@@ -293,22 +293,22 @@ for (let j = 0; j < hScrol.length; j++) {
 
 		
 		if (arrLeft) {
-			arrLeft.ontouchend = function(){ //кнопка переключения влево
+/*			arrLeft.ontouchend = function(){ //кнопка переключения влево
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft - scrlStep), behavior: 'smooth'});	
 				autoCentr = true;	}
-/*			arrLeft.onpointerdown = function(){ //кнопка переключения влево
+*/			arrLeft.onpointerdown = function(){ //кнопка переключения влево
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft - scrlStep), behavior: 'smooth'});	
-				autoCentr = true;	}*/
+				autoCentr = true;	}
 			}
 			
 		if (arrRight) {
 			
-			arrRight.ontouchend = function(){ //кнопка переключения вправо
+/*			arrRight.ontouchend = function(){ //кнопка переключения вправо
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});
 				autoCentr = true;	}
-/*			arrRight.onpointerdown = function(){ //кнопка переключения вправо
+*/			arrRight.onpointerdown = function(){ //кнопка переключения вправо
 				scrolCont.scrollTo({left: (scrolCont.scrollLeft + scrlStep), behavior: 'smooth'});
-				autoCentr = true;	}*/
+				autoCentr = true;	}
 			}
 		}
 }
