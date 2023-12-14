@@ -1,7 +1,7 @@
 /*<----тестовый вывод размеров окна*/
+let body = document.querySelector("body");
 /*
 let sizDisp = document.createElement("div");
-let body = document.querySelector("body");
 body.append(sizDisp);
 sizDisp.style.cssText = "position:fixed;top:160px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
 function sdReN() {
@@ -16,7 +16,7 @@ window.addEventListener("resize", function (e) {sdReN(); });
 
 
 /*<----тестовый вывод параметров скролла*/
-/*
+
 let scrolDisp = document.createElement("div");
 body.append(scrolDisp);
 scrolDisp.style.cssText = "position:fixed;top:100px;left:2px;background:white;color:black;padding:0 5px;border: 1px solid red;";
@@ -29,7 +29,7 @@ let strN05 = document.createElement("div");scrolDisp.append(strN05);
 let strN06 = document.createElement("div");scrolDisp.append(strN06);
 let strN07 = document.createElement("div");scrolDisp.append(strN07);
 let strN08 = document.createElement("div");scrolDisp.append(strN08);
-*/
+
 /*
 					strN01.innerHTML = 'Весь скролл  ' + scrolCont.scrollWidth;
 					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
@@ -280,6 +280,16 @@ for (let j = 0; j < hScrol.length; j++) {
 						}	
 						scrolCont.scrollTo({left: indx, behavior: 'smooth'});
 					}, 200);
+					
+			acTime = setTimeout( function() {
+					
+					strN01.innerHTML = 'Слайд  ' + slidWhid;
+					strN02.innerHTML = 'Окно  ' + scrolCont.clientWidth;
+					strN04.innerHTML = 'Шаг скроллинга  ' + scrlStep;
+					strN05.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2);
+
+			}, 500);
+					
 				}
 			}
 		}
