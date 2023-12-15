@@ -263,7 +263,11 @@ for (let j = 0; j < hScrol.length; j++) {
 		// автодоводка слайда в центр --->>
 		function autoFit() {
 			if (scrolCont.classList.contains("noAutoFit")==false) {
-				if ((autoCentr==true)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<30)){
+				if ((autoCentr==true)&&(Math.abs(scrolCont.scrollLeft - oldScroll)<10)){
+
+					strN06.innerHTML = 'Захват   ' + scrolCont.scrollLeft;
+					strN07.innerHTML = 'Старый   ' + oldScroll;
+					
 					autoCentr = false;
 					slidWhid = scrolCont.scrollWidth/goodCard.length; //коррекция реальной ширины слайда
 					clearTimeout(acTime);
