@@ -178,8 +178,14 @@ for (let i = 0; i < hScrol.length; i++) {
 		let arrRight = hScrol[i].querySelector(".arrRight");
 		let dots = hScrol[i].querySelector(".dots");//индикаторные точки
 		let dotArr = hScrol[i].querySelector(".dotArr");//одиночная стрелка
-		let slidWidth = scrolCont.scrollWidth/goodCard.length; //реальная ширина слайда
-//		let slidWidth = goodCard[0].offsetWidth // ширина слайда
+//		let slidWidth = scrolCont.scrollWidth/goodCard.length; // ширина слайда - простое вычисление
+// ширина слайда для многострочного скроллинга
+		let tStr01 = window.getComputedStyle(goodCard[0]).marginLeft;
+		let tStr02 = window.getComputedStyle(goodCard[0]).marginRight;
+		if(tStr01.indexOf("px")== -1) {tStr01=0;}else{tStr01=tStr01.slice(0, tStr01.indexOf("px"));}
+		if(tStr02.indexOf("px")== -1) {tStr02=0;}else{tStr02=tStr02.slice(0, tStr02.indexOf("px"));}
+		let slidWidth = goodCard[0].offsetWidth + Number(tStr01) + Number(tStr02);
+// >>---ширина слайда для многострочного скроллинга
 		let scrlStep = scrolCont.clientWidth/slidWidth;
 		if	((scrlStep - (Math.trunc(scrlStep)))>0.9) {scrlStep = Math.round(scrlStep);
 			}else{	scrlStep = Math.trunc(scrlStep);}
