@@ -281,15 +281,10 @@ strN07.innerHTML = strN07.innerHTML + 'scrollLeft   ' + scrolCont.scrollLeft.toF
 
 					let tmp1 = scrolCont.scrollLeft;
 					let tmp2 = oldScroll;
-				setTimeout( function() {
-					strN03.innerHTML = 'Захват   ' + tmp1;
-					strN04.innerHTML = 'Старый   ' + tmp2;
-				}, 800);
 				
 					autoCentr = false;
 //					slidWidth = scrolCont.scrollWidth/goodCard.length; //коррекция реальной ширины слайда
 //					clearTimeout(acTime);
-//					acTime = setTimeout( function() {
 						let indx = 0; //размер вычисляемого скролла scrollLeft
 						
 						if ((scrolCont.scrollWidth - scrolCont.scrollLeft - scrolCont.clientWidth)<(slidWidth/2)) {
@@ -305,15 +300,16 @@ strN07.innerHTML = strN07.innerHTML + 'scrollLeft   ' + scrolCont.scrollLeft.toF
 							}
 						}	
 						scrolCont.scrollTo({left: indx, behavior: 'smooth'});
-//					}, 200);
 					
 			acTime = setTimeout( function() {
 					
+					strN03.innerHTML = 'Захват   ' + tmp1;
+					strN04.innerHTML = 'Старый   ' + tmp2;
 					strN05.innerHTML = 'Слайд: ' + slidWidth + ' | Окно: ' + scrolCont.clientWidth + ' | Окно/Слайд: ' + (scrolCont.clientWidth/slidWidth).toFixed(2);
 					strN06.innerHTML = 'Шаг скроллинга  ' + scrlStep + ' | Шаг/Слайд: ' + (scrlStep/slidWidth).toFixed(2);
-					strN07.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
+					strN07.innerHTML = 'Скроллить на: ' + indx.toFixed(2) + ' | scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
 
-			}, 500);
+			}, 800);
 					
 				}
 			}
@@ -328,32 +324,32 @@ strN07.innerHTML = strN07.innerHTML + 'scrollLeft   ' + scrolCont.scrollLeft.toF
 			arrRight.onclick = function(){ //кнопка переключения вправо
 				let scLft = (Math.round((scrolCont.scrollLeft + scrlStep)/slidWidth))*slidWidth;
 				scrolCont.scrollTo({left: scLft, behavior: 'smooth'});
+				autoCentr = false;
 					
 			acTime = setTimeout( function() {
 					
 					strN05.innerHTML = 'Слайд: ' + slidWidth + ' | Окно: ' + scrolCont.clientWidth + ' | Окно/Слайд: ' + (scrolCont.clientWidth/slidWidth).toFixed(2);
 					strN06.innerHTML = 'Шаг скроллинга  ' + scrlStep + ' | Шаг/Слайд: ' + (scrlStep/slidWidth).toFixed(2);
-					strN07.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
+					strN07.innerHTML = 'Скроллить на: ' + scLft.toFixed(2) + ' | scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
 
 			}, 500);
 					
-//				autoCentr = true;
 					}
 			}
 		if (arrLeft) {
 			arrLeft.onclick = function(){ //кнопка переключения влево
 				let scLft = (Math.round((scrolCont.scrollLeft - scrlStep)/slidWidth))*slidWidth;
 				scrolCont.scrollTo({left: scLft, behavior: 'smooth'});
+				autoCentr = false;
 					
 			acTime = setTimeout( function() {
 					
 					strN05.innerHTML = 'Слайд: ' + slidWidth + ' | Окно: ' + scrolCont.clientWidth + ' | Окно/Слайд: ' + (scrolCont.clientWidth/slidWidth).toFixed(2);
 					strN06.innerHTML = 'Шаг скроллинга  ' + scrlStep + ' | Шаг/Слайд: ' + (scrlStep/slidWidth).toFixed(2);
-					strN07.innerHTML = 'scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
+					strN07.innerHTML = 'Скроллить на: ' + scLft.toFixed(2) + ' | scrollLeft   ' + scrolCont.scrollLeft.toFixed(2) + ' | Слайдов: ' + (scrolCont.scrollLeft/slidWidth).toFixed(2);
 
 			}, 500);
 					
-//				autoCentr = true;
 					}
 			}
 		}
