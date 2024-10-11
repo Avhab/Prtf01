@@ -1,13 +1,20 @@
 let body = document.querySelector("body");
 let swThm = document.querySelector(".swThm");
-let swT;
-function swTm() {
-	swT = localStorage.getItem('dfR5q');
-	if (swT == null) {localStorage.setItem('dfR5q', 0);
-	}else{	if (body.classList.contains("mainPag")==false) {
-			if (swT==1) {body.classList.add("liteSch");}else{body.classList.remove("liteSch");}	}	}	}
-swTm();
-swThm.onclick = function() {
-	if (swT==1) {localStorage.setItem('dfR5q', 0);}else{localStorage.setItem('dfR5q', 1);}
-	swTm();	};
 
+function swTm() {
+	let swT = localStorage.getItem('ja75evc');
+	if (swT == null) {
+		localStorage.setItem('ja75evc', 0);
+	}else{
+		if (swT==1) {
+			body.classList.add("liteSch");
+		}else{
+			body.classList.remove("liteSch");}	}	}
+
+swThm.onclick = function() {
+	if ((localStorage.getItem('ja75evc'))==0) {
+		localStorage.setItem('ja75evc', 1);
+	}else{
+		localStorage.setItem('ja75evc', 0);}
+	swTm();	};
+swTm();
