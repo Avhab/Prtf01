@@ -1,5 +1,5 @@
 let body = document.querySelector("body");
-let swThm = document.querySelector(".swThm");
+let swThem = document.querySelectorAll(".swThem");
 
 function swTm() {
 	let swT = localStorage.getItem('ja75evc');
@@ -11,10 +11,13 @@ function swTm() {
 		}else{
 			body.classList.remove("liteSch");}	}	}
 
-swThm.onclick = function() {
-	if ((localStorage.getItem('ja75evc'))==0) {
-		localStorage.setItem('ja75evc', 1);
-	}else{
-		localStorage.setItem('ja75evc', 0);}
-	swTm();	};
+for (let i = 0; i < swThem.length; i++) {
+	swThem[i].onclick = function() {
+		if ((localStorage.getItem('ja75evc'))==0) {
+			localStorage.setItem('ja75evc', 1);
+		}else{
+			localStorage.setItem('ja75evc', 0);}
+		swTm();	};
+}
+
 swTm();
