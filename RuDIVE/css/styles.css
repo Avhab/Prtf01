@@ -187,7 +187,7 @@ button.constClr:hover, .button.constClr:hover {background:var(--back-con-button-
 .redBut {border:1px solid var(--border-red-button);background:var(--back-red-button);color:var(--color-red-button);}
 .redButHov, .redBut:hover {border:1px solid var(--border-red-button-hover);background:var(--back-red-button-hover);color:var(--color-red-button-hover);}
 
-.swThem {width:41px;padding:0;}
+.swThem {aspect-ratio:1/1;padding:0;}
 
 @media (max-width:1024px) {
 button, .button {min-height:29px;font-size: 10px;}
