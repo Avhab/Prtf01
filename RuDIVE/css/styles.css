@@ -95,6 +95,9 @@ body.liteSch {
 --back7: #091521;
 }
 
+html {font-size:16px;}
+
+
 body {background:var(--back0);width:100%;color:var(--clr0);overflow-x:hidden;
 font-family: 'Geometria', sans-serif;font-size:16px;font-style:normal;font-weight:400;line-height:normal;letter-spacing:normal;}
 .wrapG {display:block;max-width:1460px;margin:0 auto;padding:0 10px;}
@@ -126,11 +129,65 @@ background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;}
 
 body.liteSch {background:var(--back0);color:var(--clr0);}
 
+
+
+body {
+--color-con-button: #FFF;
+--back-con-button: #FFFFFF32;
+--back-con-button-hover: #FFFFFF80;
+
+--color-def-button: #FFF;
+--back-def-button: #FFFFFF32;
+--back-def-button-hover: #FFFFFF80;
+--color-def-button-hover: #FFF;
+
+--color-white-button: #FFF;
+--back-white-button: #FFFFFF33;
+--border-white-button: #E6E6E6;
+--color-white-button-hover: #1C1C1B;
+--back-white-button-hover: #FFF;
+--border-white-button-hover: #FFF;
+
+--color-red-button: #FD0207;
+--back-red-button: #FFE0E1;
+--border-red-button: #FFE0E1;
+--color-red-button-hover: #FFF;
+--back-red-button-hover: #FD0207;
+--border-red-button-hover: #FD0207;
+}
+
+body.liteSch {
+
+--color-def-button: #60666B;
+--back-def-button: #FFF;
+--back-def-button-hover: #0083B5;
+
+--color-white-button: #60666B;
+--back-white-button: #FFF;
+--border-white-button: #E6E6E6;
+
+--border-white-button-hover: #239ABF;
+}
+
+
+
 button, .button {display:flex;justify-content:center;flex-wrap:nowrap;align-items:center;gap:0.5em;
-min-height:41px;cursor:pointer;border:none;border-radius:10px;background:#FFFFFF32;color:white;
-font-size:15px;font-weight:500;padding:0 20px;text-align:center;}
-.swThm {width:41px;padding:0;justify-content:center;}
-button:hover, .button:hover {background:#FFFFFF80;}
+min-height:41px;cursor:pointer;border:none;border-radius:10px;font-size:15px;font-weight:500;text-align:center;padding:0 20px;
+background:var(--back-def-button);color:var(--color-def-button);}
+button:hover, .button:hover {background:var(--back-def-button-hover);color:var(--color-def-button-hover);}
+
+button.constClr, .button.constClr {background:var(--back-con-button);color:var(--color-con-button);}
+button.constClr:hover, .button.constClr:hover {background:var(--back-con-button-hover);}
+
+.bigBut {min-height:52px;font-size:16px;}
+
+.whiteBut {border:1px solid var(--border-white-button);background:var(--back-white-button);color:var(--color-white-button);}
+.whiteBut:hover {border: 1px solid var(--border-white-button-hover);background:var(--back-white-button-hover);color:var(--color-white-button-hover);}
+
+.redBut {border:1px solid var(--border-red-button);background:var(--back-red-button);color:var(--color-red-button);}
+.redButHov, .redBut:hover {border:1px solid var(--border-red-button-hover);background:var(--back-red-button-hover);color:var(--color-red-button-hover);}
+
+.swThem {width:41px;padding:0;}
 
 @media (max-width:1024px) {
 button, .button {min-height:29px;font-size: 10px;}
@@ -156,7 +213,6 @@ header {position:relative;overflow:hidden;}
 header .backImg {position:absolute;top:0;right:0;width:100%;z-index: -1;}
 header.hiHead .backImg {top:0;left:0;object-fit:cover;width:100%;height:100%;}
 @media (max-width:1400px) {header .backImg {width:1400px;}}
-@media (max-width:500px) {header.hiHead .backImg {left: -500px;width:auto;}}
 
 .allHead {height:100%;}
 header.hiHead .row3 {margin-top:auto;}
@@ -166,13 +222,13 @@ header.hiHead .subTit {margin:0 0 10px 0;font-size:14px;font-weight:400;line-hei
 
 header h2 {padding:40px 0;}
 
-.wideMenu .row1 .wrapG {gap:0;}
+/*.wideMenu .row1 .wrapG {gap:0;}*/
 .mainPag .wideMenu {height:100%;flex-wrap:nowrap;}
 
-.options {margin:50px 0;}
+/*.options {margin:50px 0;}*/
 header .hCont {align-items:center;}
 header .row1 {padding:6px 0;}
-header .options {margin:10px 0;}
+/*header .options {margin:10px 0;}*/
 
 .bottLine {border-bottom:1px solid #FFFFFF15;}
 .topLine {border-top:1px solid #FFFFFF15;}
@@ -214,7 +270,7 @@ background: rgba(1, 87, 123, 0.95);padding:20px 20px 50px 20px;}
 
 @media (max-width:1024px) {
 body {font-size:14px;}
-.options {margin:20px 0;}
+/*.options {margin:20px 0;}*/
 body>div {margin:40px 0;}
 header {padding-top:15px;}
 a.logo img {width:67px;height:42px;}
@@ -246,16 +302,6 @@ width:204px;padding:5px;position:absolute;left:18px;bottom:18px;}
 @media (max-width:1450px) {.assets .options {justify-content:center;}}
 .assets .redBut {width:242px;margin:0 auto;}
 @media (max-width:1024px) {.assets .headChng>div {padding:15px 0 10px 0;}}
-
-.redBut {border:1px solid #FFE0E1;background:#FFE0E1;color:#FD0207;}
-.redButHov, .redBut:hover {border:1px solid #FD0207;background:#FD0207;color:#FFF;}
-
-.whiteBut {border:1px solid #E6E6E6;background:#FFFFFF33;color:#FFF;}
-.whiteBut:hover {border: 1px solid #FFF;background:#FFF;color:#1C1C1B;}
-.liteSch .whiteBut {background:#FFF;color:#60666B;}
-.liteSch .whiteBut:hover {border: 1px solid #FD0207;background:#FFF;color:#FD0207;}
-
-.bigBut {height:52px;font-size:16px;font-weight:500;line-height:16px;padding:20px 20px 16px 20px;}
 
 @media (max-width:730px) {.assets .mnUnt {max-width:none;width:45%;}
 .assets .headChng>div {width:50%;}
@@ -482,9 +528,7 @@ display:flex;justify-content:center;align-items:center;}
 .quicStart .lin>div:nth-child(2) {width:38%;}
 .quicStart .lin>div:nth-child(3) {margin-left:auto;width:25%;display:flex;justify-content:end;align-items:center;flex-wrap: wrap;gap:1em;}
 .quicStart .cont>div:nth-child(even) {border-radius:5px;background:var(--back1);}
-@media (max-width:650px) {.quicStart .lin>div:nth-child(n + 1) {width:100%;}
-.quicStart .tit {padding:10px;}
-.quicStart .cont {padding:0 10px 10px 10px;}}
+@media (max-width:650px) {.quicStart .lin>div:nth-child(n + 1) {width:100%;}}
 @media (min-width:800px) {.quicStart .frLin button {width:210px;}}
 
 .redComm {position:absolute;right: -50px;bottom:150px;
@@ -495,21 +539,20 @@ display:flex;justify-content:center;align-items:center;}
 @media (max-width:730px) {.redComm {bottom:50px;}}
 @media (max-width:300px) {.redComm {display:none;}}
 
-.FAQ .qAns {position:relative;cursor:pointer;width:100%;text-align:left;border-radius:10px;margin:15px 0;background:var(--back2);border:1px solid var(--back3);padding:17px 21px;}
+.FAQ .qAns {position:relative;cursor:pointer;width:100%;text-align:left;border-radius:10px;margin:15px 0;background:var(--back2);border:1px solid var(--back3);}
 .FAQ .Que {display:flex;justify-content:start;align-items:center;gap:1em;
 color:var(--clr0);font-size:22px;font-weight:500;
-width:100%;padding:0 40px 0 0;}
+height:80px;width:100%;padding:17px 60px 17px 21px;}
 .FAQ .Que img {margin:auto;display:block;}
 .FAQ .Que fqIcon {display:flex;justify-content:start;align-items:center;
 width:45px;height:45px;border-radius:5px;background:var(--back7);}
-.FAQ .Ans {color:var(--clr2);font-size:20px;overflow:hidden;width:100%;padding:10px 20px 0 45px;transform-origin:0 0;text-align:justify;}
-.FAQ .wrapArr {position:absolute;top:14px;right:15px;width:32px;height:32px;background: url(../images/plus.svg) center center no-repeat;}
+.FAQ .Ans {color:var(--clr2);font-size:20px;overflow:hidden;width:100%;padding:0 60px 20px 45px;transform-origin:0 0;text-align:justify;}
+.FAQ .wrapArr {position:absolute;top:22px;right:15px;width:32px;height:32px;background: url(../images/plus.svg) center center no-repeat;}
 .liteSch .FAQ .wrapArr {background: url(../images/plusBlk.svg) center center no-repeat;}
 .FAQ .wrapArr.ArrUp {transform:rotate(135deg);}
-@media (max-width:500px) {.FAQ .qAns {padding:10px;}
-.FAQ .Que {font-size:16px;}
-.FAQ .Ans {font-size:15px;padding:10px;}
-.FAQ .wrapArr {top:9px;right:10px;}}
+@media (max-width:500px) {.FAQ .Que {font-size:16px;padding:10px 40px 0 0;}
+.FAQ .Ans {padding:8px 0 10px 10px;}
+.FAQ .wrapArr {top:9px;right:5px;}}
 
 .Nav {display:block;margin:0;}
 
@@ -543,8 +586,7 @@ text-align:left;border-radius:10px;background:var(--back2);border:1px solid var(
 @media (max-width:1780px) {.mxLin {width:100%;}}
 @media (max-width:1300px) {.aCard header .tith3 {width:calc(100% - 440px);}}
 @media (max-width:800px) {.mxLin .imgScrol {width:100%;}
-.mxLin .regForm {position:static;}
-.regForm {padding:10px;}}
+.mxLin .regForm {position:static;}}
 @media (max-width:500px) {.mxLin .formCont {width:100%;}}
 
 .singUp, .singUp .options {margin:40px 0;}
